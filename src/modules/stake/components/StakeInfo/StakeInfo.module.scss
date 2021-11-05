@@ -1,0 +1,48 @@
+.container {
+  background-color: white;
+  // border-bottom: 1px solid #7e7e7c;
+  padding: 24px 25px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  border: 1px solid #e2e2e2;
+
+
+  .title {
+    margin-bottom: 10px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 600;
+    line-height: 16px;
+    font-size: 15px;
+    color: #8236ce;
+    @media (max-width: 1300px) {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  .propmt {
+    margin-bottom: 0;
+    &__icon {
+      margin-right: 6px;
+      &_error {
+        color: #ff4d4f;
+      }
+
+      &_ok {
+        color: #52c41a;
+      }
+    }
+  }
+
+  .value {
+    font-family: "Nunito Sans", Roboto;
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 15px;
+    color: #8236ce;
+    @media (max-width: 1300px) {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}

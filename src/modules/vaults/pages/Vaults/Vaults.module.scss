@@ -1,0 +1,197 @@
+.container {
+  position: relative;
+  margin-top: 15%;
+  @media (max-width:1300px) {
+    margin-top: 25%;
+  }
+
+  &_loading {
+    > * {
+      &:not(:last-child) {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 22px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 41px;
+    margin-right: px;
+    display: inline-block;
+    @media (max-width:1300px) {
+      text-align: center;
+    }
+
+    span {
+      -webkit-background-clip: text;
+      background-color: transparent;
+      background-clip: text;
+      color: #8736cb;
+      line-height: 41px;
+      margin-right: 25px;
+      display: inline-block;
+    }
+  }
+
+  &__info {
+    width: 350px;
+    height: 42px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    background: #f1f1f1;
+    border-radius: 50px;
+    border-color: white;
+    @media (max-width:1300px) {
+      display: contents;
+      font-size: 9px;
+      text-align: center;
+      margin-top: -10px;
+    }
+    div {
+      color: #9b9b9b;
+    }
+  }
+
+  &__filter {
+    display: inline-block;
+    float: right;
+    @media (max-width:1300px) {
+      display: contents;
+      font-size: 9px;
+      text-align: center;
+      margin-top: -10px;
+    }
+
+    &__prompt {
+      margin-bottom: 30px;
+    }
+  }
+
+  .list {
+    background-color: transparent;
+    margin-bottom: 30px;
+    // border-radius: 4px;
+    margin-top: 50px;
+
+    > div {
+      > div {
+        &:first-child {
+          padding: 24px 25px 24px 53px;
+          color: #6000c4;
+
+          background: white;
+          box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.13);
+
+          > span {
+            &:first-child {
+              font-size: 25px;
+              padding: 0;
+              left: 12px;
+              top: 28px;
+              color: #8236ce;
+            }
+          }
+        }
+
+        &:last-child {
+          &:not(:first-child) {
+            > div {
+              padding: 0 0 6px;
+              color: #8236ce;
+            }
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid transparent;
+      }
+
+      &:last-child {
+        border-bottom: 0 none;
+      }
+    }
+  }
+
+  &__empty {
+    color: black;
+  }
+
+  &__warning {
+    font-size: 24px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-radius: 15px;
+    color: white;
+    left: 0;
+    border: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-top: 50px;
+    border-radius: 15px;
+    font-size: 24px;
+    line-height: 33px;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    div {
+      font-weight: bold;
+      margin-left: 0;
+      height: 32px;
+      font-family: "Nunito Sans", Roboto;
+      color: #8236ce;
+      font-size: 24px !important;
+      line-height: 33px;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      border-radius: 15px;
+      left: 0;
+      border: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    &__icon {
+      margin-left: -15px;
+      margin-top: -15px;
+      font-size: 30px;
+      position: absolute;
+      color: black;
+      left: 50%;
+      top: 50%;
+    }
+  }
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div:nth-child(2)
+  > div.ant-collapse-header {
+  border-radius: 25px;
+}

@@ -1,0 +1,42 @@
+.container {
+  padding: 24px 25px;
+  @media (max-width:1300px) {
+    display: grid;
+  }
+
+  &__description {
+    padding-right: 24px;
+    max-width: 33%;
+    @media (max-width:1300px) {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #6000c4;
+    @media (max-width:1300px) {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+  }
+
+  .value {
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    color: #6000c4;
+    @media (max-width:1300px) {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 9px;
+    }
+  }
+}

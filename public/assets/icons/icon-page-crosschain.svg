@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   fill="none"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="icon-page-crosschain.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="699"
+     id="namedview13"
+     showgrid="false"
+     inkscape:zoom="1.0587895"
+     inkscape:cx="-31.270029"
+     inkscape:cy="68.80866"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <defs
+     id="defs9">
+    <linearGradient
+       id="paint0_linear"
+       x1="0"
+       y1="50"
+       x2="100"
+       y2="50"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ffa500"
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-color="#af4aff"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#paint0_linear"
+       id="linearGradient859"
+       x1="143.98907"
+       y1="512"
+       x2="880.00854"
+       y2="512"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     style="fill:url(#linearGradient859);fill-opacity:1.0"
+     id="g851"
+     transform="matrix(0.13586598,0,0,0.14204545,-19.563219,-22.727273)">
+    <path
+       d="M 847.9,592 H 152 c -4.4,0 -8,3.6 -8,8 v 60 c 0,4.4 3.6,8 8,8 H 757.2 L 612.9,851 c -4.1,5.2 -0.4,13 6.3,13 h 72.5 c 4.9,0 9.5,-2.2 12.6,-6.1 L 873.1,643.8 c 16.5,-21 1.6,-51.8 -25.2,-51.8 z M 872,356 H 266.8 L 411.1,173 c 4.1,-5.2 0.4,-13 -6.3,-13 h -72.5 c -4.9,0 -9.5,2.2 -12.6,6.1 L 150.9,380.2 c -16.5,21 -1.6,51.8 25.1,51.8 h 696 c 4.4,0 8,-3.6 8,-8 v -60 c 0,-4.4 -3.6,-8 -8,-8 z"
+       id="path840"
+       style="fill-opacity:1.0;fill:url(#linearGradient859)" />
+  </g>
+</svg>

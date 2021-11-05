@@ -1,0 +1,43 @@
+.container {
+  padding: 24px 25px;
+  .button {
+    transition: opacity 0.3s;
+    border-color: #8236ce;
+    background-color: #8236ce;
+    font-style: normal;
+
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 25px;
+    height: 34px;
+    margin-bottom: 10px;
+    color: white;
+    @media (max-width: 1300px) {
+      font-size: 9px;
+    }
+    &:disabled {
+      background-color: #353648;
+      color: #9d9ea7;
+      &:hover {
+        opacity: 0.8;
+        color: grey;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 8px;
+      &:hover {
+        opacity: 0.8;
+
+        color: grey;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+      color: grey;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "CONNECTIONS_DISCONNECT": "Disconnect",
+  "CONNECTIONS_ERROR": "MetaMask not found",
+
+  "DASHBOARD_TITLE": "Dashboard",
+  "DASHBOARD_INFO": "This project is in beta. Use at your own risk.",
+  "DASHBOARD_FILTER_CURRENCY": "Currency",
+  "DASHBOARD_FILTER_PERIOD": "Period",
+  "DASHBOARD_GROWTH_DAILY": "Daily Growth",
+  "DASHBOARD_GROWTH_WEEKLY": "Weekly Growth",
+  "DASHBOARD_GROWTH_YEARLY": "Yearly Growth",
+  "DASHBOARD_PROFILE_BALANCE": "Portfolio Balance",
+  "DASHBOARD_BASEDON_PROMPT": "Growth is based on the vault's performance",
+  "DASHBOARD_BASEDON_PROMPT_SINCE": "since",
+  "DASHBOARD_BASEDON_PROMPT_PAST": "for the past",
+  "DASHBOARD_BASEDON_WEEK": "1 week",
+  "DASHBOARD_BASEDON_MONTH": "1 month",
+  "DASHBOARD_BASEDON_INCEPTION": "Inception",
+  "DASHBOARD_WARNING": "Connect your wallet to continue",
+  "DASHBOARD_VAULTS_OVERVIEW": "Vaults Overview",
+  "DASHBOARD_EARN_OVERVIEW": "Earn Overview",
+  "DASHBOARD_NEW_WORTH": "Net worth",
+
+  "HOME_TITLE": "Home",
+
+  "LAYOUT_HEADER_LOGO": "yAgnostic",
+  "LAYOUT_HEADER_CONNECT_WALLET": "Connect your wallet",
+
+  "VAULTS_TITLE": "Vaults",
+
+  "STAKE_TITLE": "Stake",
+
+  "VOTE_TITLE": "Vote",
+
+  "404_TITLE": "404",
+  "404_DESCRIPTION": "OPPS! Page not found.",
+  "404_RETURN_TO_HOME": "Return to home page",
+
+  "CROSS_CHAIN_TITLE": "Cross-Chain",
+  "CROSS_CHAIN_WARNING": "Cross-Chain features are not available at this chain.",
+  "CROSS_CHAIN_FORM_HEADER_FROM": "From chain:",
+  "CROSS_CHAIN_FORM_HEADER_TO": "To chain:",
+  "CROSS_CHAIN_FORM_FIELDS_SEND": "Send",
+  "CROSS_CHAIN_FAQ_TITLE": "How it works",
+  "CROSS_CHAIN_FAQ_DESCRIPTION": "Cross-chain bridge allows you to move funds between blockchains*.  You can choose the chain that best suits your needs. To transfer funds to another chain you have to fill the fields “Send to:” and “Send amount:”, click the “Send” button, and confirm transactions. After that our bot will transfer your funds to another chain. “Send to” should be filled with the address from the target network. If you start in the Ethereum chain, “Send to” should contain BSC address.\n*Currently supported blockchains: Binance Smart Chain and Ethereum"
+}

@@ -1,0 +1,55 @@
+.container {
+  background-color: transparent;
+  border: 1px solid #e2e2e2;
+
+  background-color: white;
+  border-radius: 15px;
+  margin-bottom: 100px;
+  > div {
+    padding-right: 25px;
+    padding-left: 25px;
+    &:first-child {
+      border-bottom-color: #e2e2e2;
+      margin-bottom: 0;
+      font-family: "Nunito Sans", Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 19px;
+      color: black;
+      border-bottom: 1px solid #e2e2e2;
+      > div {
+        > div {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 19px;
+          @media (max-width: 1300px) {
+            font-size: 12px;
+          }
+          color: #8736cb;
+        }
+      }
+    }
+  }
+
+  .description {
+    margin-bottom: 0;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 16px;
+    color: #8736cb;
+    @media (max-width: 1300px) {
+      font-size: 9px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}

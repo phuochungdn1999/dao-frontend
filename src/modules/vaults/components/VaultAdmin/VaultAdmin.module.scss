@@ -1,0 +1,189 @@
+.forms {
+  padding: 24px 25px;
+  &:not(:last-child) {
+    background-color: white;
+    border-radius: 15px;
+    border-bottom: 1px solid black;
+  }
+
+  &__item {
+    &:first-child {
+      padding-right: 30px;
+      border-right: 1px solid #3f3f61;
+    }
+
+    &:last-child {
+      padding-left: 30px;
+    }
+
+    &__field {
+      &__icon {
+        margin-right: 6px;
+      }
+
+      &__input {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 500;
+    line-height: 19px;
+    font-size: 16px;
+    color: #6000c4;
+  }
+
+  .input {
+    background-color: white;
+    border-radius: 15px;
+    border-color: #3f3f61;
+    height: 30px;
+    color: #6000c4;
+    width: 100%;
+    &_number {
+      > div {
+        &:first-child {
+          border-left-color: #3f3f61;
+          background-color: transparent;
+          > span {
+            > span {
+              color: black;
+            }
+
+            &:last-child {
+              border-top-color: #3f3f61;
+            }
+          }
+        }
+      }
+
+      input {
+        font-family: "Nunito Sans", Roboto;
+        font-size: 14px;
+        height: 28px;
+        color: black;
+      }
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        background-color: #e8e7e7;
+        border-color: #3f3f61;
+      }
+    }
+  }
+
+  .submit {
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-color: black;
+    border-radius: 15px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 6px 13px;
+    height: 30px;
+    color: white;
+    min-width: 125px;
+
+    span {
+      transition: opacity 0.3s;
+    }
+
+    &:disabled {
+      background-image: none;
+      background-color: grey;
+      color: white;
+      &:hover {
+        border-color: black;
+        color: black;
+      }
+    }
+
+    &:hover {
+      span {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.actions {
+  background-color: white;
+  border-radius: 15px;
+  padding: 24px 25px;
+  border-bottom: 1px solid black;
+  margin-bottom: 50px;
+
+  .submit {
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 15px;
+    border-color: black;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 6px 13px;
+    height: 30px;
+    color: white;
+    min-width: 125px;
+
+    span {
+      transition: opacity 0.3s;
+    }
+
+    &:disabled {
+      background-image: none;
+      background-color: #353648;
+      color: #9d9ea7;
+      &:hover {
+        background-color: #353648;
+        border-color: #3f3f61;
+        color: #9d9ea7;
+      }
+    }
+
+    &:hover {
+      span {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .button {
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 15px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 14px;
+    padding: 6px 13px;
+    height: 30px;
+    color: white;
+    min-width: 125px;
+    border-color: black;
+    span {
+      transition: opacity 0.3s;
+    }
+
+    &:disabled {
+      background-image: none;
+      background-color: #353648;
+      color: #2e2f35;
+      &:hover {
+        background-color: #353648;
+        border-color: #3f3f61;
+        color: #9d9ea7;
+      }
+    }
+
+    &:hover {
+      span {
+        opacity: 0.8;
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+.container {
+  margin-right: -15px;
+  margin-left: -15px;
+  margin-top: 200px;
+  @media (max-width: 1466px) {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-family: "Nunito Sans";
+    position: absolute;
+    width: 400px;
+    height: 130px;
+    left: 10%;
+    top: 269px;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    color: #6000c4;
+    @media (max-width:1300px) {
+      font-size: 32px;
+    }
+  }
+
+  h2 {
+    font-family: "Nunito Sans";
+    position: absolute;
+    width: 480px;
+    height: 61px;
+    left: 10%;
+    top: 399px;
+    text-align: start;
+
+    font-size: 20px;
+    line-height: 25px;
+
+    color: #6000c4;
+
+    @media (max-width:1300px) {
+      font-size: 19px;
+      width: 81%;
+      text-align: center;
+    }
+  }
+
+  h3 {
+    left: 10%;
+    top: 500px;
+    position: absolute;
+    font-family: "Nunito Sans";
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 22px;
+    color: white;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 50px;
+    line-height: 20px;
+
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 50px;
+    @media (max-width:1300px) {
+      left: 35%;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  h4 {
+    position: absolute;
+    left: 85%;
+    right: 0%;
+    bottom: 5%;
+    font-family: "Nunito Sans";
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    color: #8236ce;
+  }
+
+  #root > section > main > div > img {
+    position: absolute;
+    left: 52.29%;
+    right: 16.74%;
+    top: 22.44%;
+    bottom: 22.44%;
+  }
+
+  .item {
+    flex-basis: 20%;
+    transition: opacity 0.3s;
+    background-color: white;
+    border: 2px solid #8236ce;
+    border-radius: 25px;
+
+    line-height: 1;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    margin: 15px;
+    color: #8236ce;
+    // width: 500px;
+    @media (max-width: 1488px) {
+      width: 150px;
+      border-radius: 25px;
+    }
+
+    &__icon {
+      width: 100vw;
+      @media (max-width: 1488px) {
+        height: 300px;
+        max-width: 700px;
+        margin-top: -250px;
+        width: 90vw;
+      }
+    }
+
+    &__title {
+      @media (max-width: 1488px) {
+        font-size: 18px;
+      }
+    }
+  }
+}

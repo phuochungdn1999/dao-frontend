@@ -1,0 +1,69 @@
+.container {
+  margin-top: 15%;
+  .title {
+    margin-bottom: 22px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 700;
+    line-height: 28px;
+    font-size: 24px;
+    color: #e6e6e6;
+    &_second {
+      margin-bottom: 30px;
+    }
+
+    span {
+      font-family: "Nunito Sans", Roboto;
+      color: #7f36ce;
+      font-size: 32px;
+    }
+  }
+
+  &__info {
+    width: 350px;
+    height: 42px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 25px;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    background: #f1f1f1;
+    border-radius: 50px;
+    border-color: white;
+    div {
+      color: #9b9b9b;
+    }
+  }
+
+  &__warning {
+    font-family: "Nunito Sans", Roboto;
+    border-radius: 25px;
+    font-weight: 400;
+    line-height: 19px;
+    font-size: 16px !important;
+    padding: 14px 23px 15px;
+    background-color: #1b1b1b;
+    border: 1px solid #8236ce;
+    div {
+      color: white;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+
+  .link {
+    border-radius: 25px;
+    background-color: #6000c4;
+    padding: 10px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 600;
+    line-height: 16px;
+    font-size: 13px;
+    color: #e6e6e6;
+    &:hover {
+      color: #7f36ce;
+    }
+  }
+}

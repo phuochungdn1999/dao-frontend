@@ -1,0 +1,32 @@
+.container {
+  padding: 24px 25px;
+  background: transparent;
+  > .title {
+    margin-bottom: 16px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 500;
+    line-height: 19px;
+    font-size: 14px;
+    color: #6000c4;
+    @media (max-width: 1300px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .row {
+    .title {
+      color: #6000c4;
+      @media (max-width: 1300px) {
+        margin-bottom: 20px;
+      }
+    }
+
+    .value {
+      font-family: "Nunito Sans", Roboto;
+      font-weight: 400;
+      line-height: 16px;
+      font-size: 18px;
+      color: #6000c4;
+    }
+  }
+}

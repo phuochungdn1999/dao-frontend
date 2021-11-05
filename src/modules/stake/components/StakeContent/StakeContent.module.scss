@@ -1,0 +1,182 @@
+.forms {
+  &__item {
+    &:first-child {
+      padding-right: 30px;
+      border: 1px solid #e2e2e2;
+    }
+
+    &:last-child {
+      padding-left: 30px;
+    }
+
+    &__field {
+      &__icon {
+        margin-right: 16px;
+        margin-top: -10px;
+        height: 48px;
+        width: 48px;
+      }
+
+      &__input {
+        margin-right: 16px;
+      }
+
+      &__symbol {
+        margin-top: 8px;
+        font-family: "Nunito Sans", Roboto;
+        font-weight: 400;
+        line-height: 25px;
+        font-size: 18px;
+        color: #8236ce;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 24px;
+    font-family: "Nunito Sans", Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #8236ce;
+    display: inline-block;
+    padding: 10px;
+  }
+
+  .subtitle {
+    font-family: "Nunito Sans", Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #8236ce;
+    display: inline-block;
+    float: right;
+  }
+
+  .input {
+    border-radius: 50px;
+    width: 100%;
+    > div {
+      &:first-child {
+        border-left-color: #7e7e7c;
+        background-color: transparent;
+        > span {
+          > span {
+            color: #8236ce;
+          }
+
+          &:last-child {
+            border-top-color: #3f3f61;
+          }
+        }
+      }
+    }
+
+    &:not([disabled]) input {
+      padding-right: 34px;
+      font-family: "Nunito Sans", Roboto;
+      font-size: 18px;
+      height: 28px;
+      color: black;
+      background-color: #ececec;
+      border-radius: 50px;
+      display: inline-block;
+      width: 158px;
+    }
+  }
+
+  .submit {
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 50px;
+    font-family: "Nunito Sans", Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+
+    padding: 6px 13px;
+    color: white;
+    width: 125px;
+    height: 34px;
+    display: inline-block;
+    margin-left: auto;
+    border-color: black;
+    
+    &:hover {
+      opacity: 0.6;
+    }
+
+    span {
+      transition: opacity 0.3s;
+    }
+
+    &:disabled {
+      border-radius: 50px;
+      background-color: white;
+      color: grey;
+      background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+      border: 0 none;
+    }
+  }
+}
+
+.actions {
+  padding: 24px 25px;
+  .button {
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 50px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    line-height: 16px;
+    font-size: 18px;
+    padding: 6px 13px;
+    height: 30px;
+    color: white;
+    float: right;
+    font-weight: 600;
+    font-size: 15px;
+    border-color: black;
+    &:hover {
+      opacity: 0.6;
+    }
+
+    @media (max-width: 1300px) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    span {
+      transition: opacity 0.3s;
+    }
+
+    &:disabled {
+      background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+      border-radius: 50px;
+      color: grey;
+      font-weight: 600;
+      font-size: 15px;
+      opacity: 0.6;
+    }
+
+    &:hover {
+      border-color: black;
+      
+      
+      
+    }
+  }
+}
+
+.prompt {
+  margin-top: 100px;
+  margin-bottom: 24px;
+  padding-right: 25px;
+  padding-left: 25px;
+  font-family: "Nunito Sans", Roboto;
+  font-weight: 400;
+  line-height: 16px;
+  font-size: 16px;
+  color: #8236ce;
+}

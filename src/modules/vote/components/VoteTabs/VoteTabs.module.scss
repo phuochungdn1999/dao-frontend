@@ -1,0 +1,90 @@
+.container {
+  .button {
+    padding-right: 13px;
+    padding-left: 13px;
+    line-height: 28px;
+    height: 30px;
+    color: white;
+    font-size: 18px;
+    background-color: transparent;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &_active {
+      &:not(.ant-radio-button-wrapper-disabled) {
+        background: linear-gradient(180deg, #6000c4 0%, #8736cb 100%);
+        border-radius: 0px 50px 50px 0px;
+        &:hover {
+          background: linear-gradient(180deg, #6000c4 0%, #8736cb 100%);
+
+          opacity: 0.6;
+        }
+      }
+
+      &:not([class*=" ant-radio-button-wrapper-disabled"]) {
+        &:first-child {
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+
+    span {
+      transition: opacity 0.3s;
+    }
+
+    &:first-child {
+      border-left-color: #3f3f61;
+      border-radius: 25px;
+      width: 110px;
+      text-align: center;
+      @media (max-width:1300px) {
+        width: 90vw;
+        margin-bottom: 10px;
+      }
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    &:last-child {
+      border-radius: 25px;
+      width: 110px;
+      text-align: center;
+      @media (max-width:1300px) {
+        width: 90vw;
+        margin-bottom: 10px;
+      }
+    }
+
+    &:not(:first-child) {
+      &::before {
+        background-color: #3f3f61;
+        display: none;
+      }
+    }
+
+    &:hover {
+      span {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-row.ant-row-space-between.ant-row-middle.Vote_container__actions__1f8a3
+  > div
+  > label.ant-radio-button-wrapper.ant-radio-button-wrapper-checked.VoteTabs_button__gbcWu.VoteTabs_button_active__MhL5F {
+  border: #8236ce;
+}
+
+.ant-radio-button-wrapper-checked:not([class*=" ant-radio-button-wrapper-disabled"]).ant-radio-button-wrapper:first-child {
+  border-right-color: #8236ce !important ;
+}

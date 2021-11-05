@@ -1,0 +1,82 @@
+.container {
+  background-color: transparent;
+  border-radius: 4px;
+  border: 0;
+
+  &__row {
+    line-height: 1;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 20px;
+    padding: 24px 25px;
+    color: black;
+    &__icon {
+      margin-right: 24px;
+      height: 24px;
+      width: 24px;
+      font-size: 20px;
+    }
+
+    &__name {
+      margin-right: 39%;
+      font-size: 20px;
+    }
+
+    &__growth {
+      margin-right: auto;
+    }
+
+    &__worth {
+      padding-left: 24px;
+    }
+
+    .title {
+      margin-bottom: 10px;
+      font-weight: 500;
+      color: #6000c4;
+    }
+
+    .value {
+      color: #6000c4;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #7e7e79;
+    }
+  }
+
+  > div {
+    &:first-child {
+      margin-bottom: 0;
+      padding-right: 25px;
+      padding-left: 25px;
+      font-family: "Nunito Sans", Roboto;
+      font-weight: 400;
+      line-height: 19px;
+      font-size: 16px;
+      color: #e6e6e6;
+      > div {
+        > div {
+          padding-bottom: 24px;
+          padding-top: 24px;
+        }
+      }
+    }
+
+    &:last-child {
+      padding: 0;
+    }
+  }
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-card.ant-card-bordered.Dashboard_container__list__1fHss.DashboardList_container__3yL6J
+  > div.ant-card-head
+  > div
+  > div {
+  color: black !important;
+}

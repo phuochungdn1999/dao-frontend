@@ -1,0 +1,196 @@
+.forms {
+  margin-top: 50px;
+  width: 100%;
+  display: inline-block;
+  &:not(:last-child) {
+  }
+
+  &__item {
+    background: white;
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.13);
+    border-radius: 15px;
+    width: 45%;
+    display: inline-block;
+    margin-bottom: 50px;
+    border: 1px solid #e2e2e2;
+    &:first-child {
+      padding-right: 30px;
+    }
+
+    &:last-child {
+    }
+
+    &__percentages {
+      margin-bottom: 20px;
+      margin-left: 20px;
+      width: 100%;
+      .button {
+        background:linear-gradient(
+    180deg, #8736cb 0%, #6000c4 100%);
+        /* color: grey; */
+        color: black;
+        border-radius: 50px;
+        width: 20%;
+        margin-right: 5%;
+        text-align: center;
+        position: relative;
+        border: 1px solid black;
+        color: #e6e6e6;
+        &_active {
+        
+          color: #8236ce;
+          &:hover {
+            opacity: 0.6;
+          }
+          &:not(.ant-radio-button-wrapper-disabled) {
+            background-color: grey;
+            border-color: #8236ce;
+            color: grey;
+
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+
+        &:first-child {
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+
+        &:last-child {
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+
+        &:not(:first-child) {
+          &::before {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      .submit {
+        background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+        box-sizing: border-box;
+        border-radius: 50px;
+        font-family: "Nunito Sans", Roboto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+        height: 30px;
+        color: #e6e6e6;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        border-color: black;
+        span {
+          transition: opacity 0.3s;
+        }
+
+        &:disabled {
+          border: 1px solid black;
+          box-sizing: border-box;
+          border-radius: 50px;
+
+          opacity: 0.6;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+
+        &:hover {
+          span {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .button {
+        background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+        border: 1px solid #4a4343;
+        box-sizing: border-box;
+        border-radius: 50px;
+        font-family: "Nunito Sans", Roboto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+        height: 30px;
+        color: #e6e6e6;
+        border-color: black;
+        span {
+          transition: opacity 0.3s;
+        }
+
+        &:disabled {
+          opacity: 0.4;
+          border: 1px solid black;
+          box-sizing: border-box;
+          border-radius: 50px;
+          color: white;
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+
+        &:hover {
+          span {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-family: "Nunito Sans", Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: white;
+    padding: 20px;
+  }
+
+  .input {
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 50px;
+    max-width: 237px;
+    width: 100%;
+    > div {
+      &:first-child {
+        background-color: transparent;
+        > span {
+          > span {
+            color: white;
+          }
+
+          &:last-child {
+          }
+        }
+      }
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    input {
+      padding-right: 34px;
+      font-family: "Nunito Sans", Roboto;
+      font-size: 18px;
+      height: 28px;
+      color: #6000c4;
+    }
+  }
+}

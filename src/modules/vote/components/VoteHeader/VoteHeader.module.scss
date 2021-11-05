@@ -1,0 +1,77 @@
+.container {
+  &__status {
+    width: 26.89%;
+    @media (max-width:1300px) {
+      width: 19.89%;
+    }
+    &__icon {
+      margin-right: 6px;
+
+      &_against {
+        color: #ff4d4f;
+      }
+
+      &_none {
+        color: #f80;
+      }
+
+      &_for {
+        color: #52c41a;
+      }
+    }
+  }
+
+  &__proposer {
+    @media (max-width:1300px) {
+    }
+    width: 20.02%;
+    margin-left: 0;
+
+    &__address {
+      transition: opacity 0.3s;
+
+      max-width: 120px;
+      cursor: pointer;
+      &__icon {
+        margin-left: 6px;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__for {
+    margin-right: auto;
+    @media (max-width:1300px) {
+      margin-right: 0;
+    }
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #8736cb;
+    @media (max-width:1300px) {
+      margin-left: 0;
+      font-size: 8px;
+    }
+  }
+
+  .value {
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    font-size: 14px;
+    @media (max-width:1300px) {
+      font-size: 9px;
+    }
+
+    line-height: 19px;
+    color: #8736cb;
+  }
+}

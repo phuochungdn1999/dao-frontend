@@ -1,0 +1,60 @@
+.container {
+  padding: 24px 25px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  &__status {
+    @media (max-width:1300px) {
+      width: 100%;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    &__icon {
+      @media (max-width:1300px) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      margin-right: 6px;
+      &_against {
+        color: #ff4d4f;
+      }
+
+      &_none {
+        color: #f80;
+      }
+
+      &_for {
+        color: #52c41a;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #6000c4;
+    @media (max-width:1300px) {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+  }
+
+  .value {
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #6000c4;
+    @media (max-width:1300px) {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 9px;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+.container {
+  &__checkbox {
+    span {
+      &:first-child {
+        > span {
+          border-color: black;
+          width: 18px;
+          height: 18px;
+          background-color: #8736cb;
+        }
+      }
+
+      &:last-child {
+        padding-right: 0;
+        padding-left: 12px;
+      }
+    }
+  }
+
+  &__checkbox,
+  &__prompt {
+    margin-right: 12px;
+    font-size: 16px;
+    color: #6000c4;
+    @media (max-width: 1300px) {
+      float: right;
+      font-size: 9px;
+      margin-bottom: 10px;
+      margin-top: 30px;
+    }
+  }
+
+  &__search {
+    background-color: transparent;
+    max-width: 256px;
+    box-sizing: border-box;
+    border-radius: 50px 0px 0px 50px;
+
+    @media (max-width: 1200px) {
+      max-width: 1300px;
+    }
+
+    > span {
+      > span {
+        &:first-child {
+          padding: 0 13px;
+          height: 32px;
+          border: 1px solid #e2e2e2;
+          border-right: 0;
+          border-bottom-left-radius: 15px !important;
+          border-top-left-radius: 15px !important;
+
+          &:hover {
+            transition: all 0.2s ease-in-out;
+          }
+          > span {
+            > span {
+              color: white;
+            }
+          }
+
+          input {
+            font-family: "Nunito Sans", Roboto;
+            font-size: 14px;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            color: white;
+            @media (max-width: 1200px) {
+              font-size: 9px;
+            }
+
+            &::placeholder {
+              color: #6a6a85;
+            }
+          }
+        }
+
+        &:last-child {
+          background-color: transparent;
+          left: 0;
+          button {
+            background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+            border-radius: 0px 50px 50px 0px !important;
+            height: 32px;
+            font-family: "Nunito Sans", Roboto;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 25px;
+            color: white;
+            border: 0 none;
+            @media (max-width: 1200px) {
+              font-size: 12px;
+            }
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+[submodule "reference/iearn-finance"]
+	path = reference/iearn-finance
+	url = https://github.com/iearn-finance/iearn-finance.git
+[submodule "reference/yearn-api"]
+	path = reference/yearn-api
+	url = https://github.com/iearn-finance/yearn-api.git
+[submodule "reference/ygov-finance"]
+	path = reference/ygov-finance
+	url = https://github.com/iearn-finance/ygov-finance.git
