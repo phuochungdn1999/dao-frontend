@@ -1,0 +1,101 @@
+.diamond__reward__coinStaked_title {
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 24px;
+  margin-bottom: 0 !important;
+}
+
+.diamond__reward__coinStaked_number {
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 0 !important;
+}
+
+.invertedColor {
+  color: #8736cb !important;
+}
+
+.diamond__reward__container {
+  padding: 2rem 1.5rem 0.5rem 1.5rem;
+
+  .diamond__reward__title {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: #8736cb;
+  }
+
+  .diamond__reward__earnedCard {
+    margin: 1rem 0px;
+    min-height: 200px;
+    background: linear-gradient(90deg, #6001c3 29.62%, #3d1f5b 100%);
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .diamond__reward__coinStaked,
+    .diamond__reward__coinEarned {
+      margin: 0.5rem 0;
+    }
+  }
+
+  .diamond__reward__detailCard {
+    .diamond__reward__coinStaked_number {
+      margin-left: 1.5rem;
+    }
+    svg {
+      margin-right: 0.5rem;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .diamond__reward__detail_secondLine {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 1.5rem 0;
+
+    @media (max-width: 1400px) {
+      margin: 0.5rem 0;
+
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: unset;
+
+      .diamond__reward__detail {
+        margin: 0.5rem 0;
+      }
+    }
+
+    @media (max-width: 380px) {
+      grid-template-columns: auto;
+    }
+  }
+}
+
+.diamond__reward__global__container {
+  border-top: 1px solid rgba(200, 200, 200, 0.5);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0.5rem 1.5rem;
+  white-space: nowrap;
+
+  @media (max-width: 1400px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

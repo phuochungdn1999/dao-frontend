@@ -1,0 +1,53 @@
+.diamond__input__container {
+  display: flex;
+
+  .diamond__input__subLabelContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+
+    svg {
+      margin-right: 0.5rem;
+    }
+
+    .diamond__input__subLabel {
+      font-size: 14px;
+      color: #8236ce !important;
+      font-weight: 500;
+    }
+
+    @media (max-width: 380px) {
+      display: none;
+    }
+  }
+
+  .diamond__input__inputContainer {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    padding: 8px 1rem;
+
+    .diamond__input__inputField {
+      width: 100%;
+      border: none;
+      color: #000;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &:focus-visible {
+        border: none;
+        outline: none;
+      }
+    }
+
+    .diamond__input__maxBtn {
+      color: #8236ce !important;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+}

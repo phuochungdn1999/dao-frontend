@@ -1,0 +1,61 @@
+.diamond__table__container {
+  @media (max-width: 430px) {
+    display: grid;
+    overflow-x: auto;
+    grid-template-columns: repeat(1, 100px);
+  }
+
+  @media (max-width: 380px) {
+    display: grid;
+    overflow-x: auto;
+    grid-template-columns: repeat(1, 70px);
+  }
+
+  .diamond__table__parent {
+    width: 100%;
+    font-family: Nunito Sans;
+
+    tr {
+      border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+      height: 64px;
+    }
+
+    tr th {
+      text-align: start;
+      font-family: Nunito Sans;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 24px;
+      color: #8736cb;
+
+      span {
+        display: flex;
+        align-items: center;
+        svg {
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    .diamond__table__indexCol {
+      min-width: unset;
+    }
+
+    tr td {
+      font-family: Nunito Sans;
+      color: #000;
+      font-weight: 500;
+      font-size: 16px;
+      min-width: 100px;
+    }
+  }
+}
+
+.diamond__table_pagination {
+  height: 40px;
+  display: flex;
+  justify-content: end;
+
+  margin-top: 1rem;
+}

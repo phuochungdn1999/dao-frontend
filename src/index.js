@@ -7,7 +7,7 @@ import { dev } from "./configs/config";
 
 const client = new ApolloClient({
   uri: dev()
-    ? "https://api.thegraph.com/subgraphs/name/gink3008/yfiagexample"
+    ? "https://api.thegraph.com/subgraphs/name/gink3008/yfiagexample4"
     : "https://api.thegraph.com/subgraphs/name/payb-tech/yfiagdiamondhand",
   cache: new InMemoryCache(),
 });
