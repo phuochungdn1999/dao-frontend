@@ -1,0 +1,25 @@
+.diamond__button__container {
+  .diamond__button {
+    background-color: #8236ce;
+    width: 100%;
+    height: 47.56px;
+    color: #fff;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.275s;
+
+    &:hover {
+      transition: 0.275s;
+      opacity: 0.8;
+    }
+
+    &:active {
+      transform: translateY(2.5px);
+    }
+
+    &:disabled {
+      background-color: #cdcdcd;
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,230 @@
+.container {
+  position: relative;
+  margin: 10% 8%;
+
+  @media (max-width: 1300px) {
+    margin-top: 10%;
+  }
+
+  &_loading {
+    > * {
+      &:not(:last-child) {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .title {
+    margin-bottom: 22px !important;
+    font-family: "Nunito Sans", Roboto;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 41px;
+    color: #ffffff;
+
+    .viewScan {
+      border: 1px solid #8736cb;
+      border-radius: 8px;
+      font-size: 1rem;
+      padding: 0 1rem;
+      color: #8736cb;
+      cursor: pointer;
+      transition: 0.275s;
+
+      &:hover {
+        background-color: #8736cb;
+        color: #fff;
+        border: none;
+      }
+    }
+
+    &_second {
+      border-bottom: 1px solid #090d1c;
+    }
+
+    span {
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-color: #8736cb;
+      background-clip: text;
+      font-weight: 700;
+      line-height: 41px;
+      font-size: 30px;
+      display: inline-block;
+      margin-right: 25px;
+    }
+  }
+
+  &__info {
+    width: 350px;
+    height: 42px;
+    font-weight: 200;
+    font-size: 15px;
+    line-height: 25px;
+
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    background: #f1f1f1;
+    border-radius: 8px;
+    border-color: white;
+    div {
+      color: #9b9b9b;
+    }
+  }
+
+  .list {
+    margin-top: 50px;
+    border-radius: 8px;
+    font-size: 24px;
+    line-height: 33px;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  > h2 {
+    margin-left: 5%;
+    background: #1f1f36;
+
+    > div {
+      > div {
+        &:first-child {
+          padding: 21px 23px 5px 53px;
+          color: white;
+          border-radius: 8px;
+
+          > span {
+            &:first-child {
+              font-size: 25px;
+              padding: 0;
+              left: 12px;
+              top: 35px;
+              color: #8236ce;
+            }
+          }
+        }
+
+        &:last-child {
+          &:not(:first-child) {
+            > div {
+              border-top: 1px solid #7e7e7c;
+              padding: 0 0 6px;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0 none;
+      }
+    }
+  }
+
+  &__empty {
+    color: black;
+  }
+
+  &__warning {
+    font-size: 24px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-radius: 15px;
+    color: white;
+    left: 0;
+    border: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-radius: 15px;
+    font-size: 24px;
+    line-height: 33px;
+    align-items: center;
+    background-color: transparent;
+    padding: 0;
+    margin-top: 50px;
+
+    div {
+      font-weight: bold;
+      margin-left: 0;
+      height: 82px;
+      font-family: "Nunito Sans", Roboto;
+      color: #8236ce;
+      font-size: 30px;
+      font-size: 24px;
+      line-height: 33px;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      border-radius: 15px;
+      left: 0;
+      border: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    &__icon {
+      margin-left: -15px;
+      margin-top: -15px;
+      font-size: 30px;
+      position: absolute;
+      color: black;
+      left: 50%;
+      top: 50%;
+    }
+  }
+
+  .diamond__content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 1.5rem;
+
+    .diamond__content__div {
+      border-radius: 10px;
+
+      box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    @media (max-width: 1400px) {
+      grid-template-rows: auto;
+      grid-template-columns: auto;
+    }
+  }
+}
+
+.diamond__reward__mobile {
+  display: none;
+
+  @media (max-width: 1400px) {
+    display: block;
+  }
+}
+
+.diamond__reward {
+  display: block;
+  max-height: 540px;
+
+  @media (max-width: 1400px) {
+    display: none;
+  }
+}

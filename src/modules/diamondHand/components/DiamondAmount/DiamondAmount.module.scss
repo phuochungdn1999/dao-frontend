@@ -1,0 +1,53 @@
+.diamond__amount__container {
+  display: grid;
+  grid-column-gap: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+
+  .diamond__amount__plan {
+    @media (max-width: 430px) {
+      label {
+        top: calc(100% - 425px);
+      }
+    }
+  }
+}
+
+.diamond__amount__planing {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 1rem;
+  @media (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+
+  .diamond__amount__plan {
+    @media (max-width: 430px) {
+      label {
+        top: calc(100% - 535px);
+      }
+    }
+  }
+}
+
+.diamond__plan__title {
+  font-weight: 600;
+}
+
+.diamond__plan__subTitle {
+  font-weight: 400;
+}
+
+.diamond__amount__customSelectBtnGroup {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 0.5rem;
+
+  @media (max-width: 430px) {
+    gap: 0.5 rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,26 @@
+.diamond__buttonGroup__container {
+  .diamond__buttonGroup__item {
+    background-color: #8236ce;
+    width: 100%;
+    height: 100%;
+    height: 47.56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: #fff;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.275s;
+
+    &:hover {
+      transition: 0.275s;
+      opacity: 0.8;
+    }
+
+    &:disabled {
+      background-color: #cdcdcd;
+      cursor: not-allowed;
+    }
+  }
+}

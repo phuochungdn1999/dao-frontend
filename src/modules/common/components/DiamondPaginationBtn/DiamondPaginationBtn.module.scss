@@ -1,0 +1,25 @@
+.diamond__pagination_container {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+
+  svg {
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+  }
+
+  .diamond__pagination_btn {
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    margin: 0 0.25rem;
+    transition: 0.275s;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+}

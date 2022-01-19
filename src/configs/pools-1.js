@@ -40,10 +40,10 @@ export const pools2 = [
     tokens: [
       {
         id: 'yfiag',
-        governanceAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
-        feeTokenAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
-        rewardsAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
-        tokenAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
+        governanceAddress: '0x4A2C8B1F6c401626E2293005B667fA1Cf2da374C',
+        feeTokenAddress: '0x4A2C8B1F6c401626E2293005B667fA1Cf2da374C',
+        rewardsAddress: '0x4A2C8B1F6c401626E2293005B667fA1Cf2da374C',
+        tokenAddress: '0x4A2C8B1F6c401626E2293005B667fA1Cf2da374C',
         governanceABI: daoGovernanceABI,
         feeTokenABI: daoERC20ABI,
         rewardsABI: daoERC20ABI,
