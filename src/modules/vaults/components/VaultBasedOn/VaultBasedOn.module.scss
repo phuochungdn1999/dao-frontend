@@ -14,7 +14,7 @@
     color: #8236ce;
     border: 1px solid #e2e2e2 !important;
     box-sizing: border-box;
-    border-radius: 50px 0px 0px 50px;
+    border-radius: 8px 0px 0px 8px;
     width: 334px;
     height: 32px;
     padding-left: 10px;
@@ -31,10 +31,10 @@
         text-transform: capitalize;
         background-color: transparent;
         transition: opacity 0.3s;
-        border-radius: 25px;
+        border-radius: 8px;
         border: 1px solid #e2e2e2;
         box-sizing: border-box;
-        border-radius: 0px 50px 50px 0px;
+        border-radius: 0px 8px 8px 0px;
         font-family: "Nunito Sans", Roboto;
         font-style: normal;
         font-weight: 600;
@@ -73,8 +73,8 @@
   &__dropdown {
     border: 1px solid white;
     background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 
     &__option {
       background-color: #1f1f36;

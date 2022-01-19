@@ -4,6 +4,9 @@ pipeline {
     buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '1'));
   }
   agent any
+  environment {
+    NODE_OPTIONS = '--max-old-space-size=16384'
+  }
   stages {
     stage('Install') {
       steps {

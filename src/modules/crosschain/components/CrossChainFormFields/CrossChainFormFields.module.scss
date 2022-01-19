@@ -7,8 +7,8 @@
         > label {
           font-family: "Nunito Sans", Roboto;
           font-style: normal;
-          font-weight: bold;
-          font-size: 15px;
+          font-weight: 200;
+          font-size: 16px;
           line-height: 19px;
           color: #8736cb;
           @media (max-width: 1300px) {
@@ -23,9 +23,9 @@
   .subtitle {
     margin-bottom: 24px;
     font-family: "Nunito Sans", Roboto;
-    font-weight: 400;
+    font-weight: 200;
+          font-size: 16px;
     line-height: 25px;
-    font-size: 20px;
     color: #8736cb;
     @media (max-width: 1300px) {
       font-size: 14px;
@@ -35,7 +35,7 @@
 
   .input {
     background-color: white;
-    border-radius: 25px;
+    border-radius: 8px;
     height: 30px;
     color: black;
     max-width: 382px;
@@ -68,7 +68,8 @@
       input {
         padding-right: 34px;
         font-family: "Nunito Sans", Roboto;
-        font-size: 14px;
+        font-weight: 200;
+          font-size: 16px;
         height: 28px;
         color: black;
         @media (max-width: 1300px) {
@@ -82,13 +83,12 @@
   }
 
   .submit {
-    background: linear-gradient(
-180deg, #8736cb 0%, #6000c4 100%);
-    border-radius: 25px;
+    background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+    border-radius: 8px;
     font-family: "Nunito Sans", Roboto;
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 200;
+          font-size: 16px;
     line-height: 20px;
     border: 0 none;
     padding: 6px 13px;

@@ -1,12 +1,14 @@
 .container {
   padding: 24px 25px;
   background: transparent;
+  font-weight: 200;
+font-size: 16px;
   > .title {
     margin-bottom: 16px;
     font-family: "Nunito Sans", Roboto;
-    font-weight: 500;
+    font-weight: 200;
     line-height: 19px;
-    font-size: 14px;
+    font-size: 16px;
     color: #6000c4;
     @media (max-width: 1300px) {
       margin-bottom: 30px;
@@ -16,6 +18,8 @@
   .row {
     .title {
       color: #6000c4;
+      font-weight: 200;
+
       @media (max-width: 1300px) {
         margin-bottom: 20px;
       }
@@ -23,7 +27,7 @@
 
     .value {
       font-family: "Nunito Sans", Roboto;
-      font-weight: 400;
+      font-weight: 200;
       line-height: 16px;
       font-size: 18px;
       color: #6000c4;

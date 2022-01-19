@@ -72,8 +72,6 @@ const StakeContent = ({ web3context, account, prices, pools, list, id }) => {
           account: account.address,
           onError: (error) => {
             if (error?.message) {
-              console.log(error.message);
-
               errorMessage(error.message);
             }
 
@@ -121,8 +119,6 @@ const StakeContent = ({ web3context, account, prices, pools, list, id }) => {
           account: account.address,
           onError: (error) => {
             if (error?.message) {
-              console.log(error.message);
-
               errorMessage(error.message);
             }
 
@@ -169,8 +165,6 @@ const StakeContent = ({ web3context, account, prices, pools, list, id }) => {
           account: account.address,
           onError: (error) => {
             if (error?.message) {
-              console.log(error.message);
-
               errorMessage(error.message);
             }
 
@@ -201,8 +195,6 @@ const StakeContent = ({ web3context, account, prices, pools, list, id }) => {
           account: account.address,
           onError: (error) => {
             if (error?.message) {
-              console.log(error.message);
-
               errorMessage(error.message);
             }
 
@@ -245,8 +237,6 @@ const StakeContent = ({ web3context, account, prices, pools, list, id }) => {
         account: account.address,
         onError: (error) => {
           if (error?.message) {
-            console.log(error.message);
-
             errorMessage(error.message);
           }
         },
@@ -266,9 +256,7 @@ const StakeContent = ({ web3context, account, prices, pools, list, id }) => {
 
   return (
     <>
-      {pool && (
-        <StakeInfo isVoteLockValid={isVoteLockValid} pool={pool} />
-      )}
+      {pool && <StakeInfo isVoteLockValid={isVoteLockValid} pool={pool} />}
 
       <Row className={style.forms}>
         <Col className={style.forms__item} span={12}>

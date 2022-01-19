@@ -7,18 +7,18 @@ import {
 
 const vaults = [
   {
-    id: 'VenusStrategy',
-    name: 'VenusStrategy',
+    id: 'Venus Strategy',
+    name: 'Venus Strategy',
     symbol: 'BTCB',
     description: 'BTCB - vBTC',
     vaultSymbol: 'Venus',
     erc20address: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
-    vaultContractAddress: '0xbF8F52485f4416572F1bfEcFbd8dffBAcE0F2A80',
-    vaultStrategyAddress: '0x5492Aa700E94E99Dd19389eE773c0230B8b69139',
+    vaultContractAddress: '0x372eFde3838fbBe12e051b45a2d7763Eb9883553',
+    vaultStrategyAddress: '0xF5Ab028FCd0A1Bc7930b984DBbe12f3841046f4f',
     erc20ABI: vaultERC20ABI,
     vaultContractABI: vaultABI,
     vaultStrategyABI: vaultStrategyABI,
-    apySubgraph: 'https://api.thegraph.com/subgraphs/name/ulmmrt/yearnagnostic-subgraph',
+    apySubgraph: 'https://api.thegraph.com/subgraphs/name/transonhy96/ffiagbridgebsc',
     balance: 0,
     vaultBalance: 0,
     decimals: 18,

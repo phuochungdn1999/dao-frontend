@@ -5,13 +5,15 @@ import { pages as vaults } from './vaults';
 import { pages as stake } from './stake';
 import { pages as vote } from './vote';
 import { pages as home } from './home';
+import { pages as diamondHand} from './diamondHand';
 
 export const pages = [
   ...pageNotFound,
+  ...diamondHand,
   ...crosschain,
   ...dashboard,
   ...vaults,
   ...stake,
   ...vote,
-  ...home
+  ...home,
 ].sort((a, b) => a.order - b.order);

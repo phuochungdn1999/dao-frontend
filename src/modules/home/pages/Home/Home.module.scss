@@ -2,6 +2,7 @@
   margin-right: -15px;
   margin-left: -15px;
   margin-top: 200px;
+
   @media (max-width: 1466px) {
     flex-direction: column;
   }
@@ -17,26 +18,26 @@
     font-size: 40px;
     line-height: 48px;
     color: #6000c4;
-    @media (max-width:1300px) {
+    font-weight: 600;
+    @media (max-width: 1300px) {
       font-size: 32px;
     }
   }
 
-  h2 {
+  .h2 {
     font-family: "Nunito Sans";
     position: absolute;
     width: 480px;
     height: 61px;
     left: 10%;
-    top: 399px;
+    top: 370px;
     text-align: start;
-
-    font-size: 20px;
+    font-size: 16px;
     line-height: 25px;
-
     color: #6000c4;
+    font-weight: 200;
 
-    @media (max-width:1300px) {
+    @media (max-width: 1300px) {
       font-size: 19px;
       width: 81%;
       text-align: center;
@@ -59,12 +60,12 @@
     font-size: 15px;
     line-height: 20px;
     background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
-    border-radius: 50px;
+    border-radius: 8px;
     line-height: 20px;
 
     background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
-    border-radius: 50px;
-    @media (max-width:1300px) {
+    border-radius: 8px;
+    @media (max-width: 1300px) {
       left: 35%;
     }
     &:hover {
@@ -101,7 +102,7 @@
     transition: opacity 0.3s;
     background-color: white;
     border: 2px solid #8236ce;
-    border-radius: 25px;
+    border-radius: 8px;
 
     line-height: 1;
     text-align: center;
@@ -112,7 +113,7 @@
     // width: 500px;
     @media (max-width: 1488px) {
       width: 150px;
-      border-radius: 25px;
+      border-radius: 8x;
     }
 
     &__icon {

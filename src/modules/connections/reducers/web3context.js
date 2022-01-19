@@ -16,6 +16,8 @@ const web3context = (state = initialSate, action) => {
       return { ...state, provider: action.payload };
     case actionTypes.UPDATE_INSTANCE:
       return { ...state, instance: action.payload };
+    case actionTypes.UPDATE_INSTANCE_EHEREUM:
+      return { ...state, instance_ethereum: action.payload};
     case actionTypes.UPDATE_CHAIN:
       return { ...state, chain: action.payload };
     default:

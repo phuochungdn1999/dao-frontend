@@ -3,20 +3,21 @@
   // border-bottom: 1px solid #7e7e7c;
   padding: 24px 25px;
   margin-bottom: 50px;
-  border-radius: 15px;
+  border-radius: 8px;
   border: 1px solid #e2e2e2;
+  
 
 
   .title {
     margin-bottom: 10px;
     font-family: "Nunito Sans", Roboto;
-    font-weight: 600;
+    font-weight: 200;
     line-height: 16px;
-    font-size: 15px;
+    font-size: 16px;
     color: #8236ce;
     @media (max-width: 1300px) {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 200;
     }
   }
 
@@ -36,13 +37,13 @@
 
   .value {
     font-family: "Nunito Sans", Roboto;
-    font-weight: bold;
+    font-weight: 200;
     line-height: 16px;
-    font-size: 15px;
+    font-size: 16px;
     color: #8236ce;
     @media (max-width: 1300px) {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 200;
     }
   }
 }

@@ -1,14 +1,14 @@
 .container {
   background-color: transparent;
-  border-radius: 4px;
+  border-radius: 8px;
   border: 0;
 
   &__row {
     line-height: 1;
     font-family: "Nunito Sans", Roboto;
-    font-weight: 500;
-    line-height: 16px;
-    font-size: 20px;
+    line-height: 6px;
+    font-size: 16px;
+    font-weight: 200;
     padding: 24px 25px;
     color: black;
     &__icon {
@@ -16,29 +16,40 @@
       height: 24px;
       width: 24px;
       font-size: 20px;
+      font-weight: 200;
     }
 
     &__name {
       margin-right: 39%;
-      font-size: 20px;
+      font-size: 16px;
+      font-weight: 200;
     }
 
     &__growth {
       margin-right: auto;
+      font-size: 16px;
+      font-weight: 200;
     }
 
     &__worth {
       padding-left: 24px;
+      font-size: 16px;
+      font-weight: 200;
     }
 
     .title {
       margin-bottom: 10px;
-      font-weight: 500;
+      font-weight: 200;
       color: #6000c4;
     }
 
     .value {
       color: #6000c4;
+      font-size: 16px;
+      font-weight: 200;
+      margin-top: 20px;
+
+      
     }
 
     &:not(:last-child) {
@@ -53,13 +64,15 @@
       padding-left: 25px;
       font-family: "Nunito Sans", Roboto;
       font-weight: 400;
-      line-height: 19px;
+      line-height: 8px;
       font-size: 16px;
       color: #e6e6e6;
       > div {
         > div {
           padding-bottom: 24px;
           padding-top: 24px;
+          font-size: 16px !important;
+          font-weight: 200;
         }
       }
     }

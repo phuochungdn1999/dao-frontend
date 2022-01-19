@@ -1,4 +1,5 @@
 import async from 'async';
+import pools from '../../../configs/pools-1';
 
 import { actionTypes } from '../reducers/pools';
 
@@ -22,12 +23,10 @@ const getUserBalance = async (web3, asset, account, callback) => {
       asset.tokenABI,
       asset.tokenAddress
     );
-
     const balance = await tokenContract
       .methods
       .balanceOf(account)
       .call({ from: account });
-
     callback(null, parseFloat(balance) / 10 ** asset.decimals);
   } catch(error) {
     console.error(error?.message);
@@ -112,7 +111,6 @@ const getPoolsBalances = ({ web3, list, account }) => {
         }).catch((error) => callback(error));
       }, (err, tokensData) => {
         if(err) {
-          console.log(err)
           return callback(err)
         }
 
@@ -121,13 +119,18 @@ const getPoolsBalances = ({ web3, list, account }) => {
       })
 
     }, (error, pools) => {
+
       error && console.error(error?.message);
-
-      !error && pools && dispatch({
-        type: actionTypes.UPDATE_POOLS_LIST,
-        payload: pools
-      });
-
+      if (error)
+      {
+        console.log(error);
+      };
+      if (!error && pools) {
+        dispatch({
+          type: actionTypes.UPDATE_POOLS_LIST,
+          payload: pools
+        });
+      } 
       dispatch({ type: actionTypes.UPDATE_POOLS_LOADING, payload: false });
     });
   };

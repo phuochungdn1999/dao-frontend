@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch, connect } from 'react-redux';
+import React, { useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
+import { useDispatch, connect } from "react-redux";
 import {
   InputNumber,
   Typography,
@@ -9,27 +9,27 @@ import {
   Form,
   Row,
   Col,
-  message
-} from 'antd';
-import cx from 'classnames';
+  message,
+} from "antd";
+import cx from "classnames";
 
 // thunks:
-import { getGasPrices } from '../../../dashboard';
+import { getGasPrices } from "../../../dashboard";
 import {
   setGovernance,
   setController,
   unpauseVault,
   pauseVault,
   earnVault,
-  setMin
-} from '../../';
+  setMin,
+} from "../../";
 
-import style from './VaultAdmin.module.scss';
+import style from "./VaultAdmin.module.scss";
 
 const {
   success: successMessage,
   error: errorMessage,
-  info: infoMessage
+  info: infoMessage,
 } = message;
 const { Title } = Typography;
 const { useForm, Item } = Form;
@@ -40,7 +40,7 @@ const mapState = (state) => {
   return {
     web3context: state.web3context,
     account: state.account,
-    prices: state.prices
+    prices: state.prices,
   };
 };
 
@@ -60,29 +60,29 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(setGovernance({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        account: account.address,
-        address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+      dispatch(
+        setGovernance({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          account: account.address,
+          address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onSuccess: (result) => {
+            successMessage("The governance was setted.");
 
-          setIsLoading(false);
-        },
-        onSuccess: (result) => {
-          successMessage('The governance was setted.');
+            result && infoMessage(result);
 
-          result && infoMessage(result);
-
-          setIsLoading(false);
-        }
-      }));
+            setIsLoading(false);
+          },
+        })
+      );
 
     setIsLoading(true);
   };
@@ -91,36 +91,34 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(setController({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        account: account.address,
-        address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+      dispatch(
+        setController({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          account: account.address,
+          address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onSuccess: (result) => {
+            successMessage("The controller was setted.");
 
-          setIsLoading(false);
-        },
-        onSuccess: (result) => {
-          successMessage('The controller was setted.');
+            result && infoMessage(result);
 
-          result && infoMessage(result);
-
-          setIsLoading(false);
-        }
-      }));
+            setIsLoading(false);
+          },
+        })
+      );
 
     setIsLoading(true);
   };
 
   const onMigrate = ({ address }) => {
-    console.log('address', address);
-
     setIsLoading(true);
   };
 
@@ -128,116 +126,119 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(setMin({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        amount,
-        account: account.address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+      dispatch(
+        setMin({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          amount,
+          account: account.address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onSuccess: (result) => {
+            successMessage("The min was setted.");
 
-          setIsLoading(false);
-        },
-        onSuccess: (result) => {
-          successMessage('The min was setted.');
+            result && infoMessage(result);
 
-          result && infoMessage(result);
-
-          setIsLoading(false);
-        }
-      }));
+            setIsLoading(false);
+          },
+        })
+      );
 
     setIsLoading(true);
   };
 
   const handleEarn = () => {
-    web3context?.instance && account?.address && prices?.gas && dispatch(
-      earnVault({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        account: account.address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+    web3context?.instance &&
+      account?.address &&
+      prices?.gas &&
+      dispatch(
+        earnVault({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          account: account.address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onSuccess: (result) => {
+            successMessage("The earn was successful.");
 
-          setIsLoading(false);
-        },
-        onSuccess: (result) => {
-          successMessage('The earn was successful.');
+            result && infoMessage(result);
 
-          result && infoMessage(result);
-
-          setIsLoading(false);
-        }
-      })
-    );
+            setIsLoading(false);
+          },
+        })
+      );
 
     setIsLoading(true);
   };
 
   const handleUnpause = () => {
-    web3context?.instance && account?.address && prices?.gas && dispatch(
-      unpauseVault({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        account: account.address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+    web3context?.instance &&
+      account?.address &&
+      prices?.gas &&
+      dispatch(
+        unpauseVault({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          account: account.address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onSuccess: (result) => {
+            successMessage("The unpasue was successful.");
 
-          setIsLoading(false);
-        },
-        onSuccess: (result) => {
-          successMessage('The unpasue was successful.');
+            result && infoMessage(result);
 
-          result && infoMessage(result);
-
-          setIsLoading(false);
-        }
-      })
-    );
+            setIsLoading(false);
+          },
+        })
+      );
 
     setIsLoading(true);
   };
 
   const handlePause = () => {
-    web3context?.instance && account?.address && prices?.gas && dispatch(
-      pauseVault({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        account: account.address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+    web3context?.instance &&
+      account?.address &&
+      prices?.gas &&
+      dispatch(
+        pauseVault({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          account: account.address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onSuccess: (result) => {
+            successMessage("The pasue was successful.");
 
-          setIsLoading(false);
-        },
-        onSuccess: (result) => {
-          successMessage('The pasue was successful.');
+            result && infoMessage(result);
 
-          result && infoMessage(result);
-
-          setIsLoading(false);
-        }
-      })
-    );
+            setIsLoading(false);
+          },
+        })
+      );
 
     setIsLoading(true);
   };
@@ -252,12 +253,10 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
   }, [onGetGasPrices, web3context]);
 
   useEffect(() => {
-    account?.address?.toLowerCase() ===
-      asset?.strategiest?.toLowerCase() &&
-        setIsStrategiest(true);
-    account?.address?.toLowerCase() ===
-      asset?.governance?.toLowerCase() &&
-        setIsGovernance(true);
+    account?.address?.toLowerCase() === asset?.strategiest?.toLowerCase() &&
+      setIsStrategiest(true);
+    account?.address?.toLowerCase() === asset?.governance?.toLowerCase() &&
+      setIsGovernance(true);
   }, [account, asset]);
 
   return (
@@ -279,8 +278,8 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input new address'
-                }
+                  message: "Please input new address",
+                },
               ]}
               name="address"
             >
@@ -318,8 +317,8 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input new address'
-                }
+                  message: "Please input new address",
+                },
               ]}
               name="address"
             >
@@ -359,18 +358,18 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input amount',
+                  message: "Please input amount",
                 },
                 {
-                  type: 'number',
+                  type: "number",
                   min: MINIMAL_AMOUNT,
                   message: `Amount must be more than ${MINIMAL_AMOUNT}%`,
                 },
                 {
-                  type: 'number',
+                  type: "number",
                   max: 100,
                   message: `Amount must be less than 100%`,
-                }
+                },
               ]}
               name="amount"
             >
@@ -414,8 +413,8 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input new address'
-                }
+                  message: "Please input new address",
+                },
               ]}
               name="address"
             >
@@ -441,9 +440,9 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
       <Row className={style.actions} justify="space-between" align="middle">
         <Button
           className={style.button}
-          disabled={isLoading ||
-            asset?.paused ||
-            (!isStrategiest && !isGovernance)}
+          disabled={
+            isLoading || asset?.paused || (!isStrategiest && !isGovernance)
+          }
           loading={isLoading}
           onClick={handleEarn}
         >
@@ -457,7 +456,7 @@ const VaultAdmin = ({ web3context, account, prices, asset }) => {
           onClick={asset?.paused ? handleUnpause : handlePause}
           type="primary"
         >
-          {asset?.paused ? 'Unpause' : 'Pause'}
+          {asset?.paused ? "Unpause" : "Pause"}
         </Button>
       </Row>
     </>
@@ -468,7 +467,7 @@ VaultAdmin.propTypes = {
   web3context: PropTypes.object.isRequired,
   account: PropTypes.object.isRequired,
   prices: PropTypes.object.isRequired,
-  asset: PropTypes.object.isRequired
+  asset: PropTypes.object.isRequired,
 };
 
 export default connect(mapState)(VaultAdmin);

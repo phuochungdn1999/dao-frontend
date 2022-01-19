@@ -16,7 +16,7 @@
   .title {
     margin-bottom: 22px;
     font-family: "Nunito Sans", Roboto;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 30px;
     line-height: 41px;
     margin-right: px;
@@ -39,14 +39,14 @@
   &__info {
     width: 350px;
     height: 42px;
-    font-weight: normal;
+    font-weight: 200;
     font-size: 15px;
     line-height: 25px;
     display: inline-block;
     align-items: center;
     text-align: center;
     background: #f1f1f1;
-    border-radius: 50px;
+    border-radius: 8px;
     border-color: white;
     @media (max-width:1300px) {
       display: contents;
@@ -77,7 +77,6 @@
   .list {
     background-color: transparent;
     margin-bottom: 30px;
-    // border-radius: 4px;
     margin-top: 50px;
 
     > div {
@@ -130,14 +129,13 @@
     display: flex;
     align-items: center;
     background: transparent;
-    border-radius: 15px;
     color: white;
     left: 0;
     border: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     margin-top: 50px;
-    border-radius: 15px;
+    border-radius: 8px;
     font-size: 24px;
     line-height: 33px;
     align-items: center;
@@ -154,7 +152,7 @@
       display: flex;
       align-items: center;
       background: transparent;
-      border-radius: 15px;
+      border-radius: 8px;
       left: 0;
       border: 0;
       border-bottom-right-radius: 0;
@@ -193,5 +191,6 @@
   > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
   > div:nth-child(2)
   > div.ant-collapse-header {
-  border-radius: 25px;
+  border-radius: 8px;
 }
+

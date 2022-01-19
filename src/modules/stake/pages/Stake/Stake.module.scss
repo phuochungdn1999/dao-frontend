@@ -15,7 +15,7 @@
   .title {
     margin-bottom: 22px !important;
     font-family: "Nunito Sans", Roboto;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 24px;
     line-height: 33px;
     display: flex;
@@ -45,7 +45,7 @@
   &__info {
     width: 350px;
     height: 42px;
-    font-weight: normal;
+    font-weight: 200;
     font-size: 15px;
     line-height: 25px;
 
@@ -53,7 +53,7 @@
     align-items: center;
     text-align: center;
     background: #f1f1f1;
-    border-radius: 50px;
+    border-radius: 8px;
     border-color: white;
     div {
       color: #9b9b9b;
@@ -62,7 +62,7 @@
 
   .list {
     margin-top: 50px;
-    border-radius: 15px;
+    border-radius: 8px;
     font-size: 24px;
     line-height: 33px;
     align-items: center;
@@ -78,7 +78,7 @@
         &:first-child {
           padding: 21px 23px 5px 53px;
           color: white;
-          border-radius: 25px;
+          border-radius: 8px;
 
           > span {
             &:first-child {

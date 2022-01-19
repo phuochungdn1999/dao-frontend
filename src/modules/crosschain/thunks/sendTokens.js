@@ -69,7 +69,6 @@ const sendTokens = ({
               )
               .send({ from: account, gasPrice: price }) // gwei
               .on('transactionHash', (hash) => {
-                console.log('transactionHash', hash);
 
                 onSuccess && onSuccess(hash);
               })

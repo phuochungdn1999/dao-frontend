@@ -47,6 +47,7 @@ const updateAccount = () => {
       store.dispatch({ type: "UPDATE_PROVIDER", payload: window.ethereum });
       store.dispatch({ type: "UPDATE_CONNECTION", payload: true });
       store.dispatch(getWeb3Instacne(window.ethereum));
+      store.dispatch()
     }
   });
 

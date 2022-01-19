@@ -10,7 +10,7 @@ export const pages = [
   {
     path: '/crosschain',
     icon: 'crosschain',
-    order: 5,
+    order: 6,
     title: 'CROSS_CHAIN_TITLE',
     visible: true,
     component: CrossChain
