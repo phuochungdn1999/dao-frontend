@@ -1,19 +1,18 @@
 .button {
   height: 34px;
   transition: opacity 0.3s;
-  border-radius: 25px;
+  border-radius: 8px;
   background-color: #8236ce;
   padding-right: 9px;
   padding-left: 9px;
   border: 2px solid #8236ce;
   font-family: "Nunito Sans", Roboto;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 200;
   font-size: 15px;
   line-height: 25px;
   border: 1px solid black;
   box-sizing: border-box;
-  border-radius: 50px;
   margin-left: 10px;
   color: white;
   &:active {
@@ -57,7 +56,7 @@
       }
       .input {
         background-color: white;
-        border-radius: 0;
+        border-radius: 8px;
         border-color: #3f3f61;
         height: 30px;
         color: white;
@@ -71,7 +70,7 @@
 
         color: white;
         font-style: normal;
-        font-weight: bold;
+        font-weight: 200;
         font-size: 14px;
         line-height: 19px;
       }
@@ -81,10 +80,10 @@
       margin-left: 200px;
       width: 177px;
       height: 32px;
-      border-radius: 25px;
+      border-radius: 8px;
       font-family: "Nunito Sans", Roboto;
       font-style: normal;
-      font-weight: 600;
+      font-weight: 200;
       font-size: 15px;
       line-height: 25px;
       height: 34px;
@@ -119,8 +118,8 @@
   > div {
     &:not(:first-child) {
       &:not(:last-child) {
-        background-color: #242424;
-        border-radius: 15px;
+        background-color: #1F1F34;
+        border-radius: 8px;
         height: 400px;
         max-width: 620px;
         @media (max-width:1300px) {
@@ -143,14 +142,14 @@
             border-bottom-color: transparent;
             background-color: #242424;
             font-style: normal;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 14px;
             line-height: 19px;
 
             > div {
               margin-top: 20px;
               font-style: normal;
-              font-weight: 600;
+              font-weight: 200;
               font-size: 20px;
               line-height: 19px;
               text-align: center;

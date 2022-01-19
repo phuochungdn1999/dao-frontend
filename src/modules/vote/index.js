@@ -13,7 +13,7 @@ export const pages = [
   {
     path: '/vote',
     icon: 'vote',
-    order: 4,
+    order: 5,
     title: 'VOTE_TITLE',
     visible: true,
     component: Vote

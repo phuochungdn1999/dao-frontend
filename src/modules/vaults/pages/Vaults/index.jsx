@@ -133,7 +133,7 @@ const Vaults = ({ web3context, account, vaults, t }) => {
               />
 
               {filteredVaults?.length ? (
-                <Collapse className={style.list} accordion bordered={false}>
+                <Collapse className={style.list} motion={null} accordion bordered={false}>
                   {filteredVaults?.map((asset) => (
                     <Panel
                       header={

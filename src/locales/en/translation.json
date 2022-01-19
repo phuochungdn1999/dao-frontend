@@ -23,6 +23,16 @@
 
   "HOME_TITLE": "Home",
 
+  "DIAMOND_HAND_TITLE": "Diamond",
+  "DIAMOND_HAND_HEADER_TITLE": "Diamond Hand",
+  "DIAMOND_REWARD_SUMMARY": "Your rewards summary",
+  "DIAMOND_YFIAG_STAKED": "Staked",
+  "DIAMOND_YFIAG_EARNED": "Earned",
+  "DIAMOND_WALLET_BALANCE": "Your APP Wallet Balance",
+  "DIAMOND_LOCKED_AMOUNT": "Staked Locked amount",
+  "DIAMOND_UNLOCKED_REWARD": "Unlocked Rewards",
+  "DIAMOND_GLOBAL_STAKE": "Globally staked YFIAG: ",
+
   "LAYOUT_HEADER_LOGO": "yAgnostic",
   "LAYOUT_HEADER_CONNECT_WALLET": "Connect your wallet",
 

@@ -1,4 +1,4 @@
-import { parseErrorTransaction } from '../../common';
+import { parseErrorTransaction } from "../../common";
 
 const callExit = async (web3, asset, price, account, callback) => {
   const curveContract = new web3.eth.Contract(
@@ -6,24 +6,21 @@ const callExit = async (web3, asset, price, account, callback) => {
     asset.rewardsAddress
   );
 
-  curveContract
-    .methods
+  curveContract.methods
     .exit()
-    .send({ from: account, gasPrice: web3.utils.toWei(price, 'gwei') })
-    .on('transactionHash', (hash) => {
-      console.log('transactionHash', hash);
-
+    .send({ from: account, gasPrice: web3.utils.toWei(price, "gwei") })
+    .on("transactionHash", (hash) => {
       callback(null, hash);
     })
-    .on('confirmation', (confirmationNumber, receipt) => {
-      console.log('confirmation', confirmationNumber, receipt);
+    .on("confirmation", (confirmationNumber, receipt) => {
+      console.log("confirmation", confirmationNumber, receipt);
 
       // confirmationNumber === 2 && dispatcher.dispatch({ type: GET_BALANCES });
     })
-    .on('receipt', (receipt) => {
-      console.log('receipt', receipt);
+    .on("receipt", (receipt) => {
+      console.log("receipt", receipt);
     })
-    .on('error', (error) => {
+    .on("error", (error) => {
       callback(parseErrorTransaction(error));
     });
 };

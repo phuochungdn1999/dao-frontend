@@ -30,3 +30,32 @@ const pools = [
 ];
 
 export default pools;
+
+export const pools2 = [
+  {
+    id: 'yfiag',
+    name: 'YFIAG',
+    website: 'yearnagnostic.finance',
+    link: 'https://yearnagnostic.finance/',
+    tokens: [
+      {
+        id: 'yfiag',
+        governanceAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
+        feeTokenAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
+        rewardsAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
+        tokenAddress: '0x29E34e7D5034Eb2c204dcb92B53d16149411406F',
+        governanceABI: daoGovernanceABI,
+        feeTokenABI: daoERC20ABI,
+        rewardsABI: daoERC20ABI,
+        tokenABI: daoTokenYFIAGABI,
+        apiHost: 'https://api.thegraph.com/subgraphs/name/ulmmrt/yearnagnostic-subgraph-mainnet',
+        rewardsSymbol: 'YFIAG',
+        symbol: 'YFIAG',
+        decimals: 18,
+        rewardsAvailable: 0,
+        stakedBalance: 0,
+        balance: 0
+      }
+    ]
+  }
+];

@@ -21,7 +21,6 @@ const voteFor = ({
         .voteFor(proposalId)
         .send({ from: account })
         .on('transactionHash', (hash) => {
-          console.log('transactionHash', hash);
 
           onSuccess && onSuccess(hash);
         })

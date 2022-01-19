@@ -2,7 +2,7 @@
   padding: 24px 25px;
   &:not(:last-child) {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 8px;
     border-bottom: 1px solid black;
   }
 
@@ -38,7 +38,7 @@
 
   .input {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 8px;
     border-color: #3f3f61;
     height: 30px;
     color: #6000c4;
@@ -79,7 +79,7 @@
   .submit {
     background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
     border-color: black;
-    border-radius: 15px;
+    border-radius: 8px;
     font-family: "Nunito Sans", Roboto;
     font-weight: 400;
     line-height: 16px;
@@ -113,14 +113,14 @@
 
 .actions {
   background-color: white;
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 24px 25px;
   border-bottom: 1px solid black;
   margin-bottom: 50px;
 
   .submit {
     background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
-    border-radius: 15px;
+    border-radius: 8px;
     border-color: black;
     font-family: "Nunito Sans", Roboto;
     font-weight: 400;
@@ -155,7 +155,7 @@
 
   .button {
     background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
-    border-radius: 15px;
+    border-radius: 8px;
     font-family: "Nunito Sans", Roboto;
     font-weight: 400;
     line-height: 16px;

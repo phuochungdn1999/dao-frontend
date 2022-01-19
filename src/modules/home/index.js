@@ -11,5 +11,4 @@ export const pages = [
     visible: false,
     component: Home
   }
-  
 ];

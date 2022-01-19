@@ -1,71 +1,70 @@
 .container {
   line-height: 1;
-  font-family: 'Nunito Sans',Roboto;
+  font-family: "Nunito Sans", Roboto;
   line-height: 16px;
   font-size: 1.5em;
-  
-  
-  #root > section > main > article > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4 > div:nth-child(2) > div.ant-collapse-header > div > img {
-    content: url(./dai.svg);
-   }
 
- 
+  #root
+    > section
+    > main
+    > article
+    > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+    > div:nth-child(2)
+    > div.ant-collapse-header
+    > div
+    > img {
+    content: url(./dai.svg);
+  }
 
   &__icon {
     margin-right: 28px;
     height: 48px;
     width: 48px;
     margin-top: 0;
-    @media (max-width:1300px) {
-     margin-left: 0;
-     margin-right: 0;
+    @media (max-width: 1300px) {
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 
   &__name {
     margin-right: 33.5%;
-    @media (max-width:1300px) {
+    @media (max-width: 1300px) {
       margin-right: 0%;
     }
-    @media (min-width:2000px) {
+    @media (min-width: 2000px) {
       margin-right: 34%;
     }
   }
 
   &__growth {
     margin-right: auto;
-    @media (max-width:1300px) {
-      margin-bottom: 20px; 
+    @media (max-width: 1300px) {
+      margin-bottom: 20px;
     }
   }
 
   &__available {
     padding-left: 24px;
-    @media (max-width:1300px) {
-      padding-left: 0; 
+    @media (max-width: 1300px) {
+      padding-left: 0;
     }
   }
 
-  
-
   .title {
     margin-bottom: 10px;
-    color: #6000C4
-    ;
+    color: #6000c4;
     font-style: normal;
-font-weight: 600;
-font-size: 14px;
-line-height: 19px;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
   }
 
   .value {
-    color: #6000C4
-    ;
+    color: #6000c4;
     font-style: normal;
-font-weight: bold;
-font-size: 15px;
-line-height: 20px;
-
+    font-weight: 200 !important;
+    font-size: 15px;
+    line-height: 20px;
   }
 }
-

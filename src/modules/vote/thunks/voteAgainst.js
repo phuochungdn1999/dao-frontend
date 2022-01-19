@@ -1,4 +1,4 @@
-import { parseErrorTransaction } from '../../common';
+import { parseErrorTransaction } from "../../common";
 
 const voteAgainst = ({
   web3,
@@ -7,7 +7,7 @@ const voteAgainst = ({
   proposalId,
   onError,
   onSuccess,
-  onConfirm
+  onConfirm,
 }) => {
   return async (dispatch) => {
     try {
@@ -16,22 +16,19 @@ const voteAgainst = ({
         asset.governanceAddress
       );
 
-      governanceContract
-        .methods
+      governanceContract.methods
         .voteAgainst(proposalId)
         .send({ from: account })
-        .on('transactionHash', (hash) => {
-          console.log('transactionHash', hash);
-
+        .on("transactionHash", (hash) => {
           onSuccess && onSuccess(hash);
         })
-        .on('confirmation', (confirmationNumber, receipt) => {
+        .on("confirmation", (confirmationNumber, receipt) => {
           confirmationNumber === 2 && onConfirm && onConfirm(receipt);
         })
-        .on('receipt', (receipt) => {
-          console.log('receipt', receipt);
+        .on("receipt", (receipt) => {
+          console.log("receipt", receipt);
         })
-        .on('error', (error) => {
+        .on("error", (error) => {
           onError && onError(parseErrorTransaction(error));
         });
     } catch (error) {

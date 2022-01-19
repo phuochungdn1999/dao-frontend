@@ -3,7 +3,7 @@
   border: 1px solid #e2e2e2;
 
   background-color: white;
-  border-radius: 15px;
+  border-radius: 8px;
   margin-bottom: 100px;
   > div {
     padding-right: 25px;
@@ -13,16 +13,16 @@
       margin-bottom: 0;
       font-family: "Nunito Sans", Roboto;
       font-style: normal;
-      font-weight: bold;
-      font-size: 14px;
+      font-weight: 200;
+      font-size: 16px;
       line-height: 19px;
       color: black;
       border-bottom: 1px solid #e2e2e2;
       > div {
         > div {
           font-style: normal;
-          font-weight: bold;
-          font-size: 14px;
+          font-weight: 200;
+          font-size: 16px;
           line-height: 19px;
           @media (max-width: 1300px) {
             font-size: 12px;
@@ -36,9 +36,9 @@
   .description {
     margin-bottom: 0;
     font-family: "Nunito Sans", Roboto;
-    font-weight: 400;
-    line-height: 16px;
+    font-weight: 200;
     font-size: 16px;
+    line-height: 16px;
     color: #8736cb;
     @media (max-width: 1300px) {
       font-size: 9px;

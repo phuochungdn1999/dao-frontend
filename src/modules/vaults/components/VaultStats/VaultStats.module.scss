@@ -3,11 +3,11 @@
   background: transparent;
 
   > .title {
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     font-family: "Nunito Sans", Roboto;
     font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 200;
+  font-size: 16px;
     line-height: 20px;
     color: #6000c4;
     @media (max-width: 1300px) {
@@ -16,10 +16,10 @@
 
   .row {
     .title {
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
       font-family: "Nunito Sans", Roboto;
-      font-weight: 600;
-      font-size: 15px;
+      font-weight: 200;
+      font-size: 16px;
       line-height: 20px;
       color: #6000c4;
       @media (max-width: 1300px) {
@@ -30,9 +30,9 @@
       font-family: "Nunito Sans", Roboto;
       color: #6000c4;
       font-style: normal;
-      font-weight: bold;
-      font-size: 15px;
-      line-height: 20px;
+      font-weight: 200;
+  font-size: 16px;
+      line-height: 8px;
       float: right;
       @media (max-width: 1300px) {
       }

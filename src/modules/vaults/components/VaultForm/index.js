@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch, connect } from 'react-redux';
+import React, { useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
+import { useDispatch, connect } from "react-redux";
 import {
   InputNumber,
   Typography,
@@ -9,28 +9,28 @@ import {
   Form,
   Row,
   Col,
-  message
-} from 'antd';
-import { WarningOutlined } from '@ant-design/icons';
-import cx from 'classnames';
+  message,
+} from "antd";
+import { WarningOutlined } from "@ant-design/icons";
+import cx from "classnames";
 
 // thunks:
-import { getGasPrices } from '../../../dashboard';
+import { getGasPrices } from "../../../dashboard";
 import {
   getVaultBalances,
   withdrawAllVault,
   depositAllVault,
   checkApproval,
   withdrawVault,
-  depositVault
-} from '../../';
+  depositVault,
+} from "../../";
 
-import style from './VaultForm.module.scss';
+import style from "./VaultForm.module.scss";
 
 const {
   success: successMessage,
   error: errorMessage,
-  info: infoMessage
+  info: infoMessage,
 } = message;
 const { Group: RadioGroup, Button: RadioButton } = Radio;
 const { Title, Text } = Typography;
@@ -38,31 +38,31 @@ const { useForm, Item } = Form;
 
 const amountParts = [
   {
-    name: '25%',
-    value: 25
+    name: "25%",
+    value: 25,
   },
   {
-    name: '50%',
-    value: 50
+    name: "50%",
+    value: 50,
   },
   {
-    name: '75%',
-    value: 75
+    name: "75%",
+    value: 75,
   },
   {
-    name: '100%',
-    value: 100
-  }
+    name: "100%",
+    value: 100,
+  },
 ];
 
-const MINIMAL_AMOUNT = 0.01;
+const MINIMAL_AMOUNT = 0.00001;
 
 const mapState = (state) => {
   return {
     web3context: state.web3context,
     account: state.account,
     prices: state.prices,
-    vaults: state.vaults
+    vaults: state.vaults,
   };
 };
 
@@ -81,63 +81,66 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(checkApproval({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        amount,
-        account: account.address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
-
-            errorMessage(error.message);
-          }
-
-          setIsLoading(false);
-        },
-        onSuccess: () => {
-          dispatch(depositVault({
-            web3: web3context.instance,
-            asset,
-            price: prices.gas,
-            amount,
-            account: account.address,
-            onError: (error) => {
-              if (error?.message) {
-                console.log(error.message);
-
-                errorMessage(error.message);
-              }
-
-              setIsLoading(false);
-            },
-            onConfirm: () => {
-              successMessage('The deposit was successful.');
-
-              web3context.instance && account.address && list && dispatch(
-                getVaultBalances({
-                  web3: web3context.instance,
-                  list,
-                  account: account.address
-                })
-              );
-            },
-            onSuccess: (result) => {
-              successMessage(
-                'The transaction to deposit was sent successfully.'
-              );
-
-              result && infoMessage(`Transaction hash: ${result}`);
-
-              setIsLoading(false);
-              setAmountPart(null);
-
-              depositForm.setFieldsValue({ amount: 0 });
+      dispatch(
+        checkApproval({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          amount,
+          account: account.address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
             }
-          }));
-        }
-      }));
+
+            setIsLoading(false);
+          },
+          onSuccess: () => {
+            dispatch(
+              depositVault({
+                web3: web3context.instance,
+                asset,
+                price: prices.gas,
+                amount,
+                account: account.address,
+                onError: (error) => {
+                  if (error?.message) {
+                    errorMessage(error.message);
+                  }
+
+                  setIsLoading(false);
+                },
+                onConfirm: () => {
+                  successMessage("The deposit was successful.");
+
+                  web3context.instance &&
+                    account.address &&
+                    list &&
+                    dispatch(
+                      getVaultBalances({
+                        web3: web3context.instance,
+                        list,
+                        account: account.address,
+                      })
+                    );
+                },
+                onSuccess: (result) => {
+                  successMessage(
+                    "The transaction to deposit was sent successfully."
+                  );
+
+                  result && infoMessage(`Transaction hash: ${result}`);
+
+                  setIsLoading(false);
+                  setAmountPart(null);
+
+                  depositForm.setFieldsValue({ amount: 0 });
+                },
+              })
+            );
+          },
+        })
+      );
 
     setIsLoading(true);
   };
@@ -146,111 +149,119 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(checkApproval({
-        web3: web3context.instance,
-        asset,
-        price: prices.gas,
-        amount: asset.balance,
-        account: account.address,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
-
-            errorMessage(error.message);
-          }
-
-          setIsLoading(false);
-        },
-        onSuccess: () => {
-          dispatch(depositAllVault({
-            web3: web3context.instance,
-            asset,
-            price: prices.gas,
-            account: account.address,
-            onError: (error) => {
-              if (error?.message) {
-                console.log(error.message);
-
-                errorMessage(error.message);
-              }
-
-              setIsLoading(false);
-            },
-            onConfirm: () => {
-              successMessage('The deposit all was successful.');
-
-              web3context.instance && account.address && list && dispatch(
-                getVaultBalances({
-                  web3: web3context.instance,
-                  list,
-                  account: account.address
-                })
-              );
-            },
-            onSuccess: (result) => {
-              successMessage(
-                'The transaction to deposit all was sent successfully.'
-              );
-
-              result && infoMessage(`Transaction hash: ${result}`);
-
-              setIsLoading(false);
-              setAmountPart(null);
-
-              depositForm.setFieldsValue({ amount: 0 });
+      dispatch(
+        checkApproval({
+          web3: web3context.instance,
+          asset,
+          price: prices.gas,
+          amount: asset.balance,
+          account: account.address,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
             }
-          }));
-        }
-      }));
+
+            setIsLoading(false);
+          },
+          onSuccess: () => {
+            dispatch(
+              depositAllVault({
+                web3: web3context.instance,
+                asset,
+                price: prices.gas,
+                account: account.address,
+                onError: (error) => {
+                  if (error?.message) {
+                    errorMessage(error.message);
+                  }
+
+                  setIsLoading(false);
+                },
+                onConfirm: () => {
+                  successMessage("The deposit all was successful.");
+
+                  web3context.instance &&
+                    account.address &&
+                    list &&
+                    dispatch(
+                      getVaultBalances({
+                        web3: web3context.instance,
+                        list,
+                        account: account.address,
+                      })
+                    );
+                },
+                onSuccess: (result) => {
+                  successMessage(
+                    "The transaction to deposit all was sent successfully."
+                  );
+
+                  result && infoMessage(`Transaction hash: ${result}`);
+
+                  setIsLoading(false);
+                  setAmountPart(null);
+
+                  depositForm.setFieldsValue({ amount: 0 });
+                },
+              })
+            );
+          },
+        })
+      );
 
     setIsLoading(true);
   };
 
   const onWithdraw = ({ redeemAmount }) => {
     const amount = (
-      Math.floor(redeemAmount / asset.pricePerFullShare * 10000) / 10000
+      Math.floor((redeemAmount / asset.pricePerFullShare) * 10000) / 10000
     ).toFixed(4);
 
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(withdrawVault({
-        web3: web3context.instance,
-        asset,
-        account: account.address,
-        amount,
-        price: prices.gas,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+      dispatch(
+        withdrawVault({
+          web3: web3context.instance,
+          asset,
+          account: account.address,
+          amount,
+          price: prices.gas,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onConfirm: () => {
+            successMessage("The withdrawal was successful.");
 
-          setIsLoading(false);
-        },
-        onConfirm: () => {
-          successMessage('The withdrawal was successful.');
+            web3context.instance &&
+              account.address &&
+              list &&
+              dispatch(
+                getVaultBalances({
+                  web3: web3context.instance,
+                  list,
+                  account: account.address,
+                })
+              );
+          },
+          onSuccess: (result) => {
+            successMessage(
+              "The transaction to withdraw was sent successfully."
+            );
 
-          web3context.instance && account.address && list && dispatch(
-            getVaultBalances({
-              web3: web3context.instance,
-              list,
-              account: account.address
-            })
-          );
-        },
-        onSuccess: (result) => {
-          successMessage('The transaction to withdraw was sent successfully.');
+            result && infoMessage(`Transaction hash: ${result}`);
 
-          result && infoMessage(`Transaction hash: ${result}`);
+            setIsLoading(false);
+            setRedeemAmountPart(null);
 
-          setIsLoading(false);
-          setRedeemAmountPart(null);
-
-          withdrawForm.setFieldsValue({ redeemAmount: null });
-        }
-      }));
+            withdrawForm.setFieldsValue({ redeemAmount: null });
+          },
+        })
+      );
 
     setIsLoading(true);
   };
@@ -259,44 +270,47 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
-      dispatch(withdrawAllVault({
-        web3: web3context.instance,
-        asset,
-        account: account.address,
-        price: prices.gas,
-        onError: (error) => {
-          if (error?.message) {
-            console.log(error.message);
+      dispatch(
+        withdrawAllVault({
+          web3: web3context.instance,
+          asset,
+          account: account.address,
+          price: prices.gas,
+          onError: (error) => {
+            if (error?.message) {
+              errorMessage(error.message);
+            }
 
-            errorMessage(error.message);
-          }
+            setIsLoading(false);
+          },
+          onConfirm: () => {
+            successMessage("The withdrawal all was successful.");
 
-          setIsLoading(false);
-        },
-        onConfirm: () => {
-          successMessage('The withdrawal all was successful.');
+            web3context.instance &&
+              account.address &&
+              list &&
+              dispatch(
+                getVaultBalances({
+                  web3: web3context.instance,
+                  list,
+                  account: account.address,
+                })
+              );
+          },
+          onSuccess: (result) => {
+            successMessage(
+              "The transaction to withdraw all was sent successfully."
+            );
 
-          web3context.instance && account.address && list && dispatch(
-            getVaultBalances({
-              web3: web3context.instance,
-              list,
-              account: account.address
-            })
-          );
-        },
-        onSuccess: (result) => {
-          successMessage(
-            'The transaction to withdraw all was sent successfully.'
-          );
+            result && infoMessage(`Transaction hash: ${result}`);
 
-          result && infoMessage(`Transaction hash: ${result}`);
+            setIsLoading(false);
+            setRedeemAmountPart(null);
 
-          setIsLoading(false);
-          setRedeemAmountPart(null);
-
-          withdrawForm.setFieldsValue({ redeemAmount: null });
-        }
-      }));
+            withdrawForm.setFieldsValue({ redeemAmount: null });
+          },
+        })
+      );
 
     setIsLoading(true);
   };
@@ -336,15 +350,11 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
   return (
     <Row className={style.forms}>
       <Col className={style.forms__item} span={12}>
-        <Title
-          className={style.title}
-          onClick={() => setAmount(100)}
-          level={5}
-        >
-          {'Your wallet: ' + (asset?.balance ?
-            (Math.floor(asset?.balance * 10000) / 10000).toFixed(4) :
-            '0.0000')}
-          {' '}
+        <Title className={style.title} onClick={() => setAmount(100)} level={5}>
+          {"Your wallet: " +
+            (asset?.balance
+              ? (Math.floor(asset?.balance * 10000) / 10000).toFixed(4)
+              : "0.0000")}{" "}
           {asset?.tokenSymbol ? asset.tokenSymbol : asset?.symbol}
         </Title>
 
@@ -352,7 +362,7 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
           scrollToFirstError
           onFieldsChange={(changedFields, allFields) => {
             const changedAmount = changedFields?.find(
-              ({ name }) => name[0] === 'amount'
+              ({ name }) => name[0] === "amount"
             );
 
             changedAmount && setAmountPart(null);
@@ -366,18 +376,18 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             rules={[
               {
                 required: true,
-                message: 'Please input amount',
+                message: "Please input amount",
               },
               {
-                type: 'number',
+                type: "number",
                 min: MINIMAL_AMOUNT,
                 message: `Amount must be more than ${MINIMAL_AMOUNT}`,
               },
               {
-                type: 'number',
+                type: "number",
                 max: asset?.balance,
                 message: `Amount must be less than ${asset?.balance}`,
-              }
+              },
             ]}
             name="amount"
           >
@@ -401,13 +411,15 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             {amountParts.map(({ name, value }) => (
               <RadioButton
                 className={cx(style.button, {
-                  [style.button_active]: amountPart === value
+                  [style.button_active]: amountPart === value,
                 })}
-                disabled={isLoading ||
+                disabled={
+                  isLoading ||
                   asset?.paused ||
                   !asset?.balance ||
                   asset?.depositDisabled ||
-                  !prices?.gas}
+                  !prices?.gas
+                }
                 value={value}
                 key={value}
               >
@@ -425,11 +437,13 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
               <Button
                 className={style.submit}
                 htmlType="submit"
-                disabled={isLoading ||
+                disabled={
+                  isLoading ||
                   asset?.paused ||
                   !asset?.balance ||
                   asset?.depositDisabled ||
-                  !prices?.gas}
+                  !prices?.gas
+                }
                 loading={isLoading}
                 type="primary"
               >
@@ -440,11 +454,13 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             {asset?.depositAll && (
               <Button
                 className={style.button}
-                disabled={isLoading ||
+                disabled={
+                  isLoading ||
                   asset?.paused ||
                   !asset?.balance ||
                   asset?.depositDisabled ||
-                  !prices?.gas}
+                  !prices?.gas
+                }
                 loading={isLoading}
                 onClick={handleDepositAll}
               >
@@ -465,29 +481,26 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
           onClick={() => setRedeemAmount(100)}
           level={5}
         >
-          {asset?.vaultBalance ?
-            (Math.floor(
-              asset.vaultBalance * asset?.pricePerFullShare * 10000
-            ) / 10000).toFixed(4) :
-            '0.0000'}
-          {' '}
-          {asset?.symbol}
-          {' '}
-          (
-            {asset?.vaultBalance ?
-              (Math.floor(asset.vaultBalance * 10000) / 10000).toFixed(4) :
-              '0.0000'
-            }
-            {' '}
-            {asset?.vaultSymbol}
-          )
+          {"Vault balance: " +
+            (asset?.vaultBalance
+              ? (
+                  Math.floor(
+                    asset.vaultBalance * asset?.pricePerFullShare * 10000
+                  ) / 10000
+                ).toFixed(4)
+              : "0.0000")}{" "}
+          {asset?.symbol} (
+          {asset?.vaultBalance
+            ? (Math.floor(asset.vaultBalance * 10000) / 10000).toFixed(4)
+            : "0.0000"}{" "}
+          {asset?.vaultSymbol})
         </Title>
 
         <Form
           scrollToFirstError
           onFieldsChange={(changedFields, allFields) => {
             const changedAmount = changedFields?.find(
-              ({ name }) => name[0] === 'redeemAmount'
+              ({ name }) => name[0] === "redeemAmount"
             );
 
             changedAmount && setRedeemAmountPart(null);
@@ -501,18 +514,18 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             rules={[
               {
                 required: true,
-                message: 'Please input amount',
+                message: "Please input amount",
               },
               {
-                type: 'number',
+                type: "number",
                 min: MINIMAL_AMOUNT,
                 message: `Amount must be more than ${MINIMAL_AMOUNT}`,
               },
               {
-                type: 'number',
+                type: "number",
                 max: asset?.vaultBalance,
                 message: `Amount must be less than ${asset?.vaultBalance}`,
-              }
+              },
             ]}
             name="redeemAmount"
           >
@@ -536,12 +549,14 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             {amountParts.map(({ name, value }) => (
               <RadioButton
                 className={cx(style.button, {
-                  [style.button_active]: redeemAmountPart === value
+                  [style.button_active]: redeemAmountPart === value,
                 })}
-                disabled={isLoading ||
+                disabled={
+                  isLoading ||
                   asset?.paused ||
                   !asset?.vaultBalance ||
-                  !prices?.gas}
+                  !prices?.gas
+                }
                 value={value}
                 key={value}
               >
@@ -559,10 +574,12 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
               <Button
                 className={style.submit}
                 htmlType="submit"
-                disabled={isLoading ||
+                disabled={
+                  isLoading ||
                   asset?.paused ||
                   !asset?.vaultBalance ||
-                  !prices?.gas}
+                  !prices?.gas
+                }
                 loading={isLoading}
                 type="primary"
               >
@@ -573,10 +590,12 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             {asset?.withdrawAll && (
               <Button
                 className={style.button}
-                disabled={isLoading ||
+                disabled={
+                  isLoading ||
                   asset?.paused ||
                   !asset?.vaultBalance ||
-                  !prices?.gas}
+                  !prices?.gas
+                }
                 loading={isLoading}
                 onClick={handleWithdrawAll}
               >
@@ -614,7 +633,7 @@ VaultForm.propTypes = {
   prices: PropTypes.object.isRequired,
   vaults: PropTypes.object.isRequired,
   list: PropTypes.array.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
 };
 
 export default connect(mapState)(VaultForm);

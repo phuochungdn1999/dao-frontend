@@ -102,15 +102,17 @@ const Header = ({ web3context, connection, location, account, chains, t }) => {
         <button className="switcher">
           <div>
             <img
-              class="switch"
+              className="switch"
               src={sun}
               onClick={() => setDarkMode(!darkMode)}
+              alt='sun'
             />
             /
             <img
-              class="img"
+              className="img"
               src={moon}
               onClick={() => setDarkMode(!darkMode)}
+              alt='moon'
             />
             <div></div>
           </div>
@@ -172,7 +174,7 @@ const Header = ({ web3context, connection, location, account, chains, t }) => {
         onCancel={() => setIsModalVisible(false)}
         visible={isModalVisible}
         footer={null}
-        title={'Select a wallet to connect to this dApp:'}
+        title={'Select a wallet :'}
       >
         <Connections />
         <p>Wallets are used to send, receive, and store digital assets like Ether. Currently is dApp supporting only Metamask wallet.</p>

@@ -7,10 +7,10 @@
   }
   &__button {
     background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
-    border-radius: 25px;
+    border-radius: 8px;
     font-family: "Nunito Sans", Roboto;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 200;
     font-size: 13px;
     line-height: 18px;
     width: 200px;
@@ -71,7 +71,7 @@
           }
           &::after {
             content: "";
-            border-radius: 50%;
+            border-radius: 8px;
             margin-left: 6px;
             display: inline-block;
             height: 10px;

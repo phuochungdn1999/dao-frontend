@@ -5,7 +5,7 @@ import { withTranslation } from "react-i18next";
 import { Typography, Collapse, Alert, Empty } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import cx from "classnames";
-
+import  * as diamondService from '../../../../api/diamondHand.service'
 // configs:
 import { pools as poolsList } from "../../../../configs";
 
@@ -24,6 +24,8 @@ import { getPoolsBalances } from "../../";
 import Switch from "react-switch";
 
 import style from "./Stake.module.scss";
+import { diamond } from "../../../diamondHand";
+
 
 const { Title } = Typography;
 const { Panel } = Collapse;
@@ -33,10 +35,11 @@ const mapState = (state) => {
     web3context: state.web3context,
     account: state.account,
     pools: state.pools,
+    state: state
   };
 };
 
-const Stake = ({ web3context, account, pools, t }) => {
+const Stake = ({ web3context, account, pools, state, t }) => {
   const dispatch = useDispatch();
 
   const [availableChain, setAvailableChain] = useState(null);

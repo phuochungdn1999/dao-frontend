@@ -100,15 +100,15 @@ const Buttons = ({ web3context, connection, accountState, t }) => {
 
   useEffect(() => chainId && onUpdateChain(chainId), [chainId, onUpdateChain]);
 
-  useEffect(() => account && onUpdateAddress(account), [
-    account,
-    onUpdateAddress,
-  ]);
+  useEffect(
+    () => account && onUpdateAddress(account),
+    [account, onUpdateAddress]
+  );
 
-  useEffect(() => library?.provider && onUpdateProvider(library?.provider), [
-    library,
-    onUpdateProvider,
-  ]);
+  useEffect(
+    () => library?.provider && onUpdateProvider(library?.provider),
+    [library, onUpdateProvider]
+  );
 
   useEffect(() => {
     active && onUpdateConnection(active);

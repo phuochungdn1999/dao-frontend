@@ -2,10 +2,10 @@
   line-height: 1;
   font-family: "Nunito Sans", Roboto;
   font-size: 14px;
+  font-weight: 200;
   line-height: 19px;
   width: 60%;
    &:hover {
-     opacity: 0.6;
    }
 
   @media (max-width: 1300px) {
@@ -31,25 +31,35 @@
     padding-right: 24px;
     width: 45%;
     display: inline-flex;
+    font-weight: 200;
+
   }
 
   &__address {
     width: 20%;
     margin-top: 15px;
+    font-weight: 200;
+
   }
 
   .title {
     font-weight: 800;
     color: #8236ce;
+    font-weight: 200;
+
   }
 
   .value {
     font-weight: 400;
     color: #8236ce;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 200;
+
   }
 
   .span {
     color: #8236ce;
+    font-weight: 200;
+
   }
 }

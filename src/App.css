@@ -143,7 +143,7 @@ body > div:nth-child(7) > div > div.ant-modal-wrap {
 }
 .dark #root > section > header > div > button > span {
   background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
-  border-radius: 50px;
+  border-radius: 8px;
 }
 
 #root > button {
@@ -282,7 +282,8 @@ body > div:nth-child(7) > div > div.ant-modal-wrap {
 }
 
 .dark header {
-  background-color: #242424;
+  background-color: transparent;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark .root div {
@@ -335,9 +336,9 @@ body > div:nth-child(7) > div > div.ant-modal-wrap {
   cursor: pointer;
 }
 
-#root > section > header > div > a > img:hover {
+/* #root > section > header > div > a > img:hover {
   opacity: 0.8;
-}
+} */
 
 .Layout_container__2cp8N main {
   background-color: transparent;
@@ -390,6 +391,7 @@ button {
 }
 .dark #root > section > footer {
   background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark .Home_container__1CZ8L h1 {
@@ -402,6 +404,7 @@ button {
 
 .dark .Home_container__1CZ8L h3 {
   color: white;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark #root > section > main > div > a {
@@ -453,7 +456,7 @@ button {
   > button.Header_container__row__wallet__2VkSK.Header_container__row__wallet_connected__1huI4
   > span {
   background-color: #1d1d1d;
-  border-radius: 25px;
+  border-radius: 8px;
 }
 
 .dark #root > section > header > div > button:nth-child(9) > a:hover {
@@ -566,6 +569,16 @@ button {
   > div.ant-row.ant-row-end.ant-row-middle.Dashboard_container__filter__3aztB
   > div:nth-child(2) {
   color: black !important;
+  margin-right: 10px;
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-row.ant-row-end.ant-row-middle.Dashboard_container__filter__3aztB
+  > div:nth-child(2) {
+  margin-right: 10px;
 }
 
 .dark
@@ -579,6 +592,7 @@ button {
   > div
   > div {
   color: white;
+  font-weight: 200;
 }
 
 .dark
@@ -676,7 +690,7 @@ button {
   border-bottom-left-radius: 0px;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
@@ -692,7 +706,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-}
+} */
 
 .dark
   #root
@@ -712,7 +726,7 @@ button {
   line-height: 20px;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
@@ -728,7 +742,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-}
+} */
 
 .dark
   #root
@@ -748,7 +762,7 @@ button {
   line-height: 20px;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
@@ -764,7 +778,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-}
+} */
 
 .dark
   #root
@@ -796,8 +810,8 @@ button {
   > div.VaultStrategy_container__1aVDA
   > h5 {
   color: white;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
   display: inline;
 }
@@ -816,8 +830,8 @@ button {
   > div:nth-child(1)
   > div {
   color: white;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -835,8 +849,8 @@ button {
   > div:nth-child(1)
   > span {
   color: white;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -854,8 +868,8 @@ button {
   > div:nth-child(2)
   > div {
   color: white;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 19px;
 }
 
@@ -873,8 +887,8 @@ button {
   > div:nth-child(2)
   > span {
   color: white;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -892,8 +906,8 @@ button {
   > div:nth-child(3)
   > div {
   color: white;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 19px;
 }
 
@@ -911,8 +925,8 @@ button {
   > div:nth-child(3)
   > span {
   color: white;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -930,8 +944,8 @@ button {
   > div:nth-child(4)
   > div {
   color: white;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 19px;
 }
 
@@ -949,8 +963,8 @@ button {
   > div:nth-child(4)
   > span {
   color: white;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -967,8 +981,8 @@ button {
   > h5 {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -987,8 +1001,8 @@ button {
   > div {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1007,8 +1021,8 @@ button {
   > span {
   color: white;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1027,8 +1041,8 @@ button {
   > div {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1047,8 +1061,8 @@ button {
   > span {
   color: white;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1067,8 +1081,8 @@ button {
   > div {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1087,8 +1101,8 @@ button {
   > span {
   color: white;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1107,8 +1121,8 @@ button {
   > div {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1127,8 +1141,8 @@ button {
   > span {
   color: white;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1147,8 +1161,8 @@ button {
   > div {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1167,8 +1181,8 @@ button {
   > span {
   color: white;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1187,8 +1201,8 @@ button {
   > div {
   color: white;
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1207,8 +1221,8 @@ button {
   > span {
   color: white;
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
 }
 
@@ -1229,7 +1243,8 @@ button {
   > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
   > div.ant-collapse-item.ant-collapse-item-active
   > div.ant-collapse-header {
-  border-radius: 25px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -1264,7 +1279,7 @@ button {
   line-height: 20px;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
@@ -1280,7 +1295,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-}
+} */
 
 .dark
   #root
@@ -1299,7 +1314,7 @@ button {
   line-height: 20px;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
@@ -1315,7 +1330,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-}
+} */
 
 .dark
   #root
@@ -1511,11 +1526,6 @@ button {
   border-color: 1px solid #8236ce;
 }
 
-.dark
-  #deposit
-  > div.ant-row.ant-row-space-between.ant-row-middle.VaultForm_forms__item__buttons__EBdwY
-  > button.ant-btn.ant-btn-primary.VaultForm_submit__3P6l6 {
-}
 /* 
   .dark #deposit > div.ant-row.ant-row-space-between.ant-row-middle.VaultForm_forms__item__buttons__EBdwY > button.ant-btn.VaultForm_button__6o4ak > span {
     color: grey;
@@ -1624,7 +1634,7 @@ button {
   > label:nth-child(1) {
   border: 1px solid black;
   box-sizing: border-box;
-  border-radius: 50px 0px 0px 50px;
+  border-radius: 8px 0px 0px 8px;
   background: linear-gradient(180deg, #6000c4 0%, #8736cb 100%);
   font-style: normal;
   font-size: 15px;
@@ -1641,7 +1651,7 @@ button {
   > label.ant-radio-button-wrapper.ant-radio-button-wrapper-checked.VoteTabs_button__gbcWu.VoteTabs_button_active__MhL5F
   > span.ant-radio-button.ant-radio-button-checked {
   box-sizing: border-box;
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0px 8px 8px 0px;
   background-color: transparent;
 }
 
@@ -1687,7 +1697,7 @@ button {
   > div
   > label.ant-radio-button-wrapper.ant-radio-button-wrapper-checked.VoteTabs_button__gbcWu.VoteTabs_button_active__MhL5F {
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 15px;
   border: 1px solid black;
   box-sizing: border-box;
@@ -1734,9 +1744,9 @@ button {
 
 .dark #root > section > main > article > div > div {
   color: white;
-  font-weight: normal;
+  font-weight: 200;
   font-size: 15px;
-  line-height: 25px;
+  /* line-height: 8px; */
   border: 0;
 
   @media (max-width: 1300px) {
@@ -1744,7 +1754,7 @@ button {
   }
 }
 
-#root
+/* #root
   > section
   > main
   > article
@@ -1753,7 +1763,7 @@ button {
   > div.ant-collapse-header
   :hover {
   opacity: 0.6;
-}
+} */
 
 #root
   > section
@@ -1771,7 +1781,7 @@ button {
   > div.ant-alert.ant-alert-info.ant-alert-no-icon.Dashboard_container__info__6Zp-d
   > div
   > div.ant-alert-message {
-  font-weight: normal;
+  font-weight: 200;
   font-size: 15px;
   line-height: 25px;
   /* identical to box height, or 167% */
@@ -1806,8 +1816,9 @@ button {
   > div:nth-child(1) {
   background-color: white;
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 8px;
   max-width: 45%;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
 }
 
 #root > section > main > article > div > div > div > div.ant-collapse-header {
@@ -1825,6 +1836,7 @@ button {
   background: #1f1f36;
   border: 0;
   border-bottom: 0 none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 #root
@@ -1840,13 +1852,14 @@ button {
   > div:nth-child(2) {
   background-color: white;
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 8px;
   max-width: 45%;
   margin-left: auto;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border: 1px solid #e2e2e2;
   border-bottom-color: white;
+  /* box-shadow: 0px 4px 30px rgb(0 0 0 / 16%); */
 }
 
 #root
@@ -1861,12 +1874,13 @@ button {
   > div.ant-row.ant-row-space-between.StakeContent_actions__1JBl5 {
   background-color: white;
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   max-width: 45%;
   margin-left: auto;
   border: 1px solid #e2e2e2;
+  /* box-shadow: 0px 4px 30px rgb(0 0 0 / 16%); */
 }
 
 .dark
@@ -1910,7 +1924,7 @@ button {
   display: inline-block;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
@@ -1919,7 +1933,7 @@ button {
   > div
   > div.ant-collapse-header:hover {
   background-color: #2d2d2d;
-}
+} */
 
 .dark
   #root
@@ -2546,6 +2560,7 @@ button {
   > div.ant-row.ant-row-space-between.CrossChain_container__form__2pEVH {
   background-color: hsl(240, 27%, 17%);
   border: 0 none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -2574,7 +2589,7 @@ button {
 
 .dark #crosschain > h5 {
   color: white;
-  font-weight: 600;
+  font-weight: 200;
 }
 
 .dark
@@ -2688,7 +2703,7 @@ button {
   background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
   /* color: grey; */
   /* color: black; */
-  border-radius: 50px;
+  border-radius: 8px;
   width: 20%;
   margin-right: 5%;
   text-align: center;
@@ -2713,13 +2728,13 @@ button {
   #withdraw
   > div.ant-radio-group.ant-radio-group-solid.VaultForm_forms__item__percentages__352Wc
   > label {
-  background-color: white;
+  background: linear-gradient(180deg, #8736cb 0%, #6000c4 100%);
   width: 20%;
   margin-right: 5%;
-  border-radius: 50px;
+  border-radius: 8px;
   text-align: center;
+  border: 1px solid black;
 
-  border-color: black;
   /* opacity: 0.4; */
 }
 /* 
@@ -2786,7 +2801,7 @@ button {
 #propose_text {
   height: 160px !important;
   color: black;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 #propose > div > div.ant-col.ant-form-item-label {
@@ -2852,39 +2867,10 @@ button {
   > div.ant-card.ant-card-bordered.Dashboard_container__list__1fHss.DashboardList_container__3yL6J
   > div.ant-card-body
   > div
-  > div.DashboardList_container__row__growth__1hs8-
-  > span {
-  color: white;
-  font-size: 20px;
-}
-
-.dark
-  #root
-  > section
-  > main
-  > article
-  > div.ant-card.ant-card-bordered.Dashboard_container__list__1fHss.DashboardList_container__3yL6J
-  > div.ant-card-body
-  > div
   > div.DashboardList_container__row__worth__15Ykf
   > div {
   color: white;
   margin-bottom: 20px;
-}
-
-.dark
-  #root
-  > section
-  > main
-  > article
-  > div.ant-card.ant-card-bordered.Dashboard_container__list__1fHss.DashboardList_container__3yL6J
-  > div.ant-card-body
-  > div
-  > div.DashboardList_container__row__worth__15Ykf
-  > span {
-  color: white;
-  font-size: 20px;
-  margin-top: 20px;
 }
 
 .dark
@@ -3226,6 +3212,20 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   top: 22.44%;
   bottom: 22.44%;
   width: 25%;
+  /* animation: glide 3s ease-in-out alternate infinite; */
+}
+@media screen and (min-width: 1300px) {
+  @keyframes glide {
+    from {
+      right: 15%;
+      top: 22.44%;
+    }
+
+    to {
+      right: 17%;
+      top: 24.44%;
+    }
+  }
 }
 
 @media screen and (max-width: 1300px) {
@@ -3363,7 +3363,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > label:nth-child(2) {
   border: 1px solid black;
   box-sizing: border-box;
-  border-radius: 0px 50px 50px 0px;
+  border-radius: 0px 8px 8px 0px;
   background: linear-gradient(180deg, #6000c4 0%, #8736cb 100%);
   color: white;
   font-style: normal;
@@ -3374,9 +3374,6 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
 
 #root > section > header > div > button.switcher {
   margin-top: -8px;
-}
-
-#root > section > header > div > button.switcher > div {
 }
 
 #root > section > header > div > button.switcher > div > img.img {
@@ -3490,9 +3487,10 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   background-color: white;
   width: 45%;
   float: left;
-  border-radius: 15px;
+  border-radius: 8px;
   display: inline;
   border: 1px solid #e2e2e2;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
 }
 
 #root
@@ -3516,7 +3514,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > div.VaultStats_container__28Zg_ {
   background-color: #1f1f36;
   width: 45%;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 #root
@@ -3531,9 +3529,10 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   background-color: white;
   width: 45%;
   float: right;
-  border-radius: 15px;
+  border-radius: 8px;
   display: inline;
   border: 1px solid #e2e2e2;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
 }
 
 .dark
@@ -3548,8 +3547,8 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > div.VaultStrategy_container__1aVDA
   > div.ant-typography.VaultStrategy_title__1NE9U {
   display: inline;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
   margin-left: 36%;
   color: #6000c4;
@@ -3567,8 +3566,8 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > div:nth-child(1)
   > h5 {
   display: inline;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 16px;
   line-height: 20px;
   margin-bottom: 15px;
   color: #6000c4;
@@ -3606,7 +3605,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > span {
   color: #6000c4;
   margin-left: 10px;
-  font-weight: 800;
+  font-weight: 200;
 }
 
 #root
@@ -3619,7 +3618,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > div
   > div.VaultStrategy_container__1aVDA
   > div:nth-child(1) {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #root
@@ -3767,13 +3766,26 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > div:nth-child(1) {
   background: white;
   box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.13);
-  border-radius: 15px;
+  border-radius: 8px;
   width: 45%;
   display: inline-block;
   margin-right: 10%;
   border: 1px solid #e2e2e2;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
 }
 
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div.ant-collapse-item.ant-collapse-item-active
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div.ant-row.VaultForm_forms__sBiMB
+  > div:nth-child(2) {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
 #withdraw
   > div.ant-row.ant-row-space-between.ant-row-middle.VaultForm_forms__item__buttons__EBdwY
   > button.ant-btn.VaultForm_button__6o4ak {
@@ -3908,7 +3920,7 @@ body
   /* background-color: #1F1F36; */
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background: #242424;
+  background: #1f1f36;
   background-size: cover;
 }
 
@@ -3920,7 +3932,7 @@ body
   > div.ant-modal-content
   > div.ant-modal-header {
   /* background-color: #1F1F36; */
-  background: #242424;
+  background: #1f1f36;
 }
 
 body
@@ -3952,12 +3964,13 @@ body
 }
 
 #root > section > main > article > div > div > div > div.ant-collapse-header {
-  border-radius: 15px;
+  border-radius: 8px;
   margin-top: -50px;
   border: 1px solid #e2e2e2;
   height: 98px;
   /* border-top-left-radius: 0;
     border-top-right-radius: 0; */
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
 }
 
 #root > section > main > article > div > h2 {
@@ -3979,7 +3992,7 @@ body
   > h5 {
   margin-top: 0;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 200;
   font-size: 15px;
   line-height: 20px;
   padding: 10px;
@@ -4009,6 +4022,7 @@ body
   > div.ant-card-head {
   background-color: #1f1f36;
   border-bottom: 1px solid black;
+  line-height: 8px;
 }
 
 .dark #root > section > main > article > h1 > span {
@@ -4035,7 +4049,7 @@ body
   > div.ant-row.ant-row-space-between.ant-row-top.Dashboard_container__balance__3OdZ6
   > div:nth-child(1)
   > div.ant-card-body {
-  border-radius: 15px;
+  border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   background-color: #1f1f36;
@@ -4050,7 +4064,7 @@ body
   > div:nth-child(2)
   > div.ant-card-body {
   background-color: #1f1f36;
-  border-radius: 15px;
+  border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4192,6 +4206,7 @@ body
   color: white;
   background-color: #1f1f36;
   border-bottom: 1px solid black;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4215,6 +4230,7 @@ body
   background-color: #1f1f36;
   color: white;
   border: 0;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4300,7 +4316,7 @@ body
   > div.ant-row.ant-row-end.ant-row-middle.Dashboard_container__filter__3aztB
   > div {
   border-bottom: 1px solid #e2e2e2;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 8px;
 }
 
 #root
@@ -4310,7 +4326,7 @@ body
   > div.ant-row.ant-row-end.ant-row-middle.Dashboard_container__prompt__3-qtQ.VaultBasedOn_container__2rwfg
   > div {
   border-bottom: 1px solid #e2e2e2;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 8px;
 }
 
 #root
@@ -4484,17 +4500,6 @@ body
   color: white;
 }
 
-#root
-  > section
-  > main
-  > article
-  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
-  > div:nth-child(4)
-  > div.ant-collapse-header {
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
-
 .dark
   #root
   > section
@@ -4508,6 +4513,7 @@ body
   background-color: #1f1f36;
   border: 0;
   color: white;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4553,7 +4559,7 @@ body
   > div:nth-child(1)
   > span {
   color: white;
-  font-weight: 800;
+  font-weight: 200;
   margin-left: 10px;
 }
 
@@ -4569,6 +4575,7 @@ body
   > div.VaultStats_container__28Zg_ {
   border: none;
   background-color: #1f1f36;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4585,6 +4592,7 @@ body
   background-color: #1f1f36;
   border: none;
   color: white;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4600,6 +4608,7 @@ body
   > div:nth-child(2) {
   background-color: #1f1f36;
   border: none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4661,6 +4670,7 @@ body
   > div:nth-child(1) {
   background-color: #1f1f36;
   border: none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -4709,6 +4719,7 @@ body
   > div:nth-child(2) {
   background-color: #1f1f36;
   border: none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 .dark
   #root
@@ -4723,6 +4734,7 @@ body
   > div.ant-row.ant-row-space-between.StakeContent_actions__1JBl5 {
   background-color: #1f1f36;
   border: none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -6437,6 +6449,7 @@ body
   > div.ant-row.ant-row-space-between.ant-row-top.Dashboard_container__balance__3OdZ6
   > div:nth-child(1) {
   background: transparent;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -6447,6 +6460,7 @@ body
   > div.ant-row.ant-row-space-between.ant-row-top.Dashboard_container__balance__3OdZ6
   > div:nth-child(2) {
   background: transparent;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 /* .dark #root > section > main > article > div > div > div {
@@ -6505,7 +6519,7 @@ body
   > div.ant-modal-content
   > div.ant-modal-header {
   color: white;
-  background: #242424;
+  background: #1f1f36;
 }
 
 body
@@ -6515,7 +6529,7 @@ body
   > div
   > div.ant-modal-content
   > div.ant-modal-body {
-  background: #242424;
+  background: #1f1f36;
   background-size: cover;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -6622,9 +6636,32 @@ body
   > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
   > div:nth-child(1)
   > div.ant-collapse-header {
-  border-radius: 15px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  /* border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; */
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div:nth-child(2)
+  > div.ant-collapse-header {
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div
+  > div.ant-collapse-header {
+  margin-bottom: 5px;
+  border-radius: 8px;
 }
 
 .dark
@@ -6638,6 +6675,7 @@ body
   > div
   > div:nth-child(4) {
   background-color: #1f1f36;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -6654,6 +6692,7 @@ body
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-top: 50px;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -6790,16 +6829,16 @@ body > div:nth-child(6) > div > div > div > div > div > span:nth-child(2) {
   font-family: "Nunito Sans";
   text-transform: capitalize;
   color: white;
-  background-color: #8236ce;
 }
 
 body > div:nth-child(6) > div > div > div > div {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 200;
   font-family: "Nunito Sans";
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   color: white;
-  background-color: #8236ce;
-  border-radius: 25px;
+  background: #1f1f36;
+  border-radius: 8px;
   /* width: 30%; */
 }
 
@@ -6817,7 +6856,7 @@ div > div > div > span.anticon.anticon-close-circle > svg {
   > article
   > div.ant-card.ant-card-bordered.Dashboard_container__list__1fHss.DashboardList_container__3yL6J {
   background-color: white;
-  border-radius: 25px;
+  border-radius: 8px;
   box-shadow: 0px 15px 50px rgb(0 0 0 / 13%);
 }
 
@@ -6828,7 +6867,8 @@ div > div > div > span.anticon.anticon-close-circle > svg {
   > article
   > div.ant-card.ant-card-bordered.Dashboard_container__list__1fHss.DashboardList_container__3yL6J {
   background-color: #1f1f36;
-  border-radius: 25px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -6997,9 +7037,9 @@ body
   align-items: center;
 }
 
-#root > section > main > article > div > div > div {
+/* #root > section > main > article > div > div > div {
   border-bottom: 0;
-}
+} */
 
 .dark
   #root
@@ -7014,6 +7054,7 @@ body
   > div.ant-row.ant-row-space-between.ant-row-top.StakeInfo_container__2ToEd {
   background-color: #1f1f36;
   border: 0 none;
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 60%);
 }
 
 .dark
@@ -7045,4 +7086,148 @@ body
   > div.ant-row.ant-row-space-between.StakeContent_actions__1JBl5
   > button {
   color: grey;
+}
+
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  display: none !important;
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-row.ant-row-space-between.CrossChain_container__form__2pEVH {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-card.ant-card-bordered.CrossChainDescription_container__3u4SH {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div
+  > div
+  > div
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div.ant-row.ant-row-space-between.ant-row-top.StakeInfo_container__2ToEd {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div.ant-collapse-item.ant-collapse-item-active
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div:nth-child(4) {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div.ant-collapse-item.ant-collapse-item-active
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div:nth-child(5) {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div.ant-collapse-item.ant-collapse-item-active
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div.ant-row.ant-row-space-between.ant-row-middle.VaultAdmin_actions__1vZ8x {
+  box-shadow: 0px 4px 30px rgb(0 0 0 / 16%);
+}
+
+/* #root > section > main > article > div.ant-row.ant-row-end.ant-row-middle.VaultBasedOn_container__2rwfg > div > div {
+  border-bottom: 1px solid white !important;
+} */
+/* 
+#root > section > main > article > div.ant-row.ant-row-end.ant-row-middle.VaultBasedOn_container__2rwfg > div > div:hover {
+  opacity: 0.6;
+  border-color: white;
+} */
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.ant-collapse-ghost.Vaults_list__21RR4
+  > div.ant-collapse-item.ant-collapse-item-active
+  > div.ant-collapse-content.ant-collapse-content-active {
+  /* animation-duration: 3000ms !important; */
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.ant-collapse-ghost.Vaults_list__21RR4
+  > div.ant-collapse-item.ant-collapse-item-active
+  > div.ant-collapse-content.ant-collapse-content-active.ant-motion-collapse-enter.ant-motion-collapse-enter-inactive.ant-motion-collapse {
+  background-color: blue;
+  color: blue;
+}
+
+.dark
+  #root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div
+  > div.ant-collapse-header:hover {
+  background-color: hsla(240, 26%, 17%, 0.52);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
+  > div
+  > div.ant-collapse-header:hover {
+  background-color: #ffffff00;
+}
+
+.dark
+  #root
+  > section
+  > main
+  > article
+  > div
+  > div
+  > div
+  > div.ant-collapse-header:hover {
+  background-color: hsla(240, 26%, 17%, 0.52);
+}
+
+#root
+  > section
+  > main
+  > article
+  > div
+  > div
+  > div
+  > div.ant-collapse-header:hover {
+  background-color: #ffffff00;
 }

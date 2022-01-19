@@ -5,8 +5,9 @@
     line-height: 28px;
     height: 30px;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     background-color: transparent;
+
 
     &:hover {
       opacity: 0.6;
@@ -38,7 +39,7 @@
 
     &:first-child {
       border-left-color: #3f3f61;
-      border-radius: 25px;
+      border-radius: 8px;
       width: 110px;
       text-align: center;
       @media (max-width:1300px) {
@@ -51,7 +52,7 @@
     }
 
     &:last-child {
-      border-radius: 25px;
+      border-radius: 8px;
       width: 110px;
       text-align: center;
       @media (max-width:1300px) {

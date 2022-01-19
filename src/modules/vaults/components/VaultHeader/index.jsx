@@ -30,7 +30,7 @@ const VaultHeader = ({ asset, basedOn }) => {
       
 
       <div className={style.container__growth}>
-        <Paragraph className={style.title}>Yearly Growth:</Paragraph>
+        <Paragraph className={style.title}>APY:</Paragraph>
 
         {!['GUSD', 'LINK'].includes(asset.id) && asset.vaultBalance > 0 && (
           <Text className={style.value}>
