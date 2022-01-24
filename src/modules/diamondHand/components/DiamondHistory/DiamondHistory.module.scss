@@ -18,4 +18,15 @@
       }
     }
   }
+
+  .diamond__history__darkCardLabel{
+    &::before {
+      content: "History";
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+      top: -30px;
+    }
+  }
 }

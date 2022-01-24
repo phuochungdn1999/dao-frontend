@@ -12,7 +12,6 @@
 
     .diamond__input__subLabel {
       font-size: 14px;
-      color: #8236ce !important;
       font-weight: 500;
     }
 
@@ -44,8 +43,12 @@
       }
     }
 
+    .diamond__input__darkInputField {
+      color: #fff;
+      background-color: transparent;
+    }
+
     .diamond__input__maxBtn {
-      color: #8236ce !important;
       font-weight: 500;
       cursor: pointer;
     }

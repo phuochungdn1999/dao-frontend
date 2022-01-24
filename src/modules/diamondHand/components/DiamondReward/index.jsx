@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withTranslation } from "react-i18next";
-import { useDispatch, connect } from "react-redux";
+import { connect } from "react-redux";
 import cx from "classnames";
 import style from "./DiamondReward.module.scss";
 import { ReactComponent as LockIcon } from "../../assets/icons/lock.svg";
@@ -17,8 +17,7 @@ const mapState = (state) => {
   };
 };
 
-const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
-  const [darkMode, setDarkMode] = useState(true);
+const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
   const [rewardsInfo, setRewardsInfo] = useState();
 
   const [totalLifetimeStaked, setTotaLifetimeStaked] = useState(0);
@@ -81,24 +80,18 @@ const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
     }
   }, [poolData]);
 
-  React.useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode, web3context]);
-
   return (
     <>
       <div className={cx(style.diamond__reward__container)}>
-        <div className={cx(style.diamond__reward__title)}>
+        <div className={cx(style.diamond__reward__title.length,
+          theme?.isDarkmode && style.diamond__reward__dark_text)}>
           {t("DIAMOND_REWARD_SUMMARY")}
         </div>
 
         <div className={cx(style.diamond__reward__earnedCard)}>
           <div className={cx(style.diamond__reward__coinStaked)}>
-            <p className={cx(style.diamond__reward__coinStaked_title)}>
+            <p className={cx(style.diamond__reward__coinStaked_title.length,
+              theme?.isDarkmode && style.diamond__reward__dark_text)}>
               YFIAG {t("DIAMOND_YFIAG_STAKED")}
             </p>
             <p
@@ -109,7 +102,8 @@ const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
             </p>
           </div>
           <div className={cx(style.diamond__reward__coinEarned)}>
-            <p className={cx(style.diamond__reward__coinStaked_title)}>
+            <p className={cx(style.diamond__reward__coinStaked_title.length,
+              theme?.isDarkmode && style.diamond__reward__dark_text)}>
               YFIAG {t("DIAMOND_YFIAG_EARNED")}
             </p>
             <p className={cx(style.diamond__reward__coinStaked_number)}>
@@ -126,7 +120,8 @@ const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
               <WalletIcon />
               <span
                 className={cx(
-                  style.diamond__reward__coinStaked_title,
+                  style.diamond__reward__coinStaked_title.length,
+                  theme?.isDarkmode && style.diamond__reward__dark_text,
                   style.invertedColor
                 )}
               >
@@ -154,7 +149,8 @@ const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
                 <LockIcon />
                 <span
                   className={cx(
-                    style.diamond__reward__coinStaked_title,
+                    style.diamond__reward__coinStaked_title.length,
+                    theme?.isDarkmode && style.diamond__reward__dark_text,
                     style.invertedColor
                   )}
                 >
@@ -182,7 +178,8 @@ const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
                 <DiamondIcon />
                 <span
                   className={cx(
-                    style.diamond__reward__coinStaked_title,
+                    style.diamond__reward__coinStaked_title.length,
+                    theme?.isDarkmode && style.diamond__reward__dark_text,
                     style.invertedColor
                   )}
                 >
@@ -205,7 +202,8 @@ const DiamondReward = ({ web3context, t, walletBalance, poolData }) => {
         <div className={cx(style.diamond__reward__global_text)}>
           <span
             className={cx(
-              style.diamond__reward__coinStaked_title,
+              style.diamond__reward__coinStaked_title.length,
+              theme?.isDarkmode && style.diamond__reward__dark_text,
               style.invertedColor
             )}
             style={{ fontSize: "1rem" }}

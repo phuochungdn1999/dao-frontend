@@ -10,6 +10,7 @@ import { vaults } from '../modules/vaults';
 import { pools } from '../modules/stake';
 import { diamond } from '../modules/diamondHand'
 import { wallet } from '../modules/diamondHand/reducers/wallet';
+import { theme } from '../modules/layout/reducers/layout';
 
 const store = createStore(
   combineReducers({
@@ -23,7 +24,8 @@ const store = createStore(
     vaults,
     pools: pools,
     wallet,
-    diamond
+    diamond,
+    theme,
   }),
   applyMiddleware(thunk)
 );

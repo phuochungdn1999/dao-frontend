@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { withRouter, NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import ENS from "ethjs-ens";
 import { Layout, Modal, Row } from "antd";
 import cx from "classnames";
-
+import { actionTypes } from "../../reducers/layout";
 import moon from "./moon.svg";
 import sun from "./sun.svg";
 
@@ -19,9 +19,6 @@ import { makeShortAddress } from "../../../common";
 
 import style from "./Header.module.scss";
 
-import * as ReactDOM from "react-dom";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
-
 const { Header: HeaderLayout } = Layout;
 
 const mapState = (state) => {
@@ -30,14 +27,26 @@ const mapState = (state) => {
     connection: state.connection,
     account: state.account,
     chains: state.chains,
+    theme: state.theme,
   };
 };
 
-const Header = ({ web3context, connection, location, account, chains, t }) => {
+const Header = ({
+  web3context,
+  connection,
+  location,
+  account,
+  chains,
+  t,
+  darkMode,
+  setDarkMode,
+}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [addressEnsName, setAddressEnsName] = useState(null);
   const [currentChain, setCurrentChain] = useState("");
   const [address, setAddress] = useState(null);
+
+  const dispatch = useDispatch();
 
   const parseAddressName = async (address, provider) => {
     const cuttedAddress = makeShortAddress(address);
@@ -78,8 +87,6 @@ const Header = ({ web3context, connection, location, account, chains, t }) => {
       findCurrentChain(web3context.chain, chains.list);
   }, [web3context, chains]);
 
-  const [darkMode, setDarkMode] = React.useState(true);
-
   React.useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark");
@@ -104,15 +111,21 @@ const Header = ({ web3context, connection, location, account, chains, t }) => {
             <img
               className="switch"
               src={sun}
-              onClick={() => setDarkMode(!darkMode)}
-              alt='sun'
+              onClick={() => {
+                setDarkMode(!darkMode);
+                dispatch({ type: actionTypes.CHANGE_THEME_MODE, payload: false });
+              }}
+              alt="sun"
             />
             /
             <img
               className="img"
               src={moon}
-              onClick={() => setDarkMode(!darkMode)}
-              alt='moon'
+              onClick={() => {
+                setDarkMode(!darkMode);
+                dispatch({ type: actionTypes.CHANGE_THEME_MODE, payload: true });
+              }}
+              alt="moon"
             />
             <div></div>
           </div>
@@ -174,10 +187,13 @@ const Header = ({ web3context, connection, location, account, chains, t }) => {
         onCancel={() => setIsModalVisible(false)}
         visible={isModalVisible}
         footer={null}
-        title={'Select a wallet :'}
+        title={"Select a wallet :"}
       >
         <Connections />
-        <p>Wallets are used to send, receive, and store digital assets like Ether. Currently is dApp supporting only Metamask wallet.</p>
+        <p>
+          Wallets are used to send, receive, and store digital assets like
+          Ether. Currently is dApp supporting only Metamask wallet.
+        </p>
       </Modal>
     </HeaderLayout>
   );
