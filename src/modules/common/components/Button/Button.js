@@ -149,6 +149,7 @@ const ButtonElem = styled(BaseElement).attrs((props) => {
   letter-spacing: 1px;
 
   background-color: #8236ce !important;
+  color: #fff;
 
   ${({ disabled }) =>
     disabled

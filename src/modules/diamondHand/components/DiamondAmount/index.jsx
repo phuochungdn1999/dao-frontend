@@ -21,7 +21,7 @@ const mapState = (state) => {
   };
 };
 
-const DiamondAmount = ({ account, diamond, t, walletBalance }) => {
+const DiamondAmount = ({ account, diamond, t, walletBalance, theme }) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [buttons, setButtons] = useState([]);
 
@@ -151,7 +151,7 @@ const DiamondAmount = ({ account, diamond, t, walletBalance }) => {
     <>
       <div className={cx(style.diamond__amount__container)}>
         <div className={cx(style.diamond__amount__item)}>
-          <DiamondCard label="Amount">
+          <DiamondCard label="Amount" theme={theme}>
             <StakeInput
               label="Stake"
               icon={<YFIAGIcon width="24px" height="24px" />}
@@ -164,6 +164,7 @@ const DiamondAmount = ({ account, diamond, t, walletBalance }) => {
               maxBtn
               handleChange={(e) => handleInput(e.target.value)}
               handleMax={(e) => maxStake(e)}
+              theme={theme}
             />
           </DiamondCard>
         </div>
@@ -175,7 +176,7 @@ const DiamondAmount = ({ account, diamond, t, walletBalance }) => {
             style.diamond__amount__plan
           )}
         >
-          <DiamondCard label="Plan">
+          <DiamondCard label="Plan" theme={theme}>
             <DiamondSelectBtnGroup
               buttonsArr={buttons}
               classes={cx(style.diamond__amount__customSelectBtnGroup)}
@@ -184,7 +185,7 @@ const DiamondAmount = ({ account, diamond, t, walletBalance }) => {
           </DiamondCard>
         </div>
         <div className={cx(style.diamond__amount__item)}>
-          <DiamondCard label="Action">
+          <DiamondCard label="Action" theme={theme}>
             <DiamondButton
               label={"Stake"}
               handleClick={openConfirmModal}

@@ -4,6 +4,19 @@
 
   @media (max-width: 1300px) {
     margin-top: 10%;
+
+    div {
+      width: unset !important;
+    }
+  }
+
+  @media (max-width: 425px) {
+    margin-top: 25%;
+  }
+
+  @media (max-width: 320px) {
+    margin-top: 40%;
+    white-space: nowrap;
   }
 
   &_loading {
@@ -27,6 +40,10 @@
     font-size: 30px;
     line-height: 41px;
     color: #ffffff;
+
+    @media (max-width: 1300px) {
+      justify-content: center;
+    }
 
     .viewScan {
       border: 1px solid #8736cb;
@@ -205,6 +222,10 @@
       background-color: #fff;
     }
 
+    .diamond__reward__dark {
+      background-color: rgba(32, 32, 55, 0.52);
+    }
+
     @media (max-width: 1400px) {
       grid-template-rows: auto;
       grid-template-columns: auto;
@@ -228,3 +249,7 @@
     display: none;
   }
 }
+
+/* .diamond__reward__dark{
+  background: red;
+} */

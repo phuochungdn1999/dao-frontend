@@ -50,6 +50,12 @@
       min-width: 100px;
     }
   }
+
+  .diamond__table__dark{
+    tr th, tr td{
+      color: #fff !important;
+    }
+  }
 }
 
 .diamond__table_pagination {

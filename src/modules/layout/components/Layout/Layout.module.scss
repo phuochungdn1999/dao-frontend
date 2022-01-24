@@ -22,6 +22,35 @@ body{
 
     
   }
+
+  .darkContainer{
+    background-image: url(./background-dark.jpg);
+    background-size: cover;
+    min-height:100vh;
+    // background-image: url("./background-layout.png") ;
+    // height: 30vh !important;
+    // background-size: 840px 443px;
+    @media (max-width:1300px) {
+
+      // background-image: url("./mobile-background.png") , linear-gradient(to left bottom, #ffebeb, #f9bdcc, #e891bf, #c66abf, #8c4ec9) ;
+    &__content {
+      margin-right: auto;
+      margin-left: auto;
+      min-height: 100%;
+      max-width: 1176px;
+      padding: 70px 15px;
+      width: 100%;
+      &_inner {
+        min-height: calc(100vh - 104px);
+        
+      }
+      
+    }
+    
+    
+  }
+  
+  }
    
   .container {
     background-image: url(./backgound-light.jpg);

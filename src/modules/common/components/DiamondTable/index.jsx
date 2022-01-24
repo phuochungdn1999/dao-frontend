@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import cx from "classnames";
 import style from "./DiamondTable.module.scss";
-import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { useCallback } from "react";
 import DiamondDropdownSelect from "../DiamondDropdownSelect";
@@ -17,6 +16,7 @@ const DiamondTable = ({
   currentPage,
   handleChangePage,
   handleRowsPerPage,
+  theme
 }) => {
   const renderCells = useCallback((td) => {
     let a = [];
@@ -37,7 +37,7 @@ const DiamondTable = ({
   return (
     <>
       <div className={cx(style.diamond__table__container)}>
-        <table className={cx(style.diamond__table__parent)}>
+        <table className={cx(style.diamond__table__parent, theme?.isDarkmode && style.diamond__table__dark)}>
           <tr className={cx(style.diamond__table__header_row)}>
             {showIndex && (
               <th className={cx(style.diamond__table__indexCol)}>#</th>

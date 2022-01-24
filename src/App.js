@@ -57,15 +57,6 @@ const updateAccount = () => {
 };
 
 function App() {
-  const [darkMode, setDarkMode] = React.useState(true);
-
-  React.useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   useEffect(() => {
     injected.isAuthorized().then((isAuthorized) => {
@@ -96,7 +87,7 @@ function App() {
         once: true,
       });
     }
-  }, []);
+  }, []); 
 
   return (
     <Provider store={store}>

@@ -41,14 +41,20 @@ const Header = [
   { id: 5, label: "Action" },
 ];
 
-const DiamondHistory = ({ account, poolData, refetch }) => {
+const DiamondHistory = ({ account, poolData, refetch, theme }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
   const [unstakingButton, setUnstakingButton] = useState(null);
+  const [loadingEarning, setLoadingEarning] = useState(true);
   const [userPool, setUserPool] = useState([]);
   const [resultModal, setResultModal] = useState({
     open: false,
-    message: <p>Claim <span style={{color: '#8736cb'}}>successful</span>! Check your Wallet balance.</p>,
+    message: (
+      <p>
+        Claim <span style={{ color: "#8736cb" }}>successful</span>! Check your
+        Wallet balance.
+      </p>
+    ),
     heading: "Unstake Result",
     loading: false,
   });
@@ -69,7 +75,12 @@ const DiamondHistory = ({ account, poolData, refetch }) => {
         setResultModal({
           ...resultModal,
           open: true,
-          message: <p>Claim <span style={{color: '#f37878'}}>unsuccessful</span>, please try again!</p>,
+          message: (
+            <p>
+              Claim <span style={{ color: "#f37878" }}>unsuccessful</span>,
+              please try again!
+            </p>
+          ),
         });
       }
 
@@ -178,8 +189,10 @@ const DiamondHistory = ({ account, poolData, refetch }) => {
         }
       }
       setUserPool(tempPool);
+      setLoadingEarning(false);
     };
 
+    setLoadingEarning(true);
     generatePool();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [poolData]);
@@ -201,7 +214,7 @@ const DiamondHistory = ({ account, poolData, refetch }) => {
   }, [currentPage, rowsPerPage, userPool]);
 
   const renderTable = useCallback(() => {
-    if (getDataPagination.length > 0)
+    if (getDataPagination.length > 0 && !loadingEarning)
       return (
         <DiamondTable
           headers={Header}
@@ -213,20 +226,49 @@ const DiamondHistory = ({ account, poolData, refetch }) => {
           currentPage={currentPage}
           handleChangePage={(page) => setCurrentPage(page)}
           handleRowsPerPage={(rpp) => setRowsPerPage(rpp)}
+          theme={theme}
         />
       );
 
-    return (
-      <>
-        <Spinner />
-      </>
-    );
-  }, [currentPage, getDataPagination, getPagesLength, rowsPerPage]);
+    if (loadingEarning && getDataPagination.length === 0)
+      return (
+        <>
+          <Spinner />
+        </>
+      );
+
+    if (!loadingEarning && getDataPagination.length === 0) {
+      return (
+        <h5
+          style={{
+            textAlign: "center",
+            color: theme?.isDarkmode ? "#fff" : "#8763cb",
+          }}
+        >
+          No Data
+        </h5>
+      );
+    }
+  }, [
+    currentPage,
+    getDataPagination,
+    getPagesLength,
+    loadingEarning,
+    rowsPerPage,
+    theme,
+  ]);
 
   return (
     <>
       <div className={cx(style.diamond_history_container)}>
-        <DiamondCard classes={cx(style.diamond__history__cardLabel)} label="">
+        <DiamondCard
+          classes={cx(
+            style.diamond__history__cardLabel,
+            theme?.isDarkmode && style.diamond__history__darkCardLabel
+          )}
+          label=""
+          theme={theme}
+        >
           {renderTable()}
         </DiamondCard>
         <Disclaimer>

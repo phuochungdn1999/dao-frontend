@@ -14,10 +14,18 @@ import style from "./Layout.module.scss";
 
 const { Content } = LayoutContainer;
 
-const Layout = ({ location, children }) => {
+const Layout = ({ location, children, theme }) => {
+
+
+  const [darkMode, setDarkMode] = React.useState(true);
+
   return (
-    <LayoutContainer className={style.container}>
-      {location.pathname !== "" && <Header />}
+    <LayoutContainer
+      className={cx(darkMode ? style.darkContainer : style.container)}
+    >
+      {location.pathname !== "" && (
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      )}
 
       <Content
         className={cx(style.container__content, {
@@ -30,22 +38,22 @@ const Layout = ({ location, children }) => {
       <footer>
         <a className="button" href="https://yearnagnostic.medium.com/">
           {" "}
-          <img className="img" src={logoMedium} alt='footer-logos'/>
+          <img className="img" src={logoMedium} alt="footer-logos" />
         </a>
 
         <a className="button" href="https://t.me/yearnagnostic">
           {" "}
-          <img className="img" src={logoTelegram} alt='footer-logos'/>
+          <img className="img" src={logoTelegram} alt="footer-logos" />
         </a>
 
         <a className="button" href="https://twitter.com/yearnagnostic">
           {" "}
-          <img className="img" src={logoTwitter} alt='footer-logos'/>
+          <img className="img" src={logoTwitter} alt="footer-logos" />
         </a>
 
         <a className="button" href="https://github.com/Yearn-Agnostic">
           {" "}
-          <img className="img" src={logoGithub} alt='footer-logos'/>{" "}
+          <img className="img" src={logoGithub} alt="footer-logos" />{" "}
         </a>
       </footer>
       <h2 className="template"> yAgnostic </h2>

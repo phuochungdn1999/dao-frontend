@@ -3212,7 +3212,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   top: 22.44%;
   bottom: 22.44%;
   width: 25%;
-  /* animation: glide 3s ease-in-out alternate infinite; */
+  animation: glide 3s ease-in-out alternate infinite;
 }
 @media screen and (min-width: 1300px) {
   @keyframes glide {

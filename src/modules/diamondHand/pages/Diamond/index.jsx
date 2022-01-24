@@ -11,7 +11,7 @@ import DiamondAmount from "../../components/DiamondAmount";
 import DiamondHistory from "../../components/DiamondHistory";
 import { getUserBalance } from "../../thunk/getWalletBalance";
 import { gql, useQuery } from "@apollo/client";
-import { dev } from '../../../../configs/config';
+import { dev } from "../../../../configs/config";
 
 const { Title } = Typography;
 
@@ -20,10 +20,11 @@ const mapState = (state) => {
     web3context: state.web3context,
     account: state.account,
     pools: state.pools,
+    theme: state.theme,
   };
 };
 
-const DiamondHand = ({ web3context, account, pools, t }) => {
+const DiamondHand = ({ web3context, account, pools, t, theme }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [balance, setBalance] = useState(0);
   const [availableChain, setAvailableChain] = useState(null);
@@ -130,27 +131,41 @@ const DiamondHand = ({ web3context, account, pools, t }) => {
               <div
                 className={cx(
                   style.diamond__reward__mobile,
-                  style.diamond__content__div
+                  style.diamond__content__div,
+                  theme.isDarkmode && style.diamond__reward__dark
                 )}
               >
-                <DiamondReward walletBalance={balance} poolData={poolData} />
+                <DiamondReward
+                  theme={theme}
+                  walletBalance={balance}
+                  poolData={poolData}
+                />
               </div>
               <div>
                 <div className={cx(style.diamond__input)}>
-                  <DiamondAmount walletBalance={balance} />
+                  <DiamondAmount theme={theme} walletBalance={balance} />
                 </div>
                 <div className={cx(style.diamond__input)}>
-                  <DiamondHistory poolData={poolData} refetch={refetch} />
+                  <DiamondHistory
+                    theme={theme}
+                    poolData={poolData}
+                    refetch={refetch}
+                  />
                 </div>
               </div>
 
               <div
                 className={cx(
                   style.diamond__reward,
-                  style.diamond__content__div
+                  style.diamond__content__div,
+                  theme.isDarkmode && style.diamond__reward__dark
                 )}
               >
-                <DiamondReward walletBalance={balance} poolData={poolData} />
+                <DiamondReward
+                  theme={theme}
+                  walletBalance={balance}
+                  poolData={poolData}
+                />
               </div>
             </div>
           </>

@@ -12,20 +12,31 @@ const DiamondInput = ({
   maxBtn,
   handleChange,
   handleMax,
+  theme,
 }) => {
   const { t } = useTranslation();
+
   return (
     <>
       <div className={cx(style.diamond__input__container)}>
         <div className={cx(style.diamond__input__subLabelContainer)}>
           {icon && icon}{" "}
-          <span className={cx(style.diamond__input__subLabel)}>{subLabel}</span>
+          <span
+            className={cx(style.diamond__input__subLabel)}
+            style={{
+              color: theme?.isDarkmode
+                ? "#fff"
+                : "#8236ce",
+            }}
+          >
+            {subLabel}
+          </span>
         </div>
 
         <div className={cx(style.diamond__input__inputContainer)}>
           <input
-            className={cx(style.diamond__input__inputField)}
-            type={type || 'text'}
+            className={cx(style.diamond__input__inputField, theme?.isDarkmode && style.diamond__input__darkInputField)}
+            type={type || "text"}
             value={value}
             onChange={handleChange}
           />
@@ -34,6 +45,11 @@ const DiamondInput = ({
               className={cx(style.diamond__input__maxBtn)}
               type="button"
               onClick={handleMax}
+              style={{
+                color: theme?.isDarkmode
+                  ? "#fff"
+                  : "#8236ce",
+              }}
             >
               MAX
             </button>
