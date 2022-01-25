@@ -12,6 +12,10 @@ const pools = process.env.REACT_APP_PROPOSAL_NETWORK === 'mainnet' ?
     {
       id: 1,
       list: pools1
+    },
+    {
+      id: 97,
+      list: pools2
     }
   ];
 
