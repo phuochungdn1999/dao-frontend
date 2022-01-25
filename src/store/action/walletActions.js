@@ -1,11 +1,7 @@
-import { Dispatch } from 'redux';
 import { ethers } from 'ethers';
-import { config } from '../../configs/config';
-import { alertActions } from '../../store';
 import { isWalletConnectMethod, truncateWalletAddress } from '../../utils';
 import { WalletActionTypes } from '../../enum/enums';
 import { addBscNetworkToMetamask } from '../../helper/metamask.helper'; 
-import { updateBridgeInfo } from './bridgeActions';
 
 export let web3Provider;
 export let signer;
@@ -74,12 +70,6 @@ export const connectByEthereumProvider =
           dispatch(connectWalletFailure('Invalid network'));
           addBscNetworkToMetamask();
 
-          dispatch(
-            alertActions.warning({
-              heading: 'Woops... Invalid network.',
-              message: 'Please set up Binance Smart Chain network.',
-            }),
-          );
         };
 
         window.ethereum.on('accountsChanged', async (accounts) => {
@@ -106,42 +96,16 @@ export const connectByEthereumProvider =
           onInvalidNetwork,
         );
         if (walletData?.address) {
-          dispatch(
-            alertActions.success({
-              heading: 'Your wallet is ready to use!',
-              message: `Wallet ${truncateWalletAddress(
-                walletData.address,
-              )} has been successfully installed with ${
-                method === 'METAMASK'
-                  ? 'Metamask'
-                  : method === 'TRUST_WALLET'
-                  ? 'TrustWallet'
-                  : 'TokenPocket'
-              }.`,
-            }),
-          );
           setTimeout(() => dispatch(endWalletConnecting()), 2000);
         } else {
           dispatch(endWalletConnecting());
         }
       } else {
         dispatch(connectWalletFailure('No provider was found'));
-        dispatch(
-          alertActions.warning({
-            heading: 'Woops... we cannot add your wallet.',
-            message: 'No provider was found.',
-          }),
-        );
         dispatch(endWalletConnecting());
       }
     } catch {
       dispatch(connectWalletFailure('Connection to wallet failed'));
-      dispatch(
-        alertActions.warning({
-          heading: 'Woops... we cannot add your wallet.',
-          message: 'Please try again.',
-        }),
-      );
       dispatch(endWalletConnecting());
     }
   };

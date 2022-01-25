@@ -1,10 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
-import { Dispatch } from 'redux';
-import { alertActions } from '../../store';
 import ERC20Abi from '../../abi/erc20.abi';
 import { config } from '../../configs/config';
-import { getTokenBalance, getTokenDecimals } from '../../api/token.service';
 import { jsonRpcProvider } from '../../api/contract.service';
 import { axiosApi } from '../../utils/axiosApi';
 import { TokensActionTypes } from '../../enum/enums';
@@ -144,51 +141,3 @@ export const resetTokensBalance = () => (dispatch, getState) => {
 
   dispatch(updateListToken(list.map((token) => ({ ...token, balance: undefined }))));
 };
-
-export const importCustomToken =
-  (name, symbol, address) =>
-  async (dispatch, getState) => {
-    const {
-      tokens: { list },
-    } = getState();
-
-    if (list.some((token) => token.address === address)) {
-      dispatch(
-        alertActions.warning({
-          heading: 'Token importing has failed!',
-          message: 'Token with the passed address already exists',
-        }),
-      );
-      return;
-    }
-
-    try {
-      const decimals = await getTokenDecimals(address);
-      const balance = await getTokenBalance(address, decimals);
-
-      dispatch(
-        addCustomToken({
-          name,
-          symbol,
-          decimals,
-          balance: new BigNumber(balance).toJSON(),
-          id: 999,
-          icon: null,
-          address,
-          liquidity: '',
-          usdRate: '0',
-          volumetoken_1d: '0',
-          volumetoken_7d: '0',
-          volumetokenusd_1d: '0',
-          volumetokenusd_7d: '0',
-        }),
-      );
-    } catch {
-      dispatch(
-        alertActions.warning({
-          heading: 'Error has occured',
-          message: 'Adding custom token failed',
-        }),
-      );
-    }
-  };

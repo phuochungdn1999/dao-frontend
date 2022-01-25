@@ -8,7 +8,8 @@ import { dev } from "./configs/config";
 const client = new ApolloClient({
   uri: dev()
     ? "https://api.thegraph.com/subgraphs/name/gink3008/yfiagexample4"
-    : "https://api.thegraph.com/subgraphs/name/payb-tech/yfiagdiamondhand",
+    : "https://api.thegraph.com/subgraphs/name/gink3008/yfiagexample4",
+    //TODO: real sub graph
   cache: new InMemoryCache(),
 });
 

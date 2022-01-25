@@ -31,5 +31,4 @@ const store = createStore(
 );
 
 export * as tokensActions from './action/tokensActions';
-export * as alertActions from './action/alertActions'
 export default store;

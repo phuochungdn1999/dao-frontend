@@ -286,7 +286,8 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
               href={
                 dev()
                   ? `https://testnet.bscscan.com/address/${account.address}`
-                  : `https://bscscan.com/address/${account.address}`
+                  : `https://testnet.bscscan.com/address/${account.address}`
+                  //TODO: `https://bscscan.com/address/${account.address}`
               }
               target="_blank"
               rel="noreferrer"

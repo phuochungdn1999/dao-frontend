@@ -116,7 +116,8 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
               window.open(
                 dev()
                   ? `https://testnet.bscscan.com/address/${account.address}`
-                  : `https://bscscan.com/address/${account.address}`,
+                  : `https://testnet.bscscan.com/address/${account.address}`,
+                  //TODO: `https://bscscan.com/address/${account.address}`,
                 "_blank"
               );
             }}
