@@ -68,7 +68,9 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
         ...resultModal,
         open: true,
       });
-      setTimeout(refetch({ address: account.address }), 10000);
+      setTimeout(() => {
+        refetch();
+      }, 5000);
     },
     (unstakeSuccess) => {
       if (unstakeSuccess) {
@@ -88,6 +90,12 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
     },
     unstakingButton
   );
+
+  useEffect(() => {
+    setInterval(() => {
+      refetch();
+    }, 30000);
+  }, [refetch]);
 
   const getPlan = (apy) => {
     let plan = "";
@@ -287,7 +295,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
                 dev()
                   ? `https://testnet.bscscan.com/address/${account.address}`
                   : `https://testnet.bscscan.com/address/${account.address}`
-                  //TODO: `https://bscscan.com/address/${account.address}`
+                //TODO: `https://bscscan.com/address/${account.address}`
               }
               target="_blank"
               rel="noreferrer"

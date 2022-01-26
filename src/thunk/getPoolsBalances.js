@@ -121,7 +121,6 @@ const getPoolsBalances = ({ web3, list, account }) => {
         }).catch((error) => callback(error));
       }, (err, tokensData) => {
         if(err) {
-          console.log(err)
           return callback(err)
         }
 

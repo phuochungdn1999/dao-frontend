@@ -117,7 +117,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
                 dev()
                   ? `https://testnet.bscscan.com/address/${account.address}`
                   : `https://testnet.bscscan.com/address/${account.address}`,
-                  //TODO: `https://bscscan.com/address/${account.address}`,
+                //TODO: `https://bscscan.com/address/${account.address}`,
                 "_blank"
               );
             }}
@@ -144,7 +144,11 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
               </div>
               <div>
                 <div className={cx(style.diamond__input)}>
-                  <DiamondAmount theme={theme} walletBalance={balance} />
+                  <DiamondAmount
+                    theme={theme}
+                    walletBalance={balance}
+                    refetch={refetch}
+                  />
                 </div>
                 <div className={cx(style.diamond__input)}>
                   <DiamondHistory

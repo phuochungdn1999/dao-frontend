@@ -21,14 +21,21 @@ const mapState = (state) => {
   };
 };
 
-const DiamondAmount = ({ account, diamond, t, walletBalance, theme }) => {
+const DiamondAmount = ({
+  account,
+  diamond,
+  t,
+  walletBalance,
+  theme,
+  refetch,
+}) => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [buttons, setButtons] = useState([]);
 
   const [resultModal, setResultModal] = useState({
     open: false,
     message: "",
-    heading: "Unstake Result",
+    heading: "Staking Result",
     loading: false,
   });
 
@@ -41,7 +48,7 @@ const DiamondAmount = ({ account, diamond, t, walletBalance, theme }) => {
     useStakeDiamondHand(
       (success) => {
         closeConfirmModal();
-        if (success)
+        if (success) {
           setResultModal({
             ...resultModal,
             open: true,
@@ -52,6 +59,11 @@ const DiamondAmount = ({ account, diamond, t, walletBalance, theme }) => {
               </p>
             ),
           });
+
+          setTimeout(() => {
+            refetch();
+          }, 5000);
+        }
 
         if (!success)
           setResultModal({
@@ -89,7 +101,6 @@ const DiamondAmount = ({ account, diamond, t, walletBalance, theme }) => {
   };
 
   const onSelectedPlan = (id) => {
-    console.log(id);
     setSelectedPlan(id);
   };
 
