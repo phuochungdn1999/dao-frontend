@@ -54,7 +54,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
     pollInterval: 60000,
   });
 
-  const getbalance = useCallback(
+  const getBalance = useCallback(
     async (chain) => {
       let balanceValue = await getUserBalance(
         web3context.instance,
@@ -79,7 +79,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
   useEffect(() => {
     const balanceOnChain = async () => {
       if (availableChain !== null) {
-        await getbalance(availableChain);
+        await getBalance(availableChain);
       }
     };
     balanceOnChain();
@@ -140,13 +140,14 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
                   theme={theme}
                   walletBalance={balance}
                   poolData={poolData}
-                />
+                  />
               </div>
               <div>
                 <div className={cx(style.diamond__input)}>
                   <DiamondAmount
                     theme={theme}
                     walletBalance={balance}
+                    getBalance={() => getBalance(availableChain)}
                     refetch={refetch}
                   />
                 </div>
@@ -155,6 +156,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
                     theme={theme}
                     poolData={poolData}
                     refetch={refetch}
+                    getBalance={() => getBalance(availableChain)}
                   />
                 </div>
               </div>

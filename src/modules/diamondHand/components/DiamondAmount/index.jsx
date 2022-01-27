@@ -26,6 +26,7 @@ const DiamondAmount = ({
   account,
   diamond,
   walletBalance,
+  getBalance,
   theme,
   refetch,
 }) => {
@@ -59,7 +60,7 @@ const DiamondAmount = ({
               </p>
             ),
           });
-
+          getBalance();
           setTimeout(() => {
             refetch();
           }, 5000);

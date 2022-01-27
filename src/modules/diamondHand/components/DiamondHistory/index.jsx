@@ -41,7 +41,7 @@ const Header = [
   { id: 5, label: "Action" },
 ];
 
-const DiamondHistory = ({ account, poolData, refetch, theme }) => {
+const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
   const [unstakingButton, setUnstakingButton] = useState(null);
@@ -68,6 +68,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
         ...resultModal,
         open: true,
       });
+      getBalance()
       setTimeout(() => {
         refetch();
         setLoadingEarning(true)
@@ -210,24 +211,13 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [poolData]);
 
-  useEffect(() => {
-    if (poolData?.users.length > 0) {
-      let pools = [...poolData.users[0].userPools];
-
-      console.log("before: ", pools);
-      pools.sort((a, b) => moment.unix(a.id) - moment.unix(b.id));
-
-      console.log("after: ", pools);
-    }
-  }, [poolData]);
-
   const getPagesLength = useMemo(() => {
     return userPool.length % rowsPerPage === 0
       ? userPool.length / rowsPerPage
       : parseInt(userPool.length / rowsPerPage) + 1;
   }, [rowsPerPage, userPool]);
 
-  const getDataPagination = useMemo(() => {
+  const getDataPagination = useMemo(() => { 
     if (userPool.length > 0)
       return userPool.slice(
         currentPage * rowsPerPage,

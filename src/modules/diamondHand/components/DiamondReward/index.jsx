@@ -116,7 +116,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                 theme?.isDarkmode && style.diamond__reward__dark_text
               )}
             >
-              YFIAG {t("DIAMOND_YFIAG_STAKED")}
+               {t("DIAMOND_YFIAG_STAKED")} YFIAG
             </p>
             <p
               className={cx(style.diamond__reward__coinStaked_number)}
@@ -132,7 +132,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                 theme?.isDarkmode && style.diamond__reward__dark_text
               )}
             >
-              YFIAG {t("DIAMOND_YFIAG_EARNED")}
+              {t("DIAMOND_YFIAG_EARNED")} YFIAG
             </p>
             <p className={cx(style.diamond__reward__coinStaked_number)}>
               {getSixDigitsAfterComma(totalLifetimeEarned, 4)}
@@ -153,7 +153,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                   style.invertedColor
                 )}
               >
-                YFIAG {t("DIAMOND_WALLET_BALANCE")}
+                {t("DIAMOND_WALLET_BALANCE")}
               </span>
             </p>
             <p
@@ -182,7 +182,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                     style.invertedColor
                   )}
                 >
-                  YFIAG {t("DIAMOND_LOCKED_AMOUNT")}
+                  {t("DIAMOND_LOCKED_AMOUNT")}
                 </span>
               </p>
               <p
@@ -211,7 +211,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                     style.invertedColor
                   )}
                 >
-                  YFIAG {t("DIAMOND_UNLOCKED_REWARD")}
+                  {t("DIAMOND_UNLOCKED_REWARD")}
                 </span>
               </p>
               <p
