@@ -1,20 +1,23 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { config } from '../../../../../configs/config';
-import { getTokenBalance } from '../../../../../api/token.service';
-import { DiamondHandService } from '../../../../../api/diamondHand.service'; 
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { config } from "../../../../../configs/config";
+import { getTokenBalance } from "../../../../../api/token.service";
+import { DiamondHandService } from "../../../../../api/diamondHand.service";
 
 export const useFetchDiamondHandData = () => {
   const [rewardsInfo, setRewardsInfo] = useState({});
   const walletAddress = useSelector((store) => store.wallet.address);
 
-  const fetchPAYBBAlance = async () => {
+  const fetchBalance = async () => {
     try {
       const response = await getTokenBalance(config.YFIAG_ADDRESS);
-      setRewardsInfo((prevState) => ({ ...prevState, paybBalance: response.toString() }));
+      setRewardsInfo((prevState) => ({
+        ...prevState,
+        tokenBalance: response.toString(),
+      }));
     } catch (e) {
       console.error(e);
-      setRewardsInfo((prevState) => ({ ...prevState, paybBalance: 0 }));
+      setRewardsInfo((prevState) => ({ ...prevState, tokenBalance: 0 }));
     }
   };
 
@@ -31,28 +34,28 @@ export const useFetchDiamondHandData = () => {
       }));
     }
   };
-  
-  const fetchEarnedPAYBTotal = async (id) => {
+
+  const fetchEarnedTokenTotal = async (id) => {
     try {
       const response = await DiamondHandService.toClaimV2(id);
-      setRewardsInfo((prevState) => ({ ...prevState, paybEarned: response }));
+      setRewardsInfo((prevState) => ({ ...prevState, tokenEarned: response }));
     } catch (e) {
       console.error(e);
-      setRewardsInfo((prevState) => ({ ...prevState, paybEarned: 0 }));
+      setRewardsInfo((prevState) => ({ ...prevState, tokenEarned: 0 }));
     }
   };
 
   const fetchDiamondHandData = () => {
     fetchRewardInfo();
-    fetchEarnedPAYBTotal();
-    fetchPAYBBAlance();
+    fetchEarnedTokenTotal();
+    fetchBalance();
   };
 
   useEffect(() => {
     let intervalId = null;
     if (walletAddress) {
       fetchDiamondHandData();
-      intervalId = setInterval(fetchEarnedPAYBTotal, 30000);
+      intervalId = setInterval(fetchEarnedTokenTotal, 30000);
     }
 
     return () => {
@@ -60,7 +63,8 @@ export const useFetchDiamondHandData = () => {
         clearInterval(intervalId);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletAddress]);
 
-  return { rewardsInfo, fetchDiamondHandData, fetchPAYBBAlance };
+  return { rewardsInfo, fetchDiamondHandData, fetchBalance };
 };

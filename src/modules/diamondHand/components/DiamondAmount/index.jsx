@@ -22,9 +22,9 @@ const mapState = (state) => {
 };
 
 const DiamondAmount = ({
+  t,
   account,
   diamond,
-  t,
   walletBalance,
   theme,
   refetch,

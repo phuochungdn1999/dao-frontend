@@ -8,6 +8,8 @@ import { ReactComponent as WalletIcon } from "../../assets/icons/wallet.svg";
 import { ReactComponent as DiamondIcon } from "../../assets/icons/diamond.svg";
 import { getSixDigitsAfterComma } from "../../../../utils/getSixDigitsAfterComma";
 import { getUserInfoFromFarmV2 } from "../../../../api/diamondHand.service";
+import { getTotalSupplyDiamondHand } from "../../../../api/token.service";
+
 import moment from "moment";
 const mapState = (state) => {
   return {
@@ -26,6 +28,8 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
   const [totalCurrentStaked, setTotalCurrentStaked] = useState(0);
   const [totalCurrentEarned, setTotaCurrentEarned] = useState(0);
 
+  const [totalSupply, setTotalSupply] = useState(0);
+
   const fetchRewardInfo = async () => {
     try {
       const response = await getUserInfoFromFarmV2();
@@ -41,7 +45,19 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
   };
 
   useEffect(() => {
+    const fetchTotalSupply = async () => {
+      try {
+        const response = await getTotalSupplyDiamondHand(window.ethereum);
+        setTotalSupply(response);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
     fetchRewardInfo();
+
+    fetchTotalSupply();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -83,15 +99,23 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
   return (
     <>
       <div className={cx(style.diamond__reward__container)}>
-        <div className={cx(style.diamond__reward__title.length,
-          theme?.isDarkmode && style.diamond__reward__dark_text)}>
+        <div
+          className={cx(
+            style.diamond__reward__title.length,
+            theme?.isDarkmode && style.diamond__reward__dark_text
+          )}
+        >
           {t("DIAMOND_REWARD_SUMMARY")}
         </div>
 
         <div className={cx(style.diamond__reward__earnedCard)}>
           <div className={cx(style.diamond__reward__coinStaked)}>
-            <p className={cx(style.diamond__reward__coinStaked_title.length,
-              theme?.isDarkmode && style.diamond__reward__dark_text)}>
+            <p
+              className={cx(
+                style.diamond__reward__coinStaked_title.length,
+                theme?.isDarkmode && style.diamond__reward__dark_text
+              )}
+            >
               YFIAG {t("DIAMOND_YFIAG_STAKED")}
             </p>
             <p
@@ -102,12 +126,16 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
             </p>
           </div>
           <div className={cx(style.diamond__reward__coinEarned)}>
-            <p className={cx(style.diamond__reward__coinStaked_title.length,
-              theme?.isDarkmode && style.diamond__reward__dark_text)}>
+            <p
+              className={cx(
+                style.diamond__reward__coinStaked_title.length,
+                theme?.isDarkmode && style.diamond__reward__dark_text
+              )}
+            >
               YFIAG {t("DIAMOND_YFIAG_EARNED")}
             </p>
             <p className={cx(style.diamond__reward__coinStaked_number)}>
-              {totalLifetimeEarned}
+              {getSixDigitsAfterComma(totalLifetimeEarned, 4)}
             </p>
           </div>
         </div>
@@ -163,7 +191,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                   style.invertedColor
                 )}
               >
-                {totalCurrentStaked}
+                {getSixDigitsAfterComma(totalCurrentStaked, 4)}
               </p>
             </div>
             <div className={cx(style.diamond__reward__detail)}>
@@ -192,7 +220,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                   style.invertedColor
                 )}
               >
-                {totalCurrentEarned}
+                {getSixDigitsAfterComma(totalCurrentEarned, 4)}
               </p>
             </div>
           </div>
@@ -216,7 +244,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
             className={cx(style.diamond__reward__coinStaked_number)}
             style={{ color: "#8736cb", fontSize: "1.125rem" }}
           >
-            392322847.4857321
+            {getSixDigitsAfterComma(totalSupply)}
           </span>
         </div>
       </div>

@@ -70,6 +70,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
       });
       setTimeout(() => {
         refetch();
+        setLoadingEarning(true)
       }, 5000);
     },
     (unstakeSuccess) => {
@@ -94,7 +95,8 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
   useEffect(() => {
     setInterval(() => {
       refetch();
-    }, 30000);
+      setLoadingEarning(true)
+    }, 180000);
   }, [refetch]);
 
   const getPlan = (apy) => {
@@ -141,7 +143,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
     return true;
   };
 
-  const fetchEarnedPAYBById = async (id) => {
+  const fetchEarnedTokenById = async (id) => {
     try {
       const response = await DiamondHandService.toClaimV2(id, window.ethereum);
 
@@ -151,8 +153,8 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
     }
   };
 
-  const fetchPayB = async (id) => {
-    let earned = await fetchEarnedPAYBById(parseInt(id));
+  const fetchToken = async (id) => {
+    let earned = await fetchEarnedTokenById(parseInt(id));
     return earned;
   };
 
@@ -160,20 +162,23 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
     const generatePool = async () => {
       let tempPool = [];
       if (poolData?.users.length > 0) {
-        for (let i = 0; i < poolData.users[0].userPools.length; i++) {
-          let current = poolData.users[0].userPools[i];
+        let pools = [...poolData.users[0].userPools];
+        pools.sort((a, b) => moment.unix(b.id) - moment.unix(a.id));
+
+        for (let i = 0; i < pools.length; i++) {
+          let current = pools[i];
           const currentDueDate = getDueDate(
             current.depositedAt,
             current.duration
           );
 
-          const earned = await fetchPayB(current.id);
+          const earned = await fetchToken(current.id);
 
           tempPool[i] = {
             id: current.id,
             cells: {
               amount: current.amount / 10 ** 18,
-              plan: getPlan(poolData.users[0].userPools[i].apy),
+              plan: getPlan(pools[i].apy),
               dueDate: getDueDate(current.depositedAt, current.duration).format(
                 "Do MMM, YYYY hh:mm:ss"
               ),
@@ -203,6 +208,17 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
     setLoadingEarning(true);
     generatePool();
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [poolData]);
+
+  useEffect(() => {
+    if (poolData?.users.length > 0) {
+      let pools = [...poolData.users[0].userPools];
+
+      console.log("before: ", pools);
+      pools.sort((a, b) => moment.unix(a.id) - moment.unix(b.id));
+
+      console.log("after: ", pools);
+    }
   }, [poolData]);
 
   const getPagesLength = useMemo(() => {
@@ -238,7 +254,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme }) => {
         />
       );
 
-    if (loadingEarning && getDataPagination.length === 0)
+    if (loadingEarning)
       return (
         <>
           <Spinner />

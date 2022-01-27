@@ -29,8 +29,8 @@ const getFarmParams = async (farmId = 0) => {
 const getTreasury = async () => await diamondHandContract.functions.TREASURY();
 
 /**
- * Add Payb tokens to stake
- * @param amount Amount of Payb tokens
+ * Add tokens to stake
+ * @param amount Amount of tokens
  * @returns TransactionResponse
  */
 const stakeV2 = async (poolSetting, amount, accountAddress, provider) => {
@@ -58,8 +58,8 @@ const stakeV2 = async (poolSetting, amount, accountAddress, provider) => {
 };
 
 /**
- * Remove Payb tokens from stake
- * @param amount Amout of Payb tokens
+ * Remove tokens from stake
+ * @param amount Amout of tokens
  * @returns TransactionResponse
  */
 const unstakeV2 = async (provider, poolId) => {
@@ -76,9 +76,9 @@ const unstakeV2 = async (provider, poolId) => {
 };
 
 /**
- * Get pending Payb tokens to claim
+ * Get pending tokens to claim
  * @param farmId Farm id on contract (default 0 = staking)
- * @returns Available Payb tokens to claim
+ * @returns Available tokens to claim
  */
 const toClaimV2 = async (farmId = 0, provider) => {
   let signer = await connectByWeb3Provider(provider);
