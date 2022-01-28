@@ -6,8 +6,7 @@ import { web3Provider } from "../store/action/walletActions";
 export const jsonRpcProvider = new ethers.providers.JsonRpcBatchProvider(
   dev()
     ? "https://data-seed-prebsc-1-s1.binance.org:8545/"
-    : "https://data-seed-prebsc-1-s1.binance.org:8545/"
-  //TODO: : 'https://bsc-dataseed3.defibit.io/',
+    : "https://bsc-dataseed3.defibit.io/"
 );
 
 export const readContract = async (contract, method, ...params) => {

@@ -67,6 +67,8 @@ const Stake = ({ web3context, account, pools, state, t }) => {
   }, [onGetPoolsBalances, account, web3context, availableChain]);
 
   useEffect(() => {
+    console.log(poolsList)
+    console.log(process.env.REACT_APP_PROPOSAL_NETWORK)
     web3context?.chain &&
       setAvailableChain(getAvailableChain(web3context.chain, poolsList));
   }, [web3context]);

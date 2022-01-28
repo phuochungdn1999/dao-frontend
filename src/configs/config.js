@@ -15,8 +15,8 @@ export const dev = () => {
 export const config = {
   DIAMOND_HAND: dev()
     ? '0x7D5aBeb80CE5Eb424Cb9DC64082aa21CE3fc9417'
-    : '0xFfCA7feaAd922c8bB31eC711b52338dfD4b6Fd1F', //TODO: change to DH address
-  NETWORK_ID: dev() ? 97 : 56, //TODO: change back to 56
+    : '0x6C721B9fe3663dD29d35224259878812B8eC2406',
+  NETWORK_ID: dev() ? 97 : 56,
   YFIAG_ADDRESS: dev()
     ? '0x71f4A5202A09DA255558F3Fb6D05C8FD24d10a2e'
     : '0x1F64703ae00C06420dd21fE75E9Ef6E008212263',
