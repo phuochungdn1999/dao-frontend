@@ -51,7 +51,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
     variables: {
       address: account.address,
     },
-    pollInterval: 60000,
+    pollInterval: 180000,
   });
 
   const getBalance = useCallback(

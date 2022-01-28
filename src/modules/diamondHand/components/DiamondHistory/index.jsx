@@ -68,10 +68,10 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
         ...resultModal,
         open: true,
       });
-      getBalance()
+      getBalance();
       setTimeout(() => {
         refetch();
-        setLoadingEarning(true)
+        setLoadingEarning(true);
       }, 5000);
     },
     (unstakeSuccess) => {
@@ -93,27 +93,20 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
     unstakingButton
   );
 
-  useEffect(() => {
-    setInterval(() => {
-      refetch();
-      setLoadingEarning(true)
-    }, 180000);
-  }, [refetch]);
-
   const getPlan = (apy) => {
     let plan = "";
     switch (apy) {
       case "2":
-        plan = "01 Months - 02%";
+        plan = "01 Months - 0.5%";
         break;
       case "10":
-        plan = "03 Months - 10%";
+        plan = "03 Months - 02%";
         break;
       case "30":
-        plan = "06 Months - 30%";
+        plan = "06 Months - 07%";
         break;
       case "60":
-        plan = "12 Months - 60%";
+        plan = "12 Months - 20%";
         break;
       default:
         plan = "";
@@ -217,12 +210,13 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
       : parseInt(userPool.length / rowsPerPage) + 1;
   }, [rowsPerPage, userPool]);
 
-  const getDataPagination = useMemo(() => { 
-    if (userPool.length > 0)
+  const getDataPagination = useMemo(() => {
+    if (userPool.length > 0) {
       return userPool.slice(
         currentPage * rowsPerPage,
         rowsPerPage + currentPage * rowsPerPage
       );
+    }
 
     return [];
   }, [currentPage, rowsPerPage, userPool]);
@@ -244,7 +238,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
         />
       );
 
-    if (loadingEarning)
+    if (loadingEarning && getDataPagination.length === 0)
       return (
         <>
           <Spinner />

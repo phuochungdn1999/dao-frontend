@@ -122,7 +122,12 @@ const DiamondAmount = ({
               className={cx(style.diamond__plan__subTitle)}
               style={{ color: selected ? "#fff" : "#8236ce" }}
             >
-              {item.percent < 10 ? "0" + item.percent : item.percent}%
+              {item.percent < 1
+                ? item.percent
+                : item.percent < 10 && item.percent > 1
+                ? "0" + item.percent
+                : item.percent}
+              %
             </span>
           </>
         ),

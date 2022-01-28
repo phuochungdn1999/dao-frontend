@@ -21,11 +21,8 @@ import { getPoolsBalances } from "../../";
 
 // React switch
 
-import Switch from "react-switch";
 
 import style from "./Stake.module.scss";
-import { diamond } from "../../../diamondHand";
-
 
 const { Title } = Typography;
 const { Panel } = Collapse;
