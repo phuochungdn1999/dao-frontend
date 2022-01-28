@@ -97,7 +97,7 @@ const Vote = ({ web3context, proposals, account, t }) => {
       [style.container_loading]: isLoading
     })}>
       <Title className={style.title}>
-        <span>{t('VOTE_TITLE')}</span>
+        <span>{t('VOTE_TITLE')} - INCOMING</span>
         <Alert
         className={style.container__info}
         message={t('DASHBOARD_INFO')}
@@ -107,16 +107,16 @@ const Vote = ({ web3context, proposals, account, t }) => {
 
       
 
-      {account?.address ? (
+      {/*{account?.address ? (
         <>
           {availableChain ? (
             
             <>
-            {/* <Alert
+             <Alert
               className={style.container__warning}
               message="Voting feature will be available soon."
               type="warning"
-            /> */}
+            /> //TODO: comment out
               <Row
                 className={style.container__actions}
                 justify="space-between"
@@ -162,7 +162,7 @@ const Vote = ({ web3context, proposals, account, t }) => {
             />
           )}
 
-          {/* <AvailableChains configChains={poolsList} /> */}
+          {/* <AvailableChains configChains={poolsList} />  //TODO: comment out
         </>
       ) : (
         <Alert
@@ -170,7 +170,7 @@ const Vote = ({ web3context, proposals, account, t }) => {
           message="Please, connect your wallet to continue."
           type="warning"
         />
-      )}
+      )} */}
 
       {isLoading && (
         <div className={style.container__loading}>

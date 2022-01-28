@@ -105,7 +105,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
           <div>
             <span>{t("DIAMOND_HAND_HEADER_TITLE")}</span>
             <Alert
-              className={style.container__info}
+              className={cx(style.container__info, style.alertDiv)}
               message={t("DIAMOND_INFO")}
               type="info"
             />

@@ -77,7 +77,7 @@ const Stake = ({ web3context, account, pools, state, t }) => {
       })}
     >
       <Title className={style.title}>
-        <span>{t("STAKE_TITLE")}</span>
+        <span>{t("STAKE_TITLE")} - INCOMING</span>
         <Alert
           className={style.container__info}
           message={t("DASHBOARD_INFO")}
@@ -85,7 +85,7 @@ const Stake = ({ web3context, account, pools, state, t }) => {
         />
       </Title>
 
-      {account?.address ? (
+     {/*  {account?.address ? (
         <>
           {availableChain ? (
             <>
@@ -131,7 +131,7 @@ const Stake = ({ web3context, account, pools, state, t }) => {
             />
           )}
 
-          {/* <AvailableChains configChains={poolsList} /> */}
+          {/* <AvailableChains configChains={poolsList} /> //TODO: comment out
         </>
       ) : (
         <Alert
@@ -139,7 +139,7 @@ const Stake = ({ web3context, account, pools, state, t }) => {
           message="Please, connect your wallet to continue."
           type="warning"
         />
-      )}
+      )} */}
 
       {isLoading && (
         <div className={style.container__loading}>
