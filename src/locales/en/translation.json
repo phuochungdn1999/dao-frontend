@@ -20,9 +20,10 @@
   "DASHBOARD_VAULTS_OVERVIEW": "Vaults Overview",
   "DASHBOARD_EARN_OVERVIEW": "Earn Overview",
   "DASHBOARD_NEW_WORTH": "Net worth",
-
+  
   "HOME_TITLE": "Home",
-
+  
+  "DIAMOND_INFO": "This project is in beta and uses BSC Network",
   "DIAMOND_HAND_TITLE": "Diamond",
   "DIAMOND_HAND_HEADER_TITLE": "Legend Hand",
   "DIAMOND_REWARD_SUMMARY": "Your rewards summary",

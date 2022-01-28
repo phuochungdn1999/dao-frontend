@@ -1,8 +1,17 @@
 .container {
   position: relative;
   margin-top: 15%;
-  @media (max-width:1300px) {
+  margin-left: 10%;
+  margin-right: 10%;
+
+  @media (max-width: 1300px) {
     margin-top: 25%;
+  }
+  
+  @media (max-width: 1024px) {
+    margin-top: 25%;
+    margin-left: 0%;
+    margin-right: 0%;
   }
 
   &_loading {
