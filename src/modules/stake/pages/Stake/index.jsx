@@ -5,7 +5,7 @@ import { withTranslation } from "react-i18next";
 import { Typography, Collapse, Alert, Empty } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import cx from "classnames";
-import  * as diamondService from '../../../../api/diamondHand.service'
+import * as diamondService from "../../../../api/diamondHand.service";
 // configs:
 import { pools as poolsList } from "../../../../configs";
 
@@ -21,7 +21,6 @@ import { getPoolsBalances } from "../../";
 
 // React switch
 
-
 import style from "./Stake.module.scss";
 
 const { Title } = Typography;
@@ -32,7 +31,7 @@ const mapState = (state) => {
     web3context: state.web3context,
     account: state.account,
     pools: state.pools,
-    state: state
+    state: state,
   };
 };
 
@@ -67,8 +66,6 @@ const Stake = ({ web3context, account, pools, state, t }) => {
   }, [onGetPoolsBalances, account, web3context, availableChain]);
 
   useEffect(() => {
-    console.log(poolsList)
-    console.log(process.env.REACT_APP_PROPOSAL_NETWORK)
     web3context?.chain &&
       setAvailableChain(getAvailableChain(web3context.chain, poolsList));
   }, [web3context]);
@@ -96,9 +93,7 @@ const Stake = ({ web3context, account, pools, state, t }) => {
                 <Title
                   className={cx(style.title, style.title_second)}
                   level={2}
-                >
-                 
-                </Title>
+                ></Title>
 
                 {pools?.list?.length > 0 ? (
                   <Collapse className={style.list} accordion bordered={false}>
