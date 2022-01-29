@@ -250,7 +250,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
         <h5
           style={{
             textAlign: "center",
-            color: theme?.isDarkmode ? "#fff" : "#8763cb",
+            color: theme.isDarkmode ? "#fff" : "#8763cb",
           }}
         >
           No Data
@@ -272,7 +272,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
         <DiamondCard
           classes={cx(
             style.diamond__history__cardLabel,
-            theme?.isDarkmode && style.diamond__history__darkCardLabel
+            theme.isDarkmode && style.diamond__history__darkCardLabel
           )}
           label=""
           theme={theme}

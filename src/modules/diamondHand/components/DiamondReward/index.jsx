@@ -102,7 +102,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
         <div
           className={cx(
             style.diamond__reward__title.length,
-            theme?.isDarkmode && style.diamond__reward__dark_text
+            theme.isDarkmode && style.diamond__reward__dark_text
           )}
         >
           {t("DIAMOND_REWARD_SUMMARY")}
@@ -113,7 +113,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
             <p
               className={cx(
                 style.diamond__reward__coinStaked_title.length,
-                theme?.isDarkmode && style.diamond__reward__dark_text
+                theme.isDarkmode && style.diamond__reward__dark_text
               )}
             >
                {t("DIAMOND_YFIAG_STAKED")} YFIAG
@@ -129,7 +129,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
             <p
               className={cx(
                 style.diamond__reward__coinStaked_title.length,
-                theme?.isDarkmode && style.diamond__reward__dark_text
+                theme.isDarkmode && style.diamond__reward__dark_text
               )}
             >
               {t("DIAMOND_YFIAG_EARNED")} YFIAG
@@ -149,7 +149,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
               <span
                 className={cx(
                   style.diamond__reward__coinStaked_title.length,
-                  theme?.isDarkmode && style.diamond__reward__dark_text,
+                  theme.isDarkmode && style.diamond__reward__dark_text,
                   style.invertedColor
                 )}
               >
@@ -178,7 +178,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                 <span
                   className={cx(
                     style.diamond__reward__coinStaked_title.length,
-                    theme?.isDarkmode && style.diamond__reward__dark_text,
+                    theme.isDarkmode && style.diamond__reward__dark_text,
                     style.invertedColor
                   )}
                 >
@@ -207,7 +207,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
                 <span
                   className={cx(
                     style.diamond__reward__coinStaked_title.length,
-                    theme?.isDarkmode && style.diamond__reward__dark_text,
+                    theme.isDarkmode && style.diamond__reward__dark_text,
                     style.invertedColor
                   )}
                 >
@@ -231,7 +231,7 @@ const DiamondReward = ({ t, walletBalance, poolData, theme }) => {
           <span
             className={cx(
               style.diamond__reward__coinStaked_title.length,
-              theme?.isDarkmode && style.diamond__reward__dark_text,
+              theme.isDarkmode && style.diamond__reward__dark_text,
               style.invertedColor
             )}
             style={{ fontSize: "1rem" }}

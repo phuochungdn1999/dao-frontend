@@ -722,7 +722,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -758,7 +758,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -794,7 +794,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -1275,7 +1275,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -1420,7 +1420,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -1438,7 +1438,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -1474,7 +1474,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -1510,7 +1510,7 @@ button {
   color: white;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -1637,7 +1637,7 @@ button {
   border-radius: 8px 0px 0px 8px;
   background: linear-gradient(180deg, #6000c4 0%, #8736cb 100%);
   font-style: normal;
-  font-size: 15px;
+  font-size: 14px;
   height: 34px;
   font-family: "Nunito Sans";
 }
@@ -1698,7 +1698,7 @@ button {
   > label.ant-radio-button-wrapper.ant-radio-button-wrapper-checked.VoteTabs_button__gbcWu.VoteTabs_button_active__MhL5F {
   font-style: normal;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   border: 1px solid black;
   box-sizing: border-box;
   background-color: transparent;
@@ -1745,7 +1745,7 @@ button {
 .dark #root > section > main > article > div > div {
   color: white;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 14px;
   /* line-height: 8px; */
   border: 0;
 
@@ -1782,7 +1782,7 @@ button {
   > div
   > div.ant-alert-message {
   font-weight: 200;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 25px;
   /* identical to box height, or 167% */
 
@@ -3368,7 +3368,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   color: white;
   font-style: normal;
   font-family: "Nunito Sans", Roboto;
-  font-size: 15px;
+  font-size: 14px;
   height: 34px;
 }
 
@@ -3587,7 +3587,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   display: inline;
   color: #6000c4;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
   margin-left: 36%;
 }
@@ -3635,7 +3635,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   display: inline-flex;
   color: white !important;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -3654,7 +3654,7 @@ body > div:nth-child(6) > div > div.ant-modal-mask {
   > div:nth-child(1) {
   color: white !important;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
 }
 
@@ -3993,7 +3993,7 @@ body
   margin-top: 0;
   font-style: normal;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 20px;
   padding: 10px;
 }
@@ -4148,7 +4148,7 @@ body
   > div
   > div.VaultHeader_container__name__38sXX
   > span {
-  font-size: 15px !important;
+  font-size: 14px !important;
 }
 
 #root
@@ -5738,7 +5738,7 @@ body
     > div
     > div.VaultHeader_container__growth__3-BPW
     > span {
-    font-size: 15px;
+    font-size: 14px;
     margin-left: 0;
   }
 
@@ -5752,7 +5752,7 @@ body
     > div
     > div.VaultHeader_container__available__jFBE6
     > span {
-    font-size: 15px;
+    font-size: 14px;
     margin-left: 10px;
   }
 
@@ -5995,7 +5995,7 @@ body
     > div.ant-row.StakeContent_forms__WQxPR
     > div:nth-child(1)
     > h4 {
-    font-size: 15px;
+    font-size: 14px;
     width: 130px;
     padding: 0;
   }

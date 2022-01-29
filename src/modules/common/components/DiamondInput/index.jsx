@@ -24,7 +24,7 @@ const DiamondInput = ({
           <span
             className={cx(style.diamond__input__subLabel)}
             style={{
-              color: theme?.isDarkmode
+              color: theme.isDarkmode
                 ? "#fff"
                 : "#8236ce",
             }}
@@ -35,7 +35,7 @@ const DiamondInput = ({
 
         <div className={cx(style.diamond__input__inputContainer)}>
           <input
-            className={cx(style.diamond__input__inputField, theme?.isDarkmode && style.diamond__input__darkInputField)}
+            className={cx(style.diamond__input__inputField, theme.isDarkmode && style.diamond__input__darkInputField)}
             type={type || "text"}
             value={value}
             onChange={handleChange}
@@ -46,7 +46,7 @@ const DiamondInput = ({
               type="button"
               onClick={handleMax}
               style={{
-                color: theme?.isDarkmode
+                color: theme.isDarkmode
                   ? "#fff"
                   : "#8236ce",
               }}

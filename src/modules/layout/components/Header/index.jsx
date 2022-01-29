@@ -112,7 +112,7 @@ const Header = ({
               className="switch"
               src={sun}
               onClick={() => {
-                setDarkMode(!darkMode);
+                setDarkMode(false);
                 dispatch({ type: actionTypes.CHANGE_THEME_MODE, payload: false });
               }}
               alt="sun"
@@ -122,7 +122,7 @@ const Header = ({
               className="img"
               src={moon}
               onClick={() => {
-                setDarkMode(!darkMode);
+                setDarkMode(true);
                 dispatch({ type: actionTypes.CHANGE_THEME_MODE, payload: true });
               }}
               alt="moon"

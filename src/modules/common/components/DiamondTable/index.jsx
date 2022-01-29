@@ -37,7 +37,7 @@ const DiamondTable = ({
   return (
     <>
       <div className={cx(style.diamond__table__container)}>
-        <table className={cx(style.diamond__table__parent, theme?.isDarkmode && style.diamond__table__dark)}>
+        <table className={cx(style.diamond__table__parent, theme.isDarkmode && style.diamond__table__dark)}>
           <tr className={cx(style.diamond__table__header_row)}>
             {showIndex && (
               <th className={cx(style.diamond__table__indexCol)}>#</th>

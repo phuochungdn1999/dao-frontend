@@ -8,10 +8,10 @@ const DiamondCard = ({ label, children, cardStyle, classes, theme }) => {
   const { t } = useTranslation();
   return (
     <>
-      <div className={cx(style.diamond__card__container, theme?.isDarkmode && style.diamond__card__darkContainer, classes)} style={cardStyle}>
+      <div className={cx(style.diamond__card__container, theme.isDarkmode && style.diamond__card__darkContainer, classes)} style={cardStyle}>
         {children}
       </div>
-      {label && <label className={cx(style.diamond__card__label)} style={{color: theme?.isDarkmode && '#fff'}}>{t(label)}</label>}
+      {label && <label className={cx(style.diamond__card__label)} style={{color: theme.isDarkmode && '#fff'}}>{t(label)}</label>}
     </>
   );
 };
