@@ -97,16 +97,16 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
     let plan = "";
     switch (apy) {
       case "2":
-        plan = "01 Months - 0.5%";
+        plan = "01 Months - 106%";
         break;
       case "10":
-        plan = "03 Months - 02%";
+        plan = "03 Months - 108%";
         break;
       case "30":
-        plan = "06 Months - 07%";
+        plan = "06 Months - 114%";
         break;
       case "60":
-        plan = "12 Months - 20%";
+        plan = "12 Months - 120%";
         break;
       default:
         plan = "";

@@ -43,24 +43,24 @@ export const listDiamond = [
   {
     id: 0,
     months: 1,
-    percent: 0.5,
+    percent: 106,
     value: false
   },{
     id: 1,
     months: 3,
-    percent: 2,
+    percent: 108,
     value: false
   },
   {
     id: 2,
     months: 6,
-    percent: 7,
+    percent: 114,
     value: false
   },
   {
     id: 3,
     months: 12,
-    percent: 20,
+    percent: 120,
     value: false
   },
 ];

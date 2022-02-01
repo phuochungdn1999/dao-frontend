@@ -193,7 +193,7 @@ const DiamondAmount = ({
             style.diamond__amount__plan
           )}
         >
-          <DiamondCard label="Plan" theme={theme}>
+          <DiamondCard label="APY" theme={theme}>
             <DiamondSelectBtnGroup
               buttonsArr={buttons}
               classes={cx(style.diamond__amount__customSelectBtnGroup)}
