@@ -29,6 +29,8 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
   const [balance, setBalance] = useState(0);
   const [availableChain, setAvailableChain] = useState(null);
 
+  const [onValidNetwork, setOnValidNetwork] = useState(false);
+
   const EXCHANGE_RATES = gql`
     query GetPoolHistory($address: String!) {
       users(where: { address: $address }) {
@@ -53,6 +55,16 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
     },
     pollInterval: 180000,
   });
+
+  useEffect(() => {
+    if (web3context) {
+      if (web3context.chain === 56 || web3context.chain === 97) {
+        return setOnValidNetwork(true);
+      }
+
+      return setOnValidNetwork(false);
+    }
+  }, [web3context]);
 
   const getBalance = useCallback(
     async (chain) => {
@@ -103,7 +115,11 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
       >
         <Title className={style.title}>
           <div>
-            <span>{t("DIAMOND_HAND_HEADER_TITLE")}</span>
+            <span>
+              {web3context.chain === 97
+                ? "Legend Hand - Testnet"
+                : t("DIAMOND_HAND_HEADER_TITLE")}
+            </span>
             <Alert
               className={cx(style.container__info, style.alertDiv)}
               message={t("DIAMOND_INFO")}
@@ -125,7 +141,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
           </div>
         </Title>
 
-        {account?.address ? (
+        {account?.address && onValidNetwork ? (
           <>
             <div className={style.diamond__content}>
               <div
@@ -139,7 +155,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
                   theme={theme}
                   walletBalance={balance}
                   poolData={poolData}
-                  />
+                />
               </div>
               <div>
                 <div className={cx(style.diamond__input)}>
@@ -178,7 +194,7 @@ const DiamondHand = ({ web3context, account, pools, t, theme }) => {
         ) : (
           <Alert
             className={style.container__warning}
-            message="Please, connect your wallet to continue."
+            message="Please, connect your wallet and set to BSC Network to continue."
             type="warning"
           />
         )}
