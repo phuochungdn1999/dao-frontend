@@ -29,7 +29,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   {
     id: 'Cake Strategy',
@@ -54,7 +55,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   {
     id: 'Biswap Strategy',
@@ -79,7 +81,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   {
     id: 'Apeswap Strategy',
@@ -104,7 +107,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   
 ];

@@ -169,6 +169,23 @@ const getVaultMax = async (web3, asset, account, callback) => {
   }
 };
 
+const getStrategyDailyApy= async (web3, asset,step, callback) => {
+  try {
+    const strategyContract = new web3.eth.Contract(
+      asset.vaultStrategyABI,
+      asset.vaultStrategyAddress
+    );
+
+    const apr = await strategyContract.methods.getIntervalReturn(step).call();
+
+    callback(null, apr);
+  } catch (error) {
+    console.error(error?.message);
+
+    callback(null, 0);
+  }
+};
+
 const getVaultsDataByDate = (
   vaultAddress,
   apyAddress,
@@ -255,7 +272,6 @@ const parseAPYResult = (data, vaultAddress) => {
 
   return { apyOneWeekSample, apyOneMonthSample, apyInceptionSample };
 };
-
 const getAPY = async (web3, apyAddress, vaultAddress, callback) => {
   const STEP = 86400; // 24 hrs
 
@@ -325,6 +341,25 @@ const getAPY = async (web3, apyAddress, vaultAddress, callback) => {
       });
     }
   });
+};
+
+
+const getAPYNew = async (web3, asset, callback) => {
+  const STEP = 86400; // 24 hrs
+  try {
+    let daily = await getStrategyDailyApy(web3,asset,STEP,callback);
+    callback(null, {
+      apyOneWeekSample: daily * 7,
+      apyOneMonthSample: daily * 30,
+      apyInceptionSample: daily * 365
+    });
+  } catch (error) {
+    callback(null, {
+      apyOneWeekSample: 0,
+      apyOneMonthSample: 0,
+      apyInceptionSample: 0
+    });
+  }
 };
 
 const getVaultAPY = async (web3, asset, account, callback) => {
@@ -440,7 +475,14 @@ const getVaultBalances = ({ web3, list, account }) => {
           (callbackInner) => getGovernance(web3, asset, account, callbackInner),
           (callbackInner) => {
             getVaultPausedStatus(web3, asset, account, callbackInner);
-          }
+          },
+          (callbackInner) => {
+            getAPYNew(
+              web3,
+              asset,
+              callbackInner
+            );
+          },
         ], (error, data) => {
           if (error) {
             return callback(error);

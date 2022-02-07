@@ -10,6 +10,7 @@ import style from './VaultHeader.module.scss';
 const { Paragraph, Text } = Typography;
 
 const VaultHeader = ({ asset, basedOn }) => {
+  console.log({asset});
   return (
     <Row className={style.container} justify="space-between" align="top">
       <img

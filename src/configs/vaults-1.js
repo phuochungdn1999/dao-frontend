@@ -19,6 +19,7 @@ const vaults = [
     vaultContractABI: vaultABI,
     vaultStrategyABI: vaultStrategyABI,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/ulmmrt/yagnostic-bsc',
+    apyFetch: 'https://api.compound.finance/api/v2/ctoken?addresses=0xccF4429DB6322D5C611ee964527D42E5d685DD6a',
     balance: 0,
     vaultBalance: 0,
     decimals: 18,
@@ -29,7 +30,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"ETH"
   },
   {
     id: 'TKN2',
@@ -44,6 +46,7 @@ const vaults = [
     vaultContractABI: vaultABI,
     vaultStrategyABI: vaultStrategyABI,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/ulmmrt/yagnostic-bsc',
+    apyFetch:'https://api.curve.fi/api/getApys',
     balance: 0,
     vaultBalance: 0,
     decimals: 18,
@@ -54,7 +57,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"ETH"
   },
   {
     id: 'TKN3',
@@ -69,6 +73,7 @@ const vaults = [
     vaultContractABI: vaultABI,
     vaultStrategyABI: vaultStrategyABI,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/ulmmrt/yagnostic-bsc',
+    apyFetch:'https://api.curve.fi/api/getApys',
     balance: 0,
     vaultBalance: 0,
     decimals: 18,
@@ -79,14 +84,15 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"ETH"
   },
   {
     id: 'TKN4',
     name: 'CRV - yCRV',
-    symbol: 'DAI',
-    description: 'Migrate your DAI LP into yDAI LP',
-    vaultSymbol: 'DAI',
+    symbol: 'CRV',
+    description: 'Migrate your CRV LP into yCRV LP',
+    vaultSymbol: 'CRV',
     erc20address: '0xD533a949740bb3306d119CC777fa900bA034cd52',
     vaultContractAddress: '0x10d50D4B1B069d47151E6dE3734232FE75b18628',
     vaultStrategyAddress: '0x706a6d84d103Cda3A352b76b5a2b248E18Dc4112',
@@ -94,6 +100,7 @@ const vaults = [
     vaultContractABI: vaultABI,
     vaultStrategyABI: vaultStrategyABI,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/ulmmrt/yagnostic-bsc',
+    apyFetch:'https://api.curve.fi/api/getApys',
     balance: 0,
     vaultBalance: 0,
     decimals: 18,
@@ -104,7 +111,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"ETH"
   }
 ];
 
