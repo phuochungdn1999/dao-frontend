@@ -73,6 +73,7 @@ const Dashboard = ({ web3context, account, vaults, prices, t }) => {
   const [dashboardCurrency, setDashboardCurrency] = useState(
     Number(localStorage.getItem('dashboard-currency')) || currency[0].value
   ); // USD / ETH,
+  
   const [dashboardGrowth, setDashboardGrowth] = useState(
     Number(localStorage.getItem('dashboard-growth')) || growth[0].value
   ); // 0 = daily / 1 = weekly / 2 = yearly
