@@ -2,7 +2,8 @@ import {
   vaultControlerABI,
   vaultStrategyABI,
   vaultERC20ABI,
-  vaultABI
+  vaultABI,
+  strategyAbi
 } from '../contracts/';
 
 const vaults = [
@@ -19,6 +20,7 @@ const vaults = [
     vaultContractABI: vaultABI,
     vaultStrategyABI: vaultStrategyABI,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/transonhy96/ffiagbridgebsc',
+    apyFetch: 'https://api.venus.io/api/governance/venus',
     balance: 0,
     vaultBalance: 0,
     decimals: 18,
@@ -29,7 +31,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   {
     id: 'Cake Strategy',
@@ -42,7 +45,7 @@ const vaults = [
     vaultStrategyAddress: '0x3b10c5493011c5C5Df47F40872e097AE446E2a15',
     erc20ABI: vaultERC20ABI,
     vaultContractABI: vaultABI,
-    vaultStrategyABI: vaultStrategyABI,
+    vaultStrategyABI: strategyAbi,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/transonhy96/ffiagbridgebsc',
     balance: 0,
     vaultBalance: 0,
@@ -54,7 +57,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   {
     id: 'Biswap Strategy',
@@ -67,7 +71,7 @@ const vaults = [
     vaultStrategyAddress: '0x8d8e0a92A6d3CE6b7938C14691d1F639C5767950',
     erc20ABI: vaultERC20ABI,
     vaultContractABI: vaultABI,
-    vaultStrategyABI: vaultStrategyABI,
+    vaultStrategyABI: strategyAbi,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/transonhy96/ffiagbridgebsc',
     balance: 0,
     vaultBalance: 0,
@@ -79,7 +83,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   {
     id: 'Apeswap Strategy',
@@ -92,7 +97,7 @@ const vaults = [
     vaultStrategyAddress: '0x9c188AB1e40A1172aCe7bc8C3bB10B0E61B4397e',
     erc20ABI: vaultERC20ABI,
     vaultContractABI: vaultABI,
-    vaultStrategyABI: vaultStrategyABI,
+    vaultStrategyABI: strategyAbi,
     apySubgraph: 'https://api.thegraph.com/subgraphs/name/transonhy96/ffiagbridgebsc',
     balance: 0,
     vaultBalance: 0,
@@ -104,7 +109,8 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai'
+    price_id: 'dai',
+    network:"BSC"
   },
   
 ];

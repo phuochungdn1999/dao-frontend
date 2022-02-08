@@ -1,8 +1,8 @@
-import moment from 'moment';
-import axios from 'axios';
-import async from 'async';
+import moment from "moment";
+import axios from "axios";
+import async from "async";
 
-import { actionTypes } from '../reducers/vaults';
+import { actionTypes } from "../reducers/vaults";
 
 const getVaultDecimals = async (web3, asset, account) => {
   const vaultContract = new web3.eth.Contract(
@@ -10,8 +10,7 @@ const getVaultDecimals = async (web3, asset, account) => {
     asset.vaultContractAddress
   );
 
-  const decimals = await vaultContract
-    .methods
+  const decimals = await vaultContract.methods
     .decimals()
     .call({ from: account });
 
@@ -25,8 +24,7 @@ const getAccountBalance = async (web3, asset, account, callback) => {
       asset.erc20address
     );
 
-    const balanceOfAddress = await erc20Contract
-      .methods
+    const balanceOfAddress = await erc20Contract.methods
       .balanceOf(account)
       .call({ from: account });
 
@@ -45,8 +43,7 @@ const getVaultBalance = async (web3, asset, account, callback) => {
       asset.vaultContractAddress
     );
 
-    const balanceOfVault = await vaultContract
-      .methods
+    const balanceOfVault = await vaultContract.methods
       .balanceOf(account)
       .call({ from: account });
 
@@ -66,7 +63,7 @@ const getWholeVaultBalance = async (web3, asset, account, callback) => {
     );
 
     const balanceOfVault = await vaultContract.methods.balance().call({
-      from: account
+      from: account,
     });
 
     callback(null, parseFloat(balanceOfVault) / 10 ** asset.decimals);
@@ -84,8 +81,7 @@ const getStrategy = async (web3, asset, account, callback) => {
       asset.vaultStrategyAddress
     );
 
-    const strategyName = await strategyContract
-      .methods
+    const strategyName = await strategyContract.methods
       .getNameStrategy()
       .call({ from: account });
 
@@ -93,7 +89,7 @@ const getStrategy = async (web3, asset, account, callback) => {
   } catch (error) {
     console.error(error?.message);
 
-    callback(null, '');
+    callback(null, "");
   }
 };
 
@@ -105,11 +101,11 @@ const getAvailable = async (web3, asset, account, callback) => {
     );
 
     const available = await vaultContract.methods.available().call({
-      from: account
+      from: account,
     });
 
     callback(null, parseFloat(available) / 10 ** asset.decimals);
-  } catch(error) {
+  } catch (error) {
     console.error(error?.message);
 
     callback(null, 0);
@@ -124,7 +120,7 @@ const getVaultTotalSupply = async (web3, asset, account, callback) => {
     );
 
     const totalSupply = await vaultContract.methods.totalSupply().call({
-      from: account
+      from: account,
     });
 
     callback(null, parseFloat(totalSupply) / 10 ** asset.decimals);
@@ -169,6 +165,63 @@ const getVaultMax = async (web3, asset, account, callback) => {
   }
 };
 
+const getStrategyDailyApy = async (web3, asset, step, callback) => {
+  try {
+    let apr = 0;
+
+    if (asset.network === "BSC") {
+      //Venus
+      if (asset.vaultSymbol === "Venus") {
+        let { data } = await axios.get(asset.apyFetch);
+        
+        let res = data.data;
+        let { markets } = res;
+        
+        if (markets && markets.length > 0) {
+          return markets.filter((s) => s.underlyingSymbol === asset.symbol)[0]
+            .supplyApy;
+        }
+        return 0;
+      } else {
+        //Pancake/Ape/Biswap
+        const strategyContract = new web3.eth.Contract(
+          asset.vaultStrategyABI,
+          asset.vaultStrategyAddress
+        );
+        let interval = await strategyContract.methods.getIntervalReturn(step).call();
+        return  interval / (10**12) * 100
+      }
+    } else if (asset.network === "ETH") {
+      //Curve
+      if (!asset.platform || asset.platform !== "compound") {
+        let { data } = await axios.get(asset.apyFetch);
+        let res = data.data;
+        if (res && res.hasOwnProperty(asset.pool)) {
+          let crvOb = res[asset.pool];
+          let { baseApy } = crvOb;
+          return baseApy;
+        }
+      }
+      else{
+        //Compound
+        let { data } = await axios.get(asset.apyFetch);
+        let {cToken} = data;
+        if (cToken && cToken.length > 0) {
+          let crvOb = cToken[0];
+          let { supply_rate } = crvOb;
+          let { value } = supply_rate;
+          return value * 100;
+        }
+      }
+    }
+    callback(null, apr);
+  } catch (error) {
+    console.error(error?.message);
+
+    callback(null, 0);
+  }
+};
+
 const getVaultsDataByDate = (
   vaultAddress,
   apyAddress,
@@ -193,17 +246,17 @@ const getVaultsDataByDate = (
     }
   }`;
 
-  axios.post(
-    apyAddress,
-    {
+  axios
+    .post(apyAddress, {
       query: vaultsInterface,
-      variables: { address: vaultAddress.toLowerCase() }
-    }
-  ).then(({ data }) => {
-    callback(null, data?.data?.vaultHistories);
-  }).catch((error) => {
-    callback(error);
-  });
+      variables: { address: vaultAddress.toLowerCase() },
+    })
+    .then(({ data }) => {
+      callback(null, data?.data?.vaultHistories);
+    })
+    .catch((error) => {
+      callback(error);
+    });
 };
 
 const calculateAPY = (
@@ -216,115 +269,136 @@ const calculateAPY = (
   const nbrBlocksInDay = currentBlock - oneDayAgoBlock;
   const pricePerFullShareDelta = (currentValue - previousValue) / 1e18;
   const blockDelta = currentBlock - previousBlock;
-  const dailyRoi = pricePerFullShareDelta / blockDelta * 100 * nbrBlocksInDay;
+  const dailyRoi = (pricePerFullShareDelta / blockDelta) * 100 * nbrBlocksInDay;
   const yearlyRoi = dailyRoi * 365;
 
   return yearlyRoi;
 };
 
 const parseAPYResult = (data, vaultAddress) => {
-  const apyOneWeekSample = data[2][0]?.pricePerFullShare &&
-    data[4][0]?.pricePerFullShare ?
-    calculateAPY(
-      data[4][0].block,
-      data[1][0].block,
-      data[2][0].block,
-      data[2][0].pricePerFullShare,
-      data[4][0].pricePerFullShare
-    ) : 0;
+  const apyOneWeekSample =
+    data[2][0]?.pricePerFullShare && data[4][0]?.pricePerFullShare
+      ? calculateAPY(
+          data[4][0].block,
+          data[1][0].block,
+          data[2][0].block,
+          data[2][0].pricePerFullShare,
+          data[4][0].pricePerFullShare
+        )
+      : 0;
 
-  const apyOneMonthSample = data[3][0]?.pricePerFullShare &&
-    data[4][0]?.pricePerFullShare ?
-    calculateAPY(
-      data[4][0].block,
-      data[1][0].block,
-      data[3][0].block,
-      data[3][0].pricePerFullShare,
-      data[4][0].pricePerFullShare
-    ) : 0;
+  const apyOneMonthSample =
+    data[3][0]?.pricePerFullShare && data[4][0]?.pricePerFullShare
+      ? calculateAPY(
+          data[4][0].block,
+          data[1][0].block,
+          data[3][0].block,
+          data[3][0].pricePerFullShare,
+          data[4][0].pricePerFullShare
+        )
+      : 0;
 
-  const apyInceptionSample = data[0][0]?.pricePerFullShare &&
-    data[4][0]?.pricePerFullShare ?
-    calculateAPY(
-      data[4][0].block,
-      data[1][0].block,
-      data[0][0].block,
-      data[0][0].pricePerFullShare,
-      data[4][0].pricePerFullShare
-    ) : 0;
+  const apyInceptionSample =
+    data[0][0]?.pricePerFullShare && data[4][0]?.pricePerFullShare
+      ? calculateAPY(
+          data[4][0].block,
+          data[1][0].block,
+          data[0][0].block,
+          data[0][0].pricePerFullShare,
+          data[4][0].pricePerFullShare
+        )
+      : 0;
 
   return { apyOneWeekSample, apyOneMonthSample, apyInceptionSample };
 };
-
 const getAPY = async (web3, apyAddress, vaultAddress, callback) => {
   const STEP = 86400; // 24 hrs
 
   const currentBlock = await web3.eth.getBlockNumber();
 
-  const inception = Math.round(moment().subtract(1, 'years').valueOf() / 1000);
-  const oneDayAgo = Math.round(moment().subtract(1, 'days').valueOf() / 1000);
-  const oneWeekAgo = Math.round(moment().subtract(1, 'weeks').valueOf() / 1000);
-  const oneMonthAgo = Math.round(moment().subtract(1, 'months').valueOf() / 1000);
+  const inception = Math.round(moment().subtract(1, "years").valueOf() / 1000);
+  const oneDayAgo = Math.round(moment().subtract(1, "days").valueOf() / 1000);
+  const oneWeekAgo = Math.round(moment().subtract(1, "weeks").valueOf() / 1000);
+  const oneMonthAgo = Math.round(
+    moment().subtract(1, "months").valueOf() / 1000
+  );
 
-  async.parallel([
-    (callback) => {
-      getVaultsDataByDate(
-        vaultAddress,
-        apyAddress,
-        inception,
-        inception + STEP,
-        callback
-      );
-    },
-    (callback) => {
-      getVaultsDataByDate(
-        vaultAddress,
-        apyAddress,
-        oneDayAgo,
-        oneDayAgo + STEP,
-        callback
-      );
-    },
-    (callback) => {
-      getVaultsDataByDate(
-        vaultAddress,
-        apyAddress,
-        oneWeekAgo,
-        oneWeekAgo + STEP,
-        callback
-      );
-    },
-    (callback) => {
-      getVaultsDataByDate(
-        vaultAddress,
-        apyAddress,
-        oneMonthAgo,
-        oneMonthAgo + STEP,
-        callback
-      );
-    },
-    (callback) => {
-      getVaultsDataByDate(
-        vaultAddress,
-        apyAddress,
-        oneDayAgo + (STEP / 2),
-        oneDayAgo + STEP,
-        callback
-      );
-    }
-  ], (error, data) => {
-    error && console.error(error?.message || error);
+  async.parallel(
+    [
+      (callback) => {
+        getVaultsDataByDate(
+          vaultAddress,
+          apyAddress,
+          inception,
+          inception + STEP,
+          callback
+        );
+      },
+      (callback) => {
+        getVaultsDataByDate(
+          vaultAddress,
+          apyAddress,
+          oneDayAgo,
+          oneDayAgo + STEP,
+          callback
+        );
+      },
+      (callback) => {
+        getVaultsDataByDate(
+          vaultAddress,
+          apyAddress,
+          oneWeekAgo,
+          oneWeekAgo + STEP,
+          callback
+        );
+      },
+      (callback) => {
+        getVaultsDataByDate(
+          vaultAddress,
+          apyAddress,
+          oneMonthAgo,
+          oneMonthAgo + STEP,
+          callback
+        );
+      },
+      (callback) => {
+        getVaultsDataByDate(
+          vaultAddress,
+          apyAddress,
+          oneDayAgo + STEP / 2,
+          oneDayAgo + STEP,
+          callback
+        );
+      },
+    ],
+    (error, data) => {
+      error && console.error(error?.message || error);
 
-    if (!error && data) {
-      callback(null, parseAPYResult(data, currentBlock));
-    } else {
-      callback(null, {
-        apyOneWeekSample: 0,
-        apyOneMonthSample: 0,
-        apyInceptionSample: 0
-      });
+      if (!error && data) {
+        callback(null, parseAPYResult(data, currentBlock));
+      } else {
+        callback(null, {
+          apyOneWeekSample: 0,
+          apyOneMonthSample: 0,
+          apyInceptionSample: 0,
+        });
+      }
     }
-  });
+  );
+};
+
+const getAPYNew = async (web3, asset, callback) => {
+  const STEP = 86400; // 1 year
+  try {
+    let apy = await getStrategyDailyApy(web3, asset, STEP, callback);
+    callback(null, {
+      apy
+    });
+  } catch (error) {
+    callback(null, {
+      apy:0
+    });
+  }
 };
 
 const getVaultAPY = async (web3, asset, account, callback) => {
@@ -334,8 +408,7 @@ const getVaultAPY = async (web3, asset, account, callback) => {
       asset.vaultContractAddress
     );
 
-    const pricePerFullShare = await vaultContract
-      .methods
+    const pricePerFullShare = await vaultContract.methods
       .getPricePerFullShare()
       .call({ from: account });
 
@@ -349,11 +422,11 @@ const getVaultAPY = async (web3, asset, account, callback) => {
       callback(null, {
         pricePerFullShare: parseFloat(pricePerFullShare) / 1e18,
         apy: parseFloat(
-          (pricePerFullShare - asset.measurement) / 1e18 / diff * 242584600
-        )
+          ((pricePerFullShare - asset.measurement) / 1e18 / diff) * 242584600
+        ),
       });
     }
-  } catch(error) {
+  } catch (error) {
     console.error(error?.message);
 
     callback(null, { pricePerFullShare: 0, apy: 0 });
@@ -367,16 +440,15 @@ const getGovernance = async (web3, asset, account, callback) => {
       asset.vaultContractAddress
     );
 
-    const governance = await vaultContract
-      .methods
+    const governance = await vaultContract.methods
       .governance()
       .call({ from: account });
 
     callback(null, governance);
-  } catch(error) {
+  } catch (error) {
     console.error(error?.message);
 
-    callback(null, '');
+    callback(null, "");
   }
 };
 
@@ -387,93 +459,116 @@ const getVaultPausedStatus = async (web3, asset, account, callback) => {
       asset.vaultContractAddress
     );
 
-    const paused = await vaultContract
-      .methods
-      .paused()
-      .call({ from: account });
+    const paused = await vaultContract.methods.paused().call({ from: account });
 
     callback(null, paused);
-  } catch(error) {
+  } catch (error) {
     console.error(error?.message);
 
-    callback(null, '');
+    callback(null, "");
   }
 };
 
 const getVaultBalances = ({ web3, list, account }) => {
   return async (dispatch) => {
-    web3 && list && account && dispatch({
-      type: actionTypes.VAULTS_LOADING_UPDATE,
-      payload: true
-    });
-
-    web3 && list && account && async.map(list, (asset, callback) => {
-      getVaultDecimals(web3, asset, account).then((decimals) => {
-        asset.decimals = decimals;
-
-        async.parallel([
-          (callbackInner) => {
-            getAccountBalance(web3, asset, account, callbackInner);
-          },
-          (callbackInner) => {
-            getVaultBalance(web3, asset, account, callbackInner);
-          },
-          (callbackInner) => {
-            getWholeVaultBalance(web3, asset, account, callbackInner);
-          },
-          (callbackInner) => getStrategy(web3, asset, account, callbackInner),
-          (callbackInner) => getAvailable(web3, asset, account, callbackInner),
-          (callbackInner) => {
-            getVaultTotalSupply(web3, asset, account, callbackInner);
-          },
-          (callbackInner) => getVaultMin(web3, asset, account, callbackInner),
-          (callbackInner) => getVaultMax(web3, asset, account, callbackInner),
-          (callbackInner) => {
-            getAPY(
-              web3,
-              asset.apySubgraph,
-              asset.vaultContractAddress,
-              callbackInner
-            );
-          },
-          (callbackInner) => getVaultAPY(web3, asset, account, callbackInner),
-          (callbackInner) => getGovernance(web3, asset, account, callbackInner),
-          (callbackInner) => {
-            getVaultPausedStatus(web3, asset, account, callbackInner);
-          }
-        ], (error, data) => {
-          if (error) {
-            return callback(error);
-          }
-
-          asset.balance = data[0];
-          asset.vaultBalance = data[1];
-          asset.wholeVaultBalance = data[2];
-          asset.strategyName = data[3];
-          asset.available = data[4];
-          asset.totalSupply = data[5];
-          asset.min = data[6];
-          asset.max = data[7];
-          asset.stats = data[8];
-          asset.pricePerFullShare = data[9].pricePerFullShare;
-          asset.apy = data[9].apy;
-          asset.governance = data[10];
-          asset.paused = data[11];
-
-          callback(null, asset);
-        })
-      }).catch((error) => callback(error));
-    },
-    (error, vaults) => {
-      error && console.error(error?.message);
-
-      !error && vaults && dispatch({
-        type: actionTypes.VAULTS_LIST_UPDATE,
-        payload: vaults
+    web3 &&
+      list &&
+      account &&
+      dispatch({
+        type: actionTypes.VAULTS_LOADING_UPDATE,
+        payload: true,
       });
 
-      dispatch({ type: actionTypes.VAULTS_LOADING_UPDATE, payload: false });
-    });
+    web3 &&
+      list &&
+      account &&
+      async.map(
+        list,
+        (asset, callback) => {
+          getVaultDecimals(web3, asset, account)
+            .then((decimals) => {
+              asset.decimals = decimals;
+
+              async.parallel(
+                [
+                  (callbackInner) => {
+                    getAccountBalance(web3, asset, account, callbackInner);
+                  },
+                  (callbackInner) => {
+                    getVaultBalance(web3, asset, account, callbackInner);
+                  },
+                  (callbackInner) => {
+                    getWholeVaultBalance(web3, asset, account, callbackInner);
+                  },
+                  (callbackInner) =>
+                    getStrategy(web3, asset, account, callbackInner),
+                  (callbackInner) =>
+                    getAvailable(web3, asset, account, callbackInner),
+                  (callbackInner) => {
+                    getVaultTotalSupply(web3, asset, account, callbackInner);
+                  },
+                  (callbackInner) =>
+                    getVaultMin(web3, asset, account, callbackInner),
+                  (callbackInner) =>
+                    getVaultMax(web3, asset, account, callbackInner),
+                  (callbackInner) => {
+                    getAPY(
+                      web3,
+                      asset.apySubgraph,
+                      asset.vaultContractAddress,
+                      callbackInner
+                    );
+                  },
+                  (callbackInner) =>
+                    getVaultAPY(web3, asset, account, callbackInner),
+                  (callbackInner) =>
+                    getGovernance(web3, asset, account, callbackInner),
+                  (callbackInner) => {
+                    getVaultPausedStatus(web3, asset, account, callbackInner);
+                  },
+                  (callbackInner) => {
+                    getAPYNew(web3, asset, callbackInner);
+                  },
+                ],
+                (error, data) => {
+                  if (error) {
+                    return callback(error);
+                  }
+                  let x  =  data[12];
+                  console.log({x})
+                  asset.balance = data[0];
+                  asset.vaultBalance = data[1];
+                  asset.wholeVaultBalance = data[2];
+                  asset.strategyName = data[3];
+                  asset.available = data[4];
+                  asset.totalSupply = data[5];
+                  asset.min = data[6];
+                  asset.max = data[7];
+                  asset.stats = data[8];
+                  asset.pricePerFullShare = data[9].pricePerFullShare;
+                  asset.apy = data[12].apy;
+                  asset.governance = data[10];
+                  asset.paused = data[11];
+
+                  callback(null, asset);
+                }
+              );
+            })
+            .catch((error) => callback(error));
+        },
+        (error, vaults) => {
+          error && console.error(error?.message);
+
+          !error &&
+            vaults &&
+            dispatch({
+              type: actionTypes.VAULTS_LIST_UPDATE,
+              payload: vaults,
+            });
+
+          dispatch({ type: actionTypes.VAULTS_LOADING_UPDATE, payload: false });
+        }
+      );
   };
 };
 

@@ -32,27 +32,9 @@ const VaultHeader = ({ asset, basedOn }) => {
       <div className={style.container__growth}>
         <Paragraph className={style.title}>APY:</Paragraph>
 
-        {!['GUSD', 'LINK'].includes(asset.id) && asset.vaultBalance > 0 && (
-          <Text className={style.value}>
-            {`${(getAPY(asset, basedOn) / 1).toFixed(2)}%`}
-            {' '}
-            on
-            {' '}
-            {asset.vaultBalance ?
-              (Math.floor(
-                asset.vaultBalance * asset.pricePerFullShare * 10000
-              ) / 10000).toFixed(2) :
-              '0.00'}
-            {' '}
-            {asset.symbol}
+        <Text className={style.value}>
+           {parseFloat(asset.apy).toFixed(2)}%
           </Text>
-        )}
-
-        {!['GUSD', 'LINK'].includes(asset.id) && asset.vaultBalance === 0 && (
-          <Text className={style.value}>
-            {`${(getAPY(asset, basedOn) / 1).toFixed(2)} %`}
-          </Text>
-        )}
 
         {asset.id === 'LINK' && (
           <Text className={style.value}>Not Available</Text>
