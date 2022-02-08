@@ -3,6 +3,7 @@ export { default as vaultControlerABI } from './vaults/Controller.json';
 export { default as vaultStrategyABI } from './vaults/YTestStrategy.json';
 export { default as vaultERC20ABI } from './vaults/ERC20.json';
 export { default as vaultABI } from './vaults/yVault.json';
+export { default as strategyAbi } from './vaults/Strategy.json';
 
 // DAO ABI:
 export { default as daoTokenYFIAGABI } from './dao/TokenYFIAG.json';

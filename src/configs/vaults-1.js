@@ -10,6 +10,7 @@ const vaults = [
     id: 'TKN1',
     name: 'WBTC - cWBTC',
     symbol: 'WBTC',
+    platform:'compound',
     description: 'Migrate your WBTC LP into cWBTC LP',
     vaultSymbol: 'WBTC',
     erc20address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
@@ -30,7 +31,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'wbtc',
     network:"ETH"
   },
   {
@@ -39,6 +40,7 @@ const vaults = [
     symbol: 'DAI',
     description: 'Migrate your DAI LP into yDAI LP',
     vaultSymbol: 'DAI',
+    pool:'3pool',
     erc20address: '0x6b175474e89094c44da98b954eedeac495271d0f',
     vaultContractAddress: '0xdFba189c88e792A8c5322705A9b5c2035d6C1af4',
     vaultStrategyAddress: '0xA428E766315424C0Ab20549a734fE6aA78653366',
@@ -66,6 +68,7 @@ const vaults = [
     symbol: 'WRenBTC',
     description: 'Migrate your WBTC LP into RenBTC LP',
     vaultSymbol: 'WTBC',
+    pool:'ren',
     erc20address: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
     vaultContractAddress: '0x6Bb8d1A7ee1e4499A79E7E81684A6085cdFC17ee',
     vaultStrategyAddress: '0xb5F32Ed22986eB3c6fEB4df370a2ad2b11B5c7bd',
@@ -84,15 +87,16 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'wbtc',
     network:"ETH"
   },
   {
     id: 'TKN4',
-    name: 'CRV - yCRV',
+    name: 'curve-fi-ydai-yusdc-yusdt-ytusd',
     symbol: 'CRV',
     description: 'Migrate your CRV LP into yCRV LP',
     vaultSymbol: 'CRV',
+    pool:'iearn',
     erc20address: '0xD533a949740bb3306d119CC777fa900bA034cd52',
     vaultContractAddress: '0x10d50D4B1B069d47151E6dE3734232FE75b18628',
     vaultStrategyAddress: '0x706a6d84d103Cda3A352b76b5a2b248E18Dc4112',
@@ -111,7 +115,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'curve-fi-ydai-yusdc-yusdt-ytusd',
     network:"ETH"
   }
 ];
