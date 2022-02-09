@@ -3,6 +3,7 @@
   font-family: "Nunito Sans", Roboto;
   line-height: 16px;
   font-size: 1.5em;
+  width: 40%;
 
   #root
     > section
@@ -28,7 +29,8 @@
   }
 
   &__name {
-    margin-right: 33.5%;
+    margin-right: 30%;
+    min-width: 250px;
     @media (max-width: 1300px) {
       margin-right: 0%;
     }

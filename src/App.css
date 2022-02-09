@@ -1,4 +1,4 @@
-#root
+/* #root
   > section
   > main
   > article
@@ -20,7 +20,7 @@
   > div
   > img {
   content: url(./dai.svg);
-}
+} */
 
 #root
   > section
@@ -6738,7 +6738,7 @@ body
   > div
   > div
   > div.VaultHeader_container__name__38sXX {
-  margin-right: 31%;
+  margin-right: 30%;
 }
 
 @media (min-width: 2000px) {
@@ -6764,7 +6764,7 @@ body
   > div.ant-collapse-header
   > div
   > div.VaultHeader_container__name__38sXX {
-  margin-right: 31%;
+  margin-right: 30%;
 }
 
 @media (min-width: 2000px) {
@@ -6777,7 +6777,7 @@ body
     > div.ant-collapse-header
     > div
     > div.VaultHeader_container__name__38sXX {
-    margin-right: 32%;
+    margin-right: 30%;
   }
 }
 

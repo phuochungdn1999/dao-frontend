@@ -92,7 +92,7 @@ const Vaults = ({ web3context, account, vaults, t }) => {
         return true;
       }
     }) || null;
-
+    console.log("result",result)
     result && setFilteredVaults(result);
   }, [vaults]);
 
