@@ -189,7 +189,10 @@ const getStrategyDailyApy = async (web3, asset, step, callback) => {
           asset.vaultStrategyAddress
         );
         let interval = await strategyContract.methods.getIntervalReturn(step).call();
-        return  interval / (10**12) * 100
+        let res = interval / (10**10);
+        console.log({interval});
+        console.log({res});
+        return res;
       }
     } else if (asset.network === "ETH") {
       //Curve
@@ -388,7 +391,7 @@ const getAPY = async (web3, apyAddress, vaultAddress, callback) => {
 };
 
 const getAPYNew = async (web3, asset, callback) => {
-  const STEP = 86400; // 1 year
+  const STEP = 28800 * 365; // 1 year
   try {
     let apy = await getStrategyDailyApy(web3, asset, STEP, callback);
     callback(null, {
