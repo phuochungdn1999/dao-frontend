@@ -1478,13 +1478,12 @@ button {
   line-height: 20px;
 }
 
-.dark
+/* .dark
   #root
   > section
   > main
   > article
   > div.ant-collapse.ant-collapse-borderless.ant-collapse-icon-position-left.Vaults_list__21RR4
-  > div:nth-child(2)
   > div.ant-collapse-header
   > div
   > div.VaultHeader_container__available__jFBE6
@@ -1494,7 +1493,7 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
-}
+} */
 
 .dark
   #root

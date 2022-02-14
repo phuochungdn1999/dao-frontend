@@ -165,7 +165,7 @@ const Vaults = ({ web3context, account, vaults, t }) => {
                 />
               )}
 
-              <VaultDescription />
+              {/* <VaultDescription /> */}
             </>
           ) : (
             <Alert
