@@ -29,4 +29,5 @@ export const config = {
     : 'https://mainnet.infura.io/v3/f7b6615c064a4003aad244f4ee088191',
   ETC_PROVIDER: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
   BSC_PROVIDER: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+  // BSC_PROVIDER: 'http://127.0.0.1:8556',
 };

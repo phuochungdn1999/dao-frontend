@@ -22,6 +22,14 @@ const crosschain = process.env.REACT_APP_PROPOSAL_NETWORK === 'mainnet' ?
     {
       id: 1,
       list: crosschain1
+    },
+    {
+      id: 97,
+      list: crosschain97
+    },
+    {
+      id: 4,
+      list: crosschain4
     }
   ];
 
