@@ -14,27 +14,25 @@ const calculateDashboard = (vaults, prices, basedOn = 0) => {
   const vaultsInUse = vaults?.filter((vault) => {
     return vault.id !== 'ETH' && vault.vaultBalance > 0.0001;
   })?.map((vault) => {
-    const apy = getAPY(vault, basedOn);
-
+    // const apy = getAPY(vault, basedOn); remove using new APY getAPYNew from vaults
     vault.prices = prices[vault.price_id];
-
     vault.usdBalance =
       vault.vaultBalance * vault.pricePerFullShare * (vault.prices?.usd || 1);
     vault.vaultGrowth_daily_usd =
-      calculateVaultGrowth(vault, apy, 36500, 'usd');
+      calculateVaultGrowth(vault, vault.apy, 36500, 'usd');
     vault.vaultGrowth_weekly_usd =
-      calculateVaultGrowth(vault, apy, 5200, 'usd');
+      calculateVaultGrowth(vault, vault.apy, 5200, 'usd');
     vault.vaultGrowth_yearly_usd =
-      calculateVaultGrowth(vault, apy, 100, 'usd');
+      calculateVaultGrowth(vault, vault.apy, 100, 'usd');
 
     vault.ethBalance =
       vault.vaultBalance * vault.pricePerFullShare * (vault.prices?.eth || 1);
     vault.vaultGrowth_daily_eth =
-      calculateVaultGrowth(vault, apy, 36500, 'eth');
+      calculateVaultGrowth(vault, vault.apy, 36500, 'eth');
     vault.vaultGrowth_weekly_eth =
-      calculateVaultGrowth(vault, apy, 5200, 'eth');
+      calculateVaultGrowth(vault, vault.apy, 5200, 'eth');
     vault.vaultGrowth_yearly_eth =
-      calculateVaultGrowth(vault, apy, 100, 'eth');
+      calculateVaultGrowth(vault, vault.apy, 100, 'eth');
 
     return vault;
   });

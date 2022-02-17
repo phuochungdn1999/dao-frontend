@@ -66,6 +66,7 @@ const DashboardList = ({
   currentGrowth,
   growthDivider,
   growthTitle,
+  profitTitle,
   className,
   isVaults,
   title,
@@ -98,18 +99,25 @@ const DashboardList = ({
               {`${growthTitle}:`}
             </Paragraph>
             <Text className={style.value}>
-              {currentCurrency === defaultCurrency && '$ '}
-              {getGrowth(
+              {` ${isVaults
+                ? setAPY(asset, currentBasedOn, growthDivider)
+                : getMaxApr(asset, growthDivider)
+              }%`}
+            </Text>
+          </div>
+          <div className={style.container__row__growth}>
+            <Paragraph className={style.title}>
+              {`${profitTitle}:`}
+            </Paragraph>
+            <Text className={style.value}>
+            {currentCurrency === defaultCurrency && '$ '}
+            {getGrowth(
                 asset,
                 isVaults,
                 currentGrowth,
                 currentCurrency,
                 defaultCurrency)}
               {currentCurrency !== defaultCurrency && ' ETH'}
-              {` ${isVaults
-                ? setAPY(asset, currentBasedOn, growthDivider)
-                : getMaxApr(asset, growthDivider)
-              }%`}
             </Text>
           </div>
 

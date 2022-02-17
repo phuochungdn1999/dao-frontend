@@ -58,6 +58,24 @@ const growth = [
   }
 ];
 
+const profit = [
+  {
+    divider: 365,
+    value: 0,
+    name: 'DASHBOARD_PROFIT_DAILY'
+  },
+  {
+    divider: 52,
+    value: 1,
+    name: 'DASHBOARD_PROFIT_WEEKLY'
+  },
+  {
+    divider: 1,
+    value: 2,
+    name: 'DASHBOARD_PROFIT_YEARLY'
+  }
+];
+
 const mapState = (state) => {
   return {
     web3context: state.web3context,
@@ -281,10 +299,10 @@ const Dashboard = ({ web3context, account, vaults, prices, t }) => {
                 </Card>
               </Row>
 
-              <VaultBasedOn
+              {/* <VaultBasedOn
                 className={style.container__prompt}
                 isLoading={isLoading}
-              />
+              /> */}
 
               {dashboard?.vaults?.length > 0 && (
                 <DashboardList
@@ -294,6 +312,7 @@ const Dashboard = ({ web3context, account, vaults, prices, t }) => {
                   currentGrowth={dashboardGrowth}
                   growthDivider={growth[dashboardGrowth].divider}
                   growthTitle={t(growth[dashboardGrowth || 0].name)}
+                  profitTitle={t(profit[dashboardGrowth || 0].name)}
                   className={style.container__list}
                   isVaults
                   title={t('DASHBOARD_VAULTS_OVERVIEW')}
