@@ -29,7 +29,10 @@ const getUSDPrices = () => {
           'lp-3pool-curve',
           'wrapped-bitcoin',
           'curve-dao-token',
-          'curve-fi-ydai-yusdc-yusdt-ytusd'
+          'curve-fi-ydai-yusdc-yusdt-ytusd',
+          'biswap',
+          'pancakeswap-token',
+          'apeswap-finance'
         ],
       });
 

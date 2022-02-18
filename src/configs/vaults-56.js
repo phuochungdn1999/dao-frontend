@@ -31,7 +31,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'pancakeswap-token',
     network:"BSC"
   },
   {
@@ -57,7 +57,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'pancakeswap-token',
     network:"BSC"
   },
   {
@@ -83,7 +83,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'biswap',
     network:"BSC"
   },
   {
@@ -109,7 +109,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'dai',
+    price_id: 'apeswap-finance',
     network:"BSC"
   },
   
