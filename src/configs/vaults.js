@@ -1,6 +1,8 @@
 import { default as vaults56 } from './vaults-56';
 import { default as vaults1 } from './vaults-1';
 import { default as vaults97 } from './vaults-97';
+import { default as vaults31340 } from './vaults-31340';
+
 
 const vaults = process.env.REACT_APP_PROPOSAL_NETWORK === 'mainnet' ?
   [
@@ -23,8 +25,8 @@ const vaults = process.env.REACT_APP_PROPOSAL_NETWORK === 'mainnet' ?
       list: vaults1
     },
     {
-      id: 97,
-      list: vaults97
+      id: 31340,
+      list: vaults31340
     }
   ];
 
