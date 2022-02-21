@@ -32,7 +32,8 @@ const getUSDPrices = () => {
           'curve-fi-ydai-yusdc-yusdt-ytusd',
           'biswap',
           'pancakeswap-token',
-          'apeswap-finance'
+          'apeswap-finance',
+          'binance-wrapped-btc'
         ],
       });
 
