@@ -84,7 +84,7 @@ const DashboardList = ({
         >
           <img
             className={style.container__row__icon}
-            src="assets/icons/dai.svg"
+            src={`/assets/icons/${asset.symbol.toLowerCase()}.svg`}
             alt={asset.name}
           />
           

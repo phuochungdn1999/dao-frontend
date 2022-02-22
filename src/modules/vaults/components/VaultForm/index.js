@@ -487,8 +487,8 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
                   ) / 10000
                 ).toFixed(4)
               : "0.0000")}{" "}
-          {asset?.symbol} (
-          {/* {asset?.vaultBalance
+          {asset?.symbol} 
+          {/*( {asset?.vaultBalance
             ? (Math.floor(asset.vaultBalance * 10000) / 10000).toFixed(4)
             : "0.0000"}{" "}
           {asset?.vaultSymbol}) */}

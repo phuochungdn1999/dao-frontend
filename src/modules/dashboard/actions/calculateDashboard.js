@@ -1,7 +1,8 @@
 import { getAPY } from '../../vaults';
 
 const calculateVaultGrowth = (vault, apy, time, coin) => {
-  return vault.prices[coin] ?
+
+  return vault?.prices[coin] ?
     vault.vaultBalance *
     vault.pricePerFullShare *
     (apy / time) *

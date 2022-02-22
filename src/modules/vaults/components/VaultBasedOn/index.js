@@ -59,7 +59,7 @@ const VaultBasedOn = ({ className, isLoading, t }) => {
       align="middle"
     >
 
-      <Text className={style.container__text}>
+      {/* <Text className={style.container__text}>
       <InfoCircleOutlined className={style.container__icon} />
 
         Growth is based on the vault's performance
@@ -67,9 +67,9 @@ const VaultBasedOn = ({ className, isLoading, t }) => {
         {vaultsBasedOn === 2 ?
           t('DASHBOARD_BASEDON_PROMPT_SINCE') :
           t('DASHBOARD_BASEDON_PROMPT_PAST')}
-      </Text>
+      </Text> */}
 
-      <Select
+      {/* <Select
         dropdownClassName={style.select__dropdown}
         defaultValue={basedOn[0].value}
         className={style.select}
@@ -87,7 +87,7 @@ const VaultBasedOn = ({ className, isLoading, t }) => {
             {t(name)}
           </Option>
         ))}
-      </Select>
+      </Select> */}
     </Row>
   );
 };

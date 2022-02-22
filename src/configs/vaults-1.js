@@ -31,7 +31,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'wbtc',
+    price_id: 'binance-wrapped-btc',
     network:"ETH"
   },
   // {

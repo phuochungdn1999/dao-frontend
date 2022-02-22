@@ -31,7 +31,7 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'wbtc',
+    price_id: 'binance-wrapped-btc',
     network:"ETH"
   },
   // {
@@ -41,8 +41,8 @@ const vaults = [
   //   description: 'Migrate your DAI LP into yDAI LP',
   //   vaultSymbol: 'DAI',
   //   erc20address: '0x6b175474e89094c44da98b954eedeac495271d0f',
-  //   vaultContractAddress: '0x36776a9BD3Edeb55029554122b029DA4eca4C414',
-  //   vaultStrategyAddress: '0x90027dcE788594BbDE26F6E3102979eBF5759a69',
+  //   vaultContractAddress: '0x5f3c67e5fd37b7fD711f11F69f86cffA07534666',
+  //   vaultStrategyAddress: '0x2Bab951Bb001b37e166C1566c8183b4801A78Efe',
   //   erc20ABI: vaultERC20ABI,
   //   vaultContractABI: vaultABI,
   //   vaultStrategyABI: vaultStrategyABI,
@@ -62,7 +62,7 @@ const vaults = [
   {
     id: 'TKN3',
     name: 'WBTC - RenBTC',
-    symbol: 'WRenBTC',
+    symbol: 'WBTC',
     description: 'Migrate your WBTC LP into RenBTC LP',
     vaultSymbol: 'yWTBC',
     pool:'ren',
@@ -84,15 +84,15 @@ const vaults = [
     lastMeasurement: 11210773,
     measurement: 1e18,
     depositDisabled: false,
-    price_id: 'wbtc',
+    price_id: 'binance-wrapped-btc',
     network:"ETH"
   },
   {
     id: 'TKN4',
     name: 'curve-fi-ydai-yusdc-yusdt-ytusd',
-    symbol: 'CRV',
+    symbol: 'ydai-yusdc-yusdt-ytusd',
     description: 'Migrate your CRV LP into yCRV LP',
-    vaultSymbol: 'yCRV',
+    vaultSymbol: 'yydai-yyusdc-yyusdt-yytusd',
     pool:'iearn',
     erc20address: '0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8',
     vaultContractAddress: '0xfbd9Bad1101dE28646D919B35a8fe8dECdD38241',

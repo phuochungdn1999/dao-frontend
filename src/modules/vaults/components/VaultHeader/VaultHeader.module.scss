@@ -3,7 +3,7 @@
   font-family: "Nunito Sans", Roboto;
   line-height: 16px;
   font-size: 1.5em;
-  width: 40%;
+  width: 90%;
 
   #root
     > section
@@ -48,6 +48,7 @@
 
   &__available {
     padding-left: 24px;
+    width: 250px;
     @media (max-width: 1300px) {
       padding-left: 0;
     }
