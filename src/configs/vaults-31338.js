@@ -90,9 +90,9 @@ const vaults = [
   {
     id: 'TKN4',
     name: 'curve-fi-ydai-yusdc-yusdt-ytusd',
-    symbol: 'ydai-yusdc-yusdt-ytusd',
-    description: 'Migrate your CRV LP into yCRV LP',
-    vaultSymbol: 'yydai-yyusdc-yyusdt-yytusd',
+    symbol: 'Y',
+    description: 'Migrate your Y LP into yY LP',
+    vaultSymbol: 'yY',
     pool:'iearn',
     erc20address: '0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8',
     vaultContractAddress: '0xfbd9Bad1101dE28646D919B35a8fe8dECdD38241',
