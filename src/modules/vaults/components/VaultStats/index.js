@@ -59,7 +59,7 @@ const VaultStats = ({ asset }) => {
           <div>
             <Paragraph className={style.title}>Total Supply:</Paragraph>
             <Text className={style.value}>
-              {`${Number(asset.totalSupply || 0).toFixed(2)} ${asset.symbol}`}
+              {`${Number(asset.totalSupply || 0).toFixed(2)} ${asset.vaultSymbol}`}
             </Text>
           </div>
         </div>

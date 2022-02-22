@@ -215,7 +215,7 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
   const onWithdraw = ({ redeemAmount }) => {
     const amount = (
       Math.floor((redeemAmount / asset.pricePerFullShare) * 10000) / 10000
-    ).toFixed(4);
+    ).toFixed(6);
 
     web3context?.instance &&
       account?.address &&
@@ -326,9 +326,7 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
   const setRedeemAmount = (percent) => {
     const assetAmount = asset.vaultBalance * asset.pricePerFullShare;
     const amount = Math.floor(assetAmount * percent * 100) / 10000;
-
     setRedeemAmountPart(percent);
-
     withdrawForm.setFieldsValue({ redeemAmount: amount });
   };
 
@@ -481,7 +479,7 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
           onClick={() => setRedeemAmount(100)}
           level={5}
         >
-          {"Vault balance: " +
+          {"User balance: " +
             (asset?.vaultBalance
               ? (
                   Math.floor(
@@ -490,10 +488,10 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
                 ).toFixed(4)
               : "0.0000")}{" "}
           {asset?.symbol} (
-          {asset?.vaultBalance
+          {/* {asset?.vaultBalance
             ? (Math.floor(asset.vaultBalance * 10000) / 10000).toFixed(4)
             : "0.0000"}{" "}
-          {asset?.vaultSymbol})
+          {asset?.vaultSymbol}) */}
         </Title>
 
         <Form
@@ -502,7 +500,6 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
             const changedAmount = changedFields?.find(
               ({ name }) => name[0] === "redeemAmount"
             );
-
             changedAmount && setRedeemAmountPart(null);
           }}
           onFinish={onWithdraw}
@@ -523,8 +520,8 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
               },
               {
                 type: "number",
-                max: asset?.vaultBalance,
-                message: `Amount must be less than ${asset?.vaultBalance}`,
+                max: asset?.vaultBalance * asset?.pricePerFullShare,
+                message: `Amount must be less than ${asset?.vaultBalance * asset?.pricePerFullShare}`,
               },
             ]}
             name="redeemAmount"

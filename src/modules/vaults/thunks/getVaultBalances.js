@@ -171,7 +171,7 @@ const getStrategyDailyApy = async (web3, asset, step, callback) => {
 
     if (asset.network === "BSC") {
       //Venus
-      if (asset.vaultSymbol === "Venus") {
+      if (asset.vaultSymbol === "yBBTC") {
         let { data } = await axios.get(asset.apyFetch);
         
         let res = data.data;
