@@ -12,7 +12,7 @@ const vaults = [
     name: 'Venus Strategy',
     symbol: 'BTCB',
     description: 'BTCB - yBTC',
-    vaultSymbol: 'yBBTC',
+    vaultSymbol: 'yBTCB',
     erc20address: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     vaultContractAddress: '0xE69BceD9d33D28E11cD09aDEE6F579Fa7d76fc13',
     vaultStrategyAddress: '0xad338b55eBa482250486E0100cD595075ad62faf',
