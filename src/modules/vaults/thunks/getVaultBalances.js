@@ -168,12 +168,11 @@ const getVaultMax = async (web3, asset, account, callback) => {
 const getStrategyDailyApy = async (web3, asset, step, callback) => {
   try {
     let apr = 0;
-
+    console.log("getStrategyDailyApy")
     if (asset.network === "BSC") {
       //Venus
-      if (asset.vaultSymbol === "yBBTC") {
+      if (asset.vaultSymbol === "yBTCB") {
         let { data } = await axios.get(asset.apyFetch);
-        
         let res = data.data;
         let { markets } = res;
         
