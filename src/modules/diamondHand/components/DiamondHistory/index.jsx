@@ -198,7 +198,7 @@ const DiamondHistory = ({ account, poolData, refetch, theme, getBalance }) => {
       setUserPool(tempPool);
       setLoadingEarning(false);
     };
-
+    console.log("pool data: ",poolData)
     setLoadingEarning(true);
     generatePool();
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -6,6 +6,7 @@ BigNumber.config({
 });
 
 export const dev = () => {
+  return true;
   if (process.env.NODE_ENV === 'development' || process.env.REACT_APP_ENV === 'development') {
     return true;
   }
