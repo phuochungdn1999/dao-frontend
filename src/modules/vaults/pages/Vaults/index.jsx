@@ -54,6 +54,7 @@ const Vaults = ({ web3context, account, vaults, t }) => {
   );
 
   useEffect(() => {
+    console.log("RUNNNNNNNN")
     if (vaults?.loading || account?.loading) {
       setIsLoading(true);
     } else {

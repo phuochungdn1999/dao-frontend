@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, connect } from "react-redux";
 import { withTranslation } from "react-i18next";
-import { InputNumber, Typography, Button, Input, Form, message } from "antd";
+import {
+  InputNumber,
+  Typography,
+  Radio,
+  Button,
+  Input,
+  Form,
+  message,
+  DatePicker
+} from "antd";
 import cx from "classnames";
 
 // configs:
@@ -12,6 +21,7 @@ import { crosschain as crosschainList } from "../../../../configs";
 import { getCrossChainBalances, checkTransaction, sendTokens } from "../../";
 
 import style from "./CrossChainFormFields.module.scss";
+import createProposal from "../../thunks/createProposal";
 
 const {
   success: successMessage,
@@ -24,6 +34,7 @@ const { useForm, Item } = Form;
 const MINIMAL_AMOUNT = 0.1;
 
 const mapState = (state) => {
+  console.log("state", state);
   return {
     web3context: state.web3context,
     crosschain: state.crosschain,
@@ -33,7 +44,9 @@ const mapState = (state) => {
   };
 };
 
-const CrossChainFormFields = ({
+// const
+
+const CrossChainFormFields3 = ({
   availableChain,
   web3context,
   crosschain,
@@ -42,6 +55,7 @@ const CrossChainFormFields = ({
   prices,
   chains,
   t,
+  proposal,
 }) => {
   const dispatch = useDispatch();
 
@@ -49,11 +63,17 @@ const CrossChainFormFields = ({
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleCrossChainAmount = (value) => {
-    crosschainForm.setFieldsValue({ amount: value });
-  };
+  const [vote, setVote] = useState({});
 
-  console.log("crosschain: ",crosschain)
+  const [date, setDate] = useState("");
+
+  const [name, setName] = useState("");
+
+  const [description, setDescription] = useState("");
+
+
+
+  console.log("crosschain: ", crosschain);
 
   const checkTransactions = (asset, nonce, chains, chainId, account) => {
     dispatch(
@@ -80,24 +100,27 @@ const CrossChainFormFields = ({
     );
   };
 
-  const onFinish = ({ address, amount }) => {
-    console.log("RUNNNNN")
+  const onFinish = ({ name, description }) => {
+    console.log("RUNNNNN", name, description, new Date(date).getTime() / 1000);
+    const endAt =  Math.floor(new Date(date).getTime() / 1000)
     setIsLoading(true);
 
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
       dispatch(
-        sendTokens({
+        createProposal({
           web3: web3context.instance,
           asset: crosschain.chain,
           price: prices.gas,
-          amount,
-          address,
+          name,
+          description,
+          endAt,
           account: account.address,
+          vote,
           onError: (error) => {
             if (error?.message) {
-              console.log("error",error.message);
+              console.log("error", error.message);
 
               errorMessage(error.message);
             }
@@ -145,6 +168,36 @@ const CrossChainFormFields = ({
       );
   };
 
+  const disabledSubmit = (proposalId) => {
+    return !(proposalId === vote?.proposalId);
+  };
+
+  const disabledClose = (proposal) => {
+    if (crosschain?.chain?.isAdmin[0]) {
+      return proposal?.isEnded || proposal.isClosedByAdmin;
+    }
+    return true;
+  };
+
+  const result = (proposal) => {
+    return proposal.isEnded || proposal.isClosedByAdmin
+      ? proposal.isAccepted
+        ? "Approved"
+        : "Rejected"
+      : "InProgress";
+  };
+
+  const onChange = (value, dateString) => {
+    console.log('Selected Time: ', value);
+    console.log('Formatted Selected Time: ', dateString);
+    setDate(dateString);
+  };
+
+  const setCreateProposal = () => {
+    console.log("!(date.length !== 0) && !(name.length !== 0) && !(description.length !== 0)",!(date.length !== 0) && !(name.length !== 0) && !(description.length !== 0))
+    return !(date.length !== 0) && !(name.length !== 0) && !(description.length !== 0)
+  };
+
   return (
     <Form
       scrollToFirstError
@@ -156,15 +209,9 @@ const CrossChainFormFields = ({
     >
       <Title
         className={style.subtitle}
-        onClick={() => {
-          handleCrossChainAmount(crosschain?.chain?.balance || 0);
-        }}
         level={5}
       >
-        Balance:{" "}
-        {(Math.floor(crosschain?.chain?.balance * 10000) / 10000)?.toFixed(4) ||
-          "0.0000"}{" "}
-        {crosschain?.chain?.symbol || ""}
+        Crete new proposal        
       </Title>
 
       <Item
@@ -173,13 +220,13 @@ const CrossChainFormFields = ({
           {
             required: true,
             requiredMark: false,
-            message: "Please input address",
+            message: "Please input name",
           },
         ]}
-        label="Send to:"
-        name="address"
+        label="Name:"
+        name="name"
       >
-        <Input placeholder="Input address..." className={style.input} />
+        <Input placeholder="Input name..." className={style.input} />
       </Item>
 
       <Item
@@ -187,48 +234,45 @@ const CrossChainFormFields = ({
         rules={[
           {
             required: true,
-            message: "Please input amount",
-          },
-          {
-            type: "number",
-            min: MINIMAL_AMOUNT,
-            message: `Amount must be more than ${MINIMAL_AMOUNT}`,
-          },
-          {
-            type: "number",
-            max: crosschain?.chain?.balance,
-            message: `Amount must be less than ${crosschain?.chain?.balance}`,
+            requiredMark: false,
+            message: "Please input description",
           },
         ]}
-        label="Send amount:"
-        name="amount"
+        label="Description:"
+        name="description"
       >
-        <InputNumber
-          min={MINIMAL_AMOUNT}
-          step={MINIMAL_AMOUNT}
-          type="number"
-          pattern="[0-9]*"
-          disabled={!crosschain?.chain?.balance}
-          inputmode="numeric"
-          className={cx(style.input, style.input_number)}
-          placeholder="0"
-        />
+        <Input placeholder="Input description..." className={style.input} />
       </Item>
+
+      {/* <Item
+        className={style.container__item}
+        rules={[
+          {
+            required: true,
+            requiredMark: false,
+            message: "Please input date",
+          },
+        ]}
+        label="Date:"
+        name="date"
+      > */}
+        <DatePicker showTime onChange={onChange} className={style.input}/>
+      {/* </Item> */}
 
       <Button
         className={style.submit}
         htmlType="submit"
-        disabled={isLoading || !crosschain?.chain?.balance}
+        disabled={isLoading || setCreateProposal()}
         loading={isLoading}
         type="primary"
       >
-        {t("CROSS_CHAIN_FORM_FIELDS_SEND")}
+        Create
       </Button>
     </Form>
   );
 };
 
-CrossChainFormFields.propTypes = {
+CrossChainFormFields3.propTypes = {
   availableChain: PropTypes.object.isRequired,
   web3context: PropTypes.object.isRequired,
   crosschain: PropTypes.object.isRequired,
@@ -238,4 +282,4 @@ CrossChainFormFields.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withTranslation()(connect(mapState)(CrossChainFormFields));
+export default withTranslation()(connect(mapState)(CrossChainFormFields3));

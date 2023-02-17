@@ -35,7 +35,7 @@ const Layout = ({ location, children, theme }) => {
         {children}
       </Content>
 
-      <footer>
+      {/* <footer>
         <a className="button" href="https://yearnagnostic.medium.com/">
           {" "}
           <img className="img" src={logoMedium} alt="footer-logos" />
@@ -55,8 +55,8 @@ const Layout = ({ location, children, theme }) => {
           {" "}
           <img className="img" src={logoGithub} alt="footer-logos" />{" "}
         </a>
-      </footer>
-      <h2 className="template"> yAgnostic </h2>
+      </footer> */}
+      {/* <h2 className="template"> yAgnostic </h2> */}
     </LayoutContainer>
   );
 };

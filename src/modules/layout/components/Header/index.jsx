@@ -99,11 +99,11 @@ const Header = ({
     <HeaderLayout className={style.container}>
       <Row className={style.container__row} align="middle">
         <NavLink className={style.container__row__title} exact to="/">
-          <img
+          {/* <img
             className="logo"
             src="/assets/images/logo-yearn-agnostic.svg"
             alt={t("LAYOUT_HEADER_LOGO")}
-          />
+          /> */}
         </NavLink>
 
         <button className="switcher">

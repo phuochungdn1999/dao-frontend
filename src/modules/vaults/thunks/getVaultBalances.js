@@ -469,7 +469,7 @@ const getVaultPausedStatus = async (web3, asset, account, callback) => {
 
     callback(null, "");
   }
-};
+}
 
 const getVaultBalances = ({ web3, list, account }) => {
   return async (dispatch) => {

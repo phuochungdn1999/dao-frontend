@@ -1,7 +1,6 @@
 {
   "name": "yagnostic-web",
   "version": "0.1.0",
-  "private": true,
   "homepage": "https://yearnagnostic.io/#",
   "dependencies": {
     "@apollo/client": "^3.5.7",

@@ -22,6 +22,10 @@ const vaults = process.env.REACT_APP_PROPOSAL_NETWORK === 'mainnet' ?
       list: vaults56
     },
     {
+      id: 97,
+      list: vaults97
+    },
+    {
       id: 1,
       list: vaults1
     },

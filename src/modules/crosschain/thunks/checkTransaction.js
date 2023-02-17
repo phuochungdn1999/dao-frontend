@@ -3,6 +3,7 @@ import Web3 from 'web3';
 const makeWeb3Instance = (chains, chainId, infuraApiKey) => {
   return new Promise((resolve, reject) => {
     const findedChain = chains.find((item) => item?.chainId === chainId);
+    console.log("findedChain",findedChain)
 
     const rpcLink = chains !== 56 && chains !== 97 ?
       findedChain?.rpc[0]?.replace('${INFURA_API_KEY}', infuraApiKey) :

@@ -9,11 +9,11 @@ import { pages as diamondHand} from './diamondHand';
 
 export const pages = [
   ...pageNotFound,
-  ...diamondHand,
+  // ...diamondHand,
   ...crosschain,
-  ...dashboard,
-  ...vaults,
-  ...stake,
-  ...vote,
-  ...home,
+  // ...dashboard,
+  // ...vaults,
+  // ...stake,
+  // ...vote,
+  // ...home,
 ].sort((a, b) => a.order - b.order);

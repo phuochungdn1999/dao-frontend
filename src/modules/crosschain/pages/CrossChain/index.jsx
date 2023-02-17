@@ -1,30 +1,36 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch, connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import { Typography, Alert, Row } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
-import cx from 'classnames';
+import React, { useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
+import { useDispatch, connect } from "react-redux";
+import { withTranslation } from "react-i18next";
+import { Typography, Alert, Row } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import cx from "classnames";
 
 // configs:
-import { crosschain as crosschainList } from '../../../../configs';
+import { crosschain as crosschainList } from "../../../../configs";
 
 // components:
-import { AvailableChains } from '../../../common';
+import { AvailableChains } from "../../../common";
 import {
   CrossChainDescription,
   CrossChainFormHeader,
-  CrossChainFormFields
-} from '../../';
+  CrossChainFormFields,
+  CrossChainFormFields1,
+} from "../../";
 
 // helpers:
-import { getAvailableChain } from '../../../common';
+import { getAvailableChain } from "../../../common";
 
 // thunks:
-import { getGasPrices } from '../../../dashboard';
-import { getCrossChainBalances } from '../../';
+import { getGasPrices } from "../../../dashboard";
+import { getCrossChainBalances } from "../../";
 
-import style from './CrossChain.module.scss';
+import style from "./CrossChain.module.scss";
+import chain from "../../../../configs/crosschain-80001";
+import CrossChainFormFields2 from "../../components/CrossChainFormFields3";
+import CrossChainFormFields3 from "../../components/CrossChainFormFields4";
+import CrossChainFormFields4 from "../../components/CrossChainFormFields5";
+
 
 const { Title } = Typography;
 
@@ -34,7 +40,7 @@ const mapState = (state) => {
     crosschain: state.crosschain,
     account: state.account,
     prices: state.prices,
-    chains: state.chains
+    chains: state.chains,
   };
 };
 
@@ -44,7 +50,7 @@ const CrossChain = ({
   account,
   prices,
   chains,
-  t
+  t,
 }) => {
   const dispatch = useDispatch();
 
@@ -62,9 +68,8 @@ const CrossChain = ({
   );
 
   useEffect(() => {
-    web3context?.chain && setAvailableChain(
-      getAvailableChain(web3context.chain, crosschainList)
-    );
+    web3context?.chain &&
+      setAvailableChain(getAvailableChain(web3context.chain, crosschainList));
   }, [web3context]);
 
   useEffect(() => {
@@ -86,21 +91,23 @@ const CrossChain = ({
       onGetCrossChainBalances({
         web3: web3context.instance,
         asset: availableChain,
-        account: account.address
+        account: account.address,
       });
   }, [onGetCrossChainBalances, account, web3context, availableChain]);
 
   return (
-    <Typography className={cx(style.container, {
-      [style.container_loading]: isLoading
-    })}>
+    <Typography
+      className={cx(style.container, {
+        [style.container_loading]: isLoading,
+      })}
+    >
       <Title className={style.title}>
-        <span className={style.titlecs}>{t('CROSS_CHAIN_TITLE')}</span>
+        <span className={style.titlecs}>DAO</span>
       </Title>
 
       <Alert
         className={style.container__info}
-        message={t('DASHBOARD_INFO')}
+        message={t("DASHBOARD_INFO")}
         type="info"
       />
 
@@ -108,22 +115,40 @@ const CrossChain = ({
         availableChain ? (
           <>
             <Row className={style.container__form} justify="space-between">
-              <CrossChainFormHeader className={style.container__form__header} />
-
-              <CrossChainFormFields
+              <CrossChainFormFields3
+                availableChain={availableChain}
+                className={style.container__form__fields}
+              />
+            </Row>
+            <Row className={style.container__form} justify="space-between">
+              <CrossChainFormFields2
                 availableChain={availableChain}
                 className={style.container__form__fields}
               />
             </Row>
 
-            <CrossChainDescription />
+            <Row className={style.container__form} justify="space-between">
+              <CrossChainFormFields4
+                availableChain={availableChain}
+                className={style.container__form__fields}
+              />
+            </Row>
+
+            <Row className={style.container__form} justify="space-between">
+              <CrossChainFormFields1
+                availableChain={availableChain}
+                className={style.container__form__fields}
+              />
+            </Row>
+
+            {/* <CrossChainDescription /> */}
 
             {/* <AvailableChains configChains={crosschainList} /> */}
           </>
         ) : (
           <Alert
             className={style.container__warning}
-            message={t('CROSS_CHAIN_WARNING')}
+            message={t("CROSS_CHAIN_WARNING")}
             type="warning"
           />
         )
@@ -150,7 +175,7 @@ CrossChain.propTypes = {
   account: PropTypes.object.isRequired,
   prices: PropTypes.object.isRequired,
   chains: PropTypes.object.isRequired,
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
 };
 
 export default withTranslation()(connect(mapState)(CrossChain));

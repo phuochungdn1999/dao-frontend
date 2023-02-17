@@ -341,6 +341,7 @@ const VaultForm = ({ web3context, account, prices, vaults, list, id }) => {
 
   useEffect(() => {
     const currentAsset = vaults?.list?.find((asset) => asset?.id === id);
+    console.log("1111111111111111111")
 
     setAsset(currentAsset);
   }, [vaults, id]);

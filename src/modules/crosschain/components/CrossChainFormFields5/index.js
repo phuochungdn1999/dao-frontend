@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, connect } from "react-redux";
 import { withTranslation } from "react-i18next";
-import { InputNumber, Typography, Button, Input, Form, message } from "antd";
+import {
+  InputNumber,
+  Typography,
+  Radio,
+  Button,
+  Input,
+  Form,
+  message,
+} from "antd";
 import cx from "classnames";
 
 // configs:
@@ -12,6 +20,20 @@ import { crosschain as crosschainList } from "../../../../configs";
 import { getCrossChainBalances, checkTransaction, sendTokens } from "../../";
 
 import style from "./CrossChainFormFields.module.scss";
+import sendVotes from "../../thunks/sendVote";
+import joinDAO from "../../thunks/joinDao";
+const { Group: RadioGroup, Button: RadioButton } = Radio;
+
+const voteParts = [
+  {
+    name: "Yes",
+    value: "true",
+  },
+  {
+    name: "No",
+    value: "false",
+  },
+];
 
 const {
   success: successMessage,
@@ -21,9 +43,8 @@ const {
 const { Title } = Typography;
 const { useForm, Item } = Form;
 
-const MINIMAL_AMOUNT = 0.1;
-
 const mapState = (state) => {
+  console.log("state", state);
   return {
     web3context: state.web3context,
     crosschain: state.crosschain,
@@ -33,7 +54,7 @@ const mapState = (state) => {
   };
 };
 
-const CrossChainFormFields = ({
+const CrossChainFormFields4 = ({
   availableChain,
   web3context,
   crosschain,
@@ -42,6 +63,7 @@ const CrossChainFormFields = ({
   prices,
   chains,
   t,
+  proposal,
 }) => {
   const dispatch = useDispatch();
 
@@ -49,11 +71,15 @@ const CrossChainFormFields = ({
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleCrossChainAmount = (value) => {
+  const [vote, setVote] = useState({});
+
+  const handleCrossChainAmount = (value, vote) => {
     crosschainForm.setFieldsValue({ amount: value });
+    crosschainForm.setFieldsValue({ vote: vote });
+    console.log("handleCrossChainAmount", vote);
   };
 
-  console.log("crosschain: ",crosschain)
+  console.log("crosschain: ", crosschain);
 
   const checkTransactions = (asset, nonce, chains, chainId, account) => {
     dispatch(
@@ -81,14 +107,14 @@ const CrossChainFormFields = ({
   };
 
   const onFinish = ({ address, amount }) => {
-    console.log("RUNNNNN")
+    console.log("RUNNNNN", vote, address, amount);
     setIsLoading(true);
 
     web3context?.instance &&
       account?.address &&
       prices?.gas &&
       dispatch(
-        sendTokens({
+        joinDAO({
           web3: web3context.instance,
           asset: crosschain.chain,
           price: prices.gas,
@@ -97,7 +123,7 @@ const CrossChainFormFields = ({
           account: account.address,
           onError: (error) => {
             if (error?.message) {
-              console.log("error",error.message);
+              console.log("error", error.message);
 
               errorMessage(error.message);
             }
@@ -145,6 +171,25 @@ const CrossChainFormFields = ({
       );
   };
 
+  const disableJoinDao = (data,account) => {
+    console.log(
+      "!data?.isAdmin && data?.pendingMembersArr.length !== 0",
+      !(!data?.isAdmin[0] && data?.pendingMembersArr[0].length === 0)
+    );
+    if (!data?.isAdmin[0]) {
+      // data?.pendingMembersArr[0].forEach((element) => {
+        for(let i=0; i< data?.pendingMembersArr[0].length;i++){
+          if (
+            String(data?.pendingMembersArr[0][i]).toLocaleLowerCase() ===
+            String(account.address).toLocaleLowerCase()
+          ) {
+            return true;
+          }
+        }
+    }
+    return false;
+  };
+
   return (
     <Form
       scrollToFirstError
@@ -154,81 +199,24 @@ const CrossChainFormFields = ({
       name="crosschain"
       form={crosschainForm}
     >
-      <Title
-        className={style.subtitle}
-        onClick={() => {
-          handleCrossChainAmount(crosschain?.chain?.balance || 0);
-        }}
-        level={5}
-      >
-        Balance:{" "}
-        {(Math.floor(crosschain?.chain?.balance * 10000) / 10000)?.toFixed(4) ||
-          "0.0000"}{" "}
-        {crosschain?.chain?.symbol || ""}
+      <Title className={style.subtitle} level={5}>
+        Join DAO
       </Title>
-
-      <Item
-        className={style.container__item}
-        rules={[
-          {
-            required: true,
-            requiredMark: false,
-            message: "Please input address",
-          },
-        ]}
-        label="Send to:"
-        name="address"
-      >
-        <Input placeholder="Input address..." className={style.input} />
-      </Item>
-
-      <Item
-        className={style.container__item}
-        rules={[
-          {
-            required: true,
-            message: "Please input amount",
-          },
-          {
-            type: "number",
-            min: MINIMAL_AMOUNT,
-            message: `Amount must be more than ${MINIMAL_AMOUNT}`,
-          },
-          {
-            type: "number",
-            max: crosschain?.chain?.balance,
-            message: `Amount must be less than ${crosschain?.chain?.balance}`,
-          },
-        ]}
-        label="Send amount:"
-        name="amount"
-      >
-        <InputNumber
-          min={MINIMAL_AMOUNT}
-          step={MINIMAL_AMOUNT}
-          type="number"
-          pattern="[0-9]*"
-          disabled={!crosschain?.chain?.balance}
-          inputmode="numeric"
-          className={cx(style.input, style.input_number)}
-          placeholder="0"
-        />
-      </Item>
-
+{console.log("disableJoinDao(crosschain?.chain,account)",disableJoinDao(crosschain?.chain,account))}
       <Button
         className={style.submit}
         htmlType="submit"
-        disabled={isLoading || !crosschain?.chain?.balance}
+        disabled={isLoading || disableJoinDao(crosschain?.chain,account)}
         loading={isLoading}
         type="primary"
       >
-        {t("CROSS_CHAIN_FORM_FIELDS_SEND")}
+        Join
       </Button>
     </Form>
   );
 };
 
-CrossChainFormFields.propTypes = {
+CrossChainFormFields4.propTypes = {
   availableChain: PropTypes.object.isRequired,
   web3context: PropTypes.object.isRequired,
   crosschain: PropTypes.object.isRequired,
@@ -238,4 +226,4 @@ CrossChainFormFields.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default withTranslation()(connect(mapState)(CrossChainFormFields));
+export default withTranslation()(connect(mapState)(CrossChainFormFields4));

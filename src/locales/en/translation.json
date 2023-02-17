@@ -55,6 +55,7 @@
   "CROSS_CHAIN_FORM_HEADER_FROM": "From chain:",
   "CROSS_CHAIN_FORM_HEADER_TO": "To chain:",
   "CROSS_CHAIN_FORM_FIELDS_SEND": "Send",
+  "CROSS_CHAIN_FORM_FIELDS_CLOSE": "Close",
   "CROSS_CHAIN_FAQ_TITLE": "How it works",
   "CROSS_CHAIN_FAQ_DESCRIPTION": "Cross-chain bridge allows you to move funds between blockchains*.  You can choose the chain that best suits your needs. To transfer funds to another chain you have to fill the fields “Send to:” and “Send amount:”, click the “Send” button, and confirm transactions. After that our bot will transfer your funds to another chain. “Send to” should be filled with the address from the target network. If you start in the Ethereum chain, “Send to” should contain BSC address.\n*Currently supported blockchains: Binance Smart Chain and Ethereum"
 }
